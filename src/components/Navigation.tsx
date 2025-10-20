@@ -1,11 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { Building2, LineChart, TrendingUp } from "lucide-react";
+import { Building2, LineChart, TrendingUp, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
+  const { theme, setTheme } = useTheme();
+  
   const navItems = [
-    { to: "/", label: "Overview", icon: TrendingUp },
+    { to: "/", label: "Dashboard", icon: TrendingUp },
     { to: "/companies", label: "Companies", icon: Building2 },
-    { to: "/industries", label: "Industries", icon: LineChart },
+    { to: "/industries", label: "Investments", icon: LineChart },
   ];
 
   return (
@@ -14,7 +18,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <h1 className="text-xl font-bold text-primary">
-              Nvidra <span className="text-foreground">Dashboard</span>
+              NVIDIA <span className="text-foreground">Dashboard</span>
             </h1>
             <div className="flex gap-1">
               {navItems.map((item) => (
@@ -36,8 +40,19 @@ const Navigation = () => {
               ))}
             </div>
           </div>
-          <div className="text-sm text-muted-foreground">
-            AI Natives & Digital Partners Research
+          <div className="flex items-center gap-3">
+            <div className="text-sm text-muted-foreground">
+              AI Natives & Digital Partners Research
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
           </div>
         </div>
       </div>

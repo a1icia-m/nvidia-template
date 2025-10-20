@@ -1,6 +1,7 @@
-import { mockIndustries, mockCompanies } from "@/data/mockData";
+import { mockIndustries, mockVCs } from "@/data/mockData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BarChart,
   Bar,
@@ -8,137 +9,216 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  LineChart,
+  Line,
+  Legend,
   PieChart,
   Pie,
   Cell,
 } from "recharts";
-import { TrendingUp, DollarSign, Building2 } from "lucide-react";
+import { TrendingUp, DollarSign, Building2, Briefcase } from "lucide-react";
 
 const Industries = () => {
-  const chartData = mockIndustries.map((ind) => ({
-    name: ind.name,
-    score: ind.averageScore,
-    funding: ind.totalFunding / 1000000000, // Convert to billions
-    companies: ind.totalCompanies,
-  }));
+  // Investment trends data
+  const investmentTrendsData = [
+    { year: "2020", funding: 1.0, deals: 80 },
+    { year: "2021", funding: 1.8, deals: 120 },
+    { year: "2022", funding: 2.2, deals: 140 },
+    { year: "2023", funding: 2.6, deals: 165 },
+    { year: "2024", funding: 3.0, deals: 180 },
+  ];
 
-  const pieData = mockIndustries.map((ind, idx) => ({
+  // Category data
+  const categoryData = mockIndustries.map((ind, idx) => ({
     name: ind.name,
-    value: ind.totalFunding,
+    value: ind.totalFunding / 1000000000,
     color: `hsl(var(--chart-${(idx % 5) + 1}))`,
   }));
+
+  // Portfolio stats
+  const totalPortfolioValue = mockIndustries.reduce((sum, ind) => sum + ind.totalFunding, 0);
+  const totalActiveCompanies = mockIndustries.reduce((sum, ind) => sum + ind.totalCompanies, 0);
+  const avgGrowthRate = mockIndustries.reduce((sum, ind) => sum + ind.growth, 0) / mockIndustries.length;
+
+  // Recent activity stats
+  const dealsThisQuarter = 27;
+  const q3Investment = 10.8;
+  const newExits = 9;
 
   return (
     <div className="container mx-auto px-6 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h2 className="text-3xl font-bold mb-2">Industries Overview</h2>
+        <h2 className="text-3xl font-bold mb-2">Investment Analytics</h2>
         <p className="text-muted-foreground">
-          Sector analysis and performance metrics
+          Portfolio insights and venture capital intelligence
         </p>
       </div>
 
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <Card className="p-6">
+      {/* Summary Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <Card className="p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Total Industries</p>
-              <p className="text-3xl font-bold">{mockIndustries.length}</p>
+              <p className="text-sm text-muted-foreground mb-1">Investments</p>
+              <p className="text-2xl font-bold">25</p>
             </div>
             <Building2 className="w-8 h-8 text-primary" />
           </div>
         </Card>
 
-        <Card className="p-6">
+        <Card className="p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Total Funding</p>
-              <p className="text-3xl font-bold">
-                ${(mockIndustries.reduce((sum, ind) => sum + ind.totalFunding, 0) / 1000000000).toFixed(1)}B
-              </p>
+              <p className="text-sm text-muted-foreground mb-1">Portfolio</p>
+              <p className="text-2xl font-bold">300</p>
             </div>
-            <DollarSign className="w-8 h-8 text-success" />
+            <Briefcase className="w-8 h-8 text-primary" />
           </div>
         </Card>
 
-        <Card className="p-6">
+        <Card className="p-5">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Avg. Growth</p>
-              <p className="text-3xl font-bold">
-                {(mockIndustries.reduce((sum, ind) => sum + ind.growth, 0) / mockIndustries.length).toFixed(0)}%
-              </p>
+              <p className="text-sm text-muted-foreground mb-1">Investments</p>
+              <p className="text-2xl font-bold">20</p>
             </div>
-            <TrendingUp className="w-8 h-8 text-primary" />
+            <Building2 className="w-8 h-8 text-primary" />
+          </div>
+        </Card>
+
+        <Card className="p-5">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-muted-foreground mb-1">Portfolio</p>
+              <p className="text-2xl font-bold">150</p>
+            </div>
+            <Briefcase className="w-8 h-8 text-primary" />
           </div>
         </Card>
       </div>
 
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Performance by Industry */}
+        {/* Portfolio Summary */}
         <Card className="p-6">
-          <h3 className="font-semibold mb-6">Average Score by Industry</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={chartData}>
-              <XAxis
-                dataKey="name"
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-              />
-              <YAxis
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-                domain={[0, 100]}
-              />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "hsl(var(--card))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: "6px",
-                }}
-              />
-              <Bar dataKey="score" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-            </BarChart>
+          <h3 className="font-semibold mb-6">Portfolio Summary</h3>
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="bg-secondary/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground mb-1">Total Portfolio Value</p>
+              <p className="text-2xl font-bold">${(totalPortfolioValue / 1000000000).toFixed(1)}B</p>
+            </div>
+            <div className="bg-secondary/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground mb-1">Active Companies</p>
+              <p className="text-2xl font-bold">{totalActiveCompanies}</p>
+            </div>
+            <div className="bg-secondary/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground mb-1">Avg Growth Rate</p>
+              <p className="text-2xl font-bold">{avgGrowthRate.toFixed(0)}%</p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Recent Activity */}
+        <Card className="p-6">
+          <h3 className="font-semibold mb-6">Recent Activity</h3>
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="bg-secondary/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground mb-1">Deals This Quarter</p>
+              <p className="text-2xl font-bold">{dealsThisQuarter}</p>
+            </div>
+            <div className="bg-secondary/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground mb-1">Q3 Investment</p>
+              <p className="text-2xl font-bold">${q3Investment}B</p>
+            </div>
+            <div className="bg-secondary/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground mb-1">New Exits</p>
+              <p className="text-2xl font-bold">{newExits}</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* Investment Trends & Category Distribution */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <Card className="p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="font-semibold">Investment Trends Year-over-Year</h3>
+          </div>
+          <ResponsiveContainer width="100%" height={280}>
+            <LineChart data={investmentTrendsData}>
+              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <YAxis yAxisId="left" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "6px" }} />
+              <Legend />
+              <Line yAxisId="left" type="monotone" dataKey="funding" stroke="hsl(var(--primary))" strokeWidth={2} name="Funding ($B)" />
+              <Line yAxisId="right" type="monotone" dataKey="deals" stroke="hsl(var(--chart-2))" strokeWidth={2} name="Deals" />
+            </LineChart>
           </ResponsiveContainer>
         </Card>
 
-        {/* Funding Distribution */}
         <Card className="p-6">
-          <h3 className="font-semibold mb-6">Funding Distribution</h3>
+          <h3 className="font-semibold mb-6">Investments by Category</h3>
           <ResponsiveContainer width="100%" height={240}>
             <PieChart>
-              <Pie
-                data={pieData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={({ name, percent }) =>
-                  `${name} ${(percent * 100).toFixed(0)}%`
-                }
-                outerRadius={100}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {pieData.map((entry, index) => (
+              <Pie data={categoryData} cx="50%" cy="50%" labelLine={false} label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`} outerRadius={100} dataKey="value">
+                {categoryData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "hsl(var(--card))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: "6px",
-                }}
-                formatter={(value: number) => `$${(value / 1000000000).toFixed(2)}B`}
-              />
+              <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "6px" }} formatter={(value: number) => `$${value.toFixed(2)}B`} />
             </PieChart>
           </ResponsiveContainer>
         </Card>
       </div>
 
-      {/* Industry Details Table */}
+      {/* Top Venture Capital Firms */}
+      <Card className="p-6 mb-8">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-lg font-semibold">Top Venture Capital Firms</h3>
+        </div>
+
+        <Tabs defaultValue="NALA" className="w-full">
+          <TabsList className="mb-6">
+            <TabsTrigger value="NALA">NALA</TabsTrigger>
+            <TabsTrigger value="EMEA">EMEA</TabsTrigger>
+            <TabsTrigger value="ROAP">ROAP/Japan</TabsTrigger>
+          </TabsList>
+
+          {["NALA", "EMEA", "ROAP/JAPAN"].map((region) => (
+            <TabsContent key={region} value={region === "ROAP/JAPAN" ? "ROAP" : region} className="mt-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {mockVCs.filter(vc => vc.region === region).map((vc, idx) => (
+                  <Card key={idx} className="p-5 hover:border-primary transition-colors cursor-pointer">
+                    <div className="w-12 h-12 bg-secondary rounded flex items-center justify-center font-bold text-lg mb-3">
+                      {vc.name.charAt(0)}
+                    </div>
+                    <h4 className="font-semibold mb-1">{vc.name}</h4>
+                    <p className="text-xs text-muted-foreground mb-3">{vc.location}</p>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl font-bold text-primary">{vc.score}</span>
+                      <span className="text-xs text-muted-foreground">Score</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div>
+                        <div className="font-bold">{vc.investments}</div>
+                        <div className="text-muted-foreground">Investments</div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{vc.portfolio}</div>
+                        <div className="text-muted-foreground">Portfolio</div>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </Card>
+
+      {/* Industry Breakdown - keeping for reference */}
       <Card className="p-6">
         <h3 className="font-semibold mb-6">Industry Breakdown</h3>
         <div className="space-y-4">

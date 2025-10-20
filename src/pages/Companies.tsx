@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { mockCompanies } from "@/data/mockData";
 import CompanyCard from "@/components/CompanyCard";
+import CompanyDetailDialog from "@/components/CompanyDetailDialog";
+import { Company } from "@/types/company";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -16,6 +18,8 @@ import { Badge } from "@/components/ui/badge";
 const Companies = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [industryFilter, setIndustryFilter] = useState("all");
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [sortBy, setSortBy] = useState("score");
   const [showFilters, setShowFilters] = useState(false);
 

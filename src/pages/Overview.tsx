@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { mockCompanies, mockNews } from "@/data/mockData";
-import CompanyCard from "@/components/CompanyCard";
 import NewsCard from "@/components/NewsCard";
 import InvestmentChart from "@/components/InvestmentChart";
+import CompanyDetailDialog from "@/components/CompanyDetailDialog";
+import { Company } from "@/types/company";
 import {
   Select,
   SelectContent,
@@ -13,15 +14,19 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { Filter } from "lucide-react";
+import { Filter, Users, UserCheck, UserX } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 const Overview = () => {
   const [timeFilter, setTimeFilter] = useState("monthly");
   const [showFilters, setShowFilters] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const biggestMovers = [...mockCompanies]
     .sort((a, b) => Math.abs(b.scoreDelta) - Math.abs(a.scoreDelta))
-    .slice(0, 3);
+    .slice(0, 5);
 
   const topCompanies = [...mockCompanies]
     .sort((a, b) => b.scores.total - a.scores.total);
@@ -29,8 +34,52 @@ const Overview = () => {
   const flaggedNews = mockNews.filter((n) => n.isFlagged);
   const allNews = mockNews;
 
+  // Contact tracking stats
+  const totalCompanies = mockCompanies.length;
+  const contactedByNCP = 2;
+  const notContacted = totalCompanies - contactedByNCP;
+  const newToContactToday = 3;
+  const contactProgress = (contactedByNCP / totalCompanies) * 100;
+
+  const handleCompanyClick = (company: Company) => {
+    setSelectedCompany(company);
+    setDialogOpen(true);
+  };
+
   return (
     <div className="container mx-auto px-6 py-8">
+      {/* Progress Tracker */}
+      <div className="mb-6">
+        <Card className="p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-semibold text-lg">Company Outreach Progress</h3>
+            <div className="flex items-center gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <UserCheck className="w-4 h-4 text-success" />
+                <span>Contacted by NCP: <strong>{contactedByNCP}</strong></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <UserX className="w-4 h-4 text-destructive" />
+                <span>Not Contacted: <strong>{notContacted}</strong></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4 text-primary" />
+                <span>Total: <strong>{totalCompanies}</strong></span>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-muted-foreground">Contact Progress</span>
+              <span className="font-semibold">
+                <span className="text-primary">{newToContactToday} new</span> companies to contact today
+              </span>
+            </div>
+            <Progress value={contactProgress} className="h-2" />
+          </div>
+        </Card>
+      </div>
+
       {/* Header with Time Filter */}
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -74,23 +123,31 @@ const Overview = () => {
               </span>
             </h3>
             <div className="space-y-4">
-              {biggestMovers.map((company) => (
+              {biggestMovers.map((company, index) => (
                 <div
                   key={company.id}
                   className="border border-border rounded-lg p-3 hover:border-primary transition-colors cursor-pointer"
+                  onClick={() => handleCompanyClick(company)}
                 >
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className="font-semibold text-sm">{company.name}</h4>
-                    <span
-                      className={`text-sm font-bold ${
-                        company.scoreDelta > 0
-                          ? "text-success"
-                          : "text-destructive"
-                      }`}
-                    >
-                      {company.scoreDelta > 0 ? "+" : ""}
-                      {company.scoreDelta.toFixed(1)}
-                    </span>
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="bg-primary/20 text-primary rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      {index + 1}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between">
+                        <h4 className="font-semibold text-sm">{company.name}</h4>
+                        <span
+                          className={`text-sm font-bold ${
+                            company.scoreDelta > 0
+                              ? "text-success"
+                              : "text-destructive"
+                          }`}
+                        >
+                          {company.scoreDelta > 0 ? "+" : ""}
+                          {company.scoreDelta.toFixed(1)}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                   <div className="text-xs text-muted-foreground space-y-1">
                     <div>Founded: {company.foundingYear}</div>
@@ -118,6 +175,7 @@ const Overview = () => {
                   <div
                     key={company.id}
                     className="border border-border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
+                    onClick={() => handleCompanyClick(company)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="bg-primary/20 text-primary rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">
@@ -185,7 +243,7 @@ const Overview = () => {
                   </TabsList>
                 </div>
                 <TabsContent value="all" className="mt-0">
-                  <ScrollArea className="h-[300px] pr-4">
+                  <ScrollArea className="h-[250px] pr-4">
                     <div className="space-y-3">
                       {allNews.map((news) => (
                         <NewsCard key={news.id} news={news} />
@@ -194,7 +252,7 @@ const Overview = () => {
                   </ScrollArea>
                 </TabsContent>
                 <TabsContent value="flagged" className="mt-0">
-                  <ScrollArea className="h-[300px] pr-4">
+                  <ScrollArea className="h-[250px] pr-4">
                     <div className="space-y-3">
                       {flaggedNews.map((news) => (
                         <NewsCard key={news.id} news={news} />
@@ -210,6 +268,13 @@ const Overview = () => {
           </div>
         </div>
       </div>
+
+      {/* Company Detail Dialog */}
+      <CompanyDetailDialog
+        company={selectedCompany}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
     </div>
   );
 };
