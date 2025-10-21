@@ -10,6 +10,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { ExternalLink, Github, FileText, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { contactStore } from "@/lib/contactStore";
+import { useState, useEffect } from "react";
 
 interface CompanyDetailDialogProps {
   company: Company | null;
@@ -22,6 +24,21 @@ const CompanyDetailDialog = ({
   open,
   onOpenChange,
 }: CompanyDetailDialogProps) => {
+  const [isContacted, setIsContacted] = useState(false);
+
+  useEffect(() => {
+    if (company) {
+      setIsContacted(contactStore.isContacted(company.id));
+    }
+  }, [company]);
+
+  const handleToggleContact = () => {
+    if (company) {
+      contactStore.toggleContact(company.id);
+      setIsContacted(!isContacted);
+    }
+  };
+
   if (!company) return null;
 
   return (
@@ -54,12 +71,16 @@ const CompanyDetailDialog = ({
             <div className="bg-secondary/50 rounded-lg p-4">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-semibold">NCP Contact Status</h3>
-                <Badge variant={company.prProfile.pressSafe ? "default" : "destructive"}>
-                  {company.prProfile.pressSafe ? "Not Contacted" : "Contacted"}
+                <Badge variant={isContacted ? "default" : "secondary"}>
+                  {isContacted ? "Contacted" : "Not Contacted"}
                 </Badge>
               </div>
-              <Button className="w-full" variant="outline">
-                View Email Template
+              <Button 
+                className="w-full" 
+                variant={isContacted ? "outline" : "default"}
+                onClick={handleToggleContact}
+              >
+                {isContacted ? "Mark as Not Contacted" : "Mark as Contacted"}
               </Button>
             </div>
 

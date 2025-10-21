@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { mockCompanies, mockNews } from "@/data/mockData";
 import NewsCard from "@/components/NewsCard";
 import InvestmentChart from "@/components/InvestmentChart";
 import CompanyDetailDialog from "@/components/CompanyDetailDialog";
 import { Company } from "@/types/company";
+import { contactStore } from "@/lib/contactStore";
 import {
   Select,
   SelectContent,
@@ -23,6 +24,17 @@ const Overview = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [contactStats, setContactStats] = useState(contactStore.getContactStats());
+
+  useEffect(() => {
+    contactStore.setTotalCompanies(mockCompanies.length);
+    setContactStats(contactStore.getContactStats());
+    
+    const unsubscribe = contactStore.subscribe(() => {
+      setContactStats(contactStore.getContactStats());
+    });
+    return unsubscribe;
+  }, []);
 
   const biggestMovers = [...mockCompanies]
     .sort((a, b) => Math.abs(b.scoreDelta) - Math.abs(a.scoreDelta))
@@ -36,7 +48,7 @@ const Overview = () => {
 
   // Contact tracking stats
   const totalCompanies = mockCompanies.length;
-  const contactedByNCP = 2;
+  const contactedByNCP = contactStats.contacted;
   const notContacted = totalCompanies - contactedByNCP;
   const newToContactToday = 3;
   const contactProgress = (contactedByNCP / totalCompanies) * 100;
@@ -135,7 +147,10 @@ const Overview = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-start justify-between">
-                        <h4 className="font-semibold text-sm">{company.name}</h4>
+                        <div>
+                          <h4 className="font-semibold text-sm">{company.name}</h4>
+                          <div className="text-xs text-muted-foreground">Rank #{company.overallRank}</div>
+                        </div>
                         <span
                           className={`text-sm font-bold ${
                             company.scoreDelta > 0
@@ -167,9 +182,9 @@ const Overview = () => {
 
         {/* Top Companies - Middle Column */}
         <div className="col-span-12 lg:col-span-5">
-          <div className="bg-card border border-border rounded-lg p-5">
+          <div className="bg-card border border-border rounded-lg p-5 h-full">
             <h3 className="font-semibold mb-4">Top Companies</h3>
-            <ScrollArea className="h-[600px] pr-4">
+            <ScrollArea className="h-[calc(100%-40px)] pr-4">
               <div className="space-y-3">
                 {topCompanies.map((company, index) => (
                   <div
@@ -223,8 +238,8 @@ const Overview = () => {
         </div>
 
         {/* News & Investment Trends - Right Column */}
-        <div className="col-span-12 lg:col-span-4">
-          <div className="space-y-6">
+        <div className="col-span-12 lg:col-span-4 flex flex-col">
+          <div className="space-y-6 h-full">
             {/* News Section */}
             <div className="bg-card border border-border rounded-lg p-5">
               <Tabs defaultValue="all" className="w-full">

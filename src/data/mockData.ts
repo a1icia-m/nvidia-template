@@ -9,7 +9,7 @@ export const mockCompanies: Company[] = [
     country: "USA",
     website: "https://anthropic.com",
     description: "AI safety and research company focused on building reliable, interpretable, and steerable AI systems.",
-    industry: "GenAI",
+    industry: "Software",
     isDigitalNative: true,
     scores: {
       talent: 95,
@@ -19,6 +19,8 @@ export const mockCompanies: Company[] = [
       total: 92.75,
     },
     scoreDelta: 8.5,
+    overallRank: 1,
+    isContactedByNCP: true,
     leadership: {
       founders: [
         {
@@ -72,7 +74,7 @@ export const mockCompanies: Company[] = [
     country: "Canada",
     website: "https://cohere.ai",
     description: "Enterprise AI platform delivering LLMs optimized for business applications.",
-    industry: "GenAI",
+    industry: "Software",
     isDigitalNative: true,
     scores: {
       talent: 88,
@@ -82,6 +84,8 @@ export const mockCompanies: Company[] = [
       total: 84.75,
     },
     scoreDelta: 5.2,
+    overallRank: 3,
+    isContactedByNCP: false,
     leadership: {
       founders: [
         {
@@ -130,7 +134,7 @@ export const mockCompanies: Company[] = [
     country: "UK",
     website: "https://stability.ai",
     description: "Open-source generative AI company behind Stable Diffusion.",
-    industry: "GenAI",
+    industry: "Media",
     isDigitalNative: true,
     scores: {
       talent: 78,
@@ -140,6 +144,8 @@ export const mockCompanies: Company[] = [
       total: 80.75,
     },
     scoreDelta: -3.8,
+    overallRank: 5,
+    isContactedByNCP: false,
     leadership: {
       founders: [
         {
@@ -185,7 +191,7 @@ export const mockCompanies: Company[] = [
     country: "USA",
     website: "https://inflection.ai",
     description: "Personal AI company creating conversational AI products.",
-    industry: "GenAI",
+    industry: "Software",
     isDigitalNative: true,
     scores: {
       talent: 92,
@@ -195,6 +201,8 @@ export const mockCompanies: Company[] = [
       total: 81.75,
     },
     scoreDelta: -12.5,
+    overallRank: 4,
+    isContactedByNCP: false,
     leadership: {
       founders: [
         {
@@ -247,7 +255,7 @@ export const mockCompanies: Company[] = [
     country: "USA",
     website: "https://runwayml.com",
     description: "AI-powered creative tools for video generation and editing.",
-    industry: "GenAI",
+    industry: "Media",
     isDigitalNative: true,
     scores: {
       talent: 82,
@@ -257,6 +265,8 @@ export const mockCompanies: Company[] = [
       total: 83.75,
     },
     scoreDelta: 6.8,
+    overallRank: 2,
+    isContactedByNCP: true,
     leadership: {
       founders: [
         {

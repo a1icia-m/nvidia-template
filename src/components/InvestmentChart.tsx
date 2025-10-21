@@ -10,21 +10,22 @@ const trendData = [
 ];
 
 const industryData = [
-  { name: "GenAI", value: 10088, color: "hsl(var(--chart-1))" },
-  { name: "AI Infra", value: 2400, color: "hsl(var(--chart-2))" },
-  { name: "Robotics", value: 1800, color: "hsl(var(--chart-3))" },
-  { name: "AI for Good", value: 890, color: "hsl(var(--chart-4))" },
+  { name: "Software", value: 4200, color: "hsl(var(--chart-1))" },
+  { name: "FinTech", value: 3200, color: "hsl(var(--chart-2))" },
+  { name: "HCLS", value: 2800, color: "hsl(var(--chart-3))" },
+  { name: "Energy/Climate", value: 2400, color: "hsl(var(--chart-4))" },
+  { name: "Robotics", value: 2200, color: "hsl(var(--chart-5))" },
 ];
 
 const InvestmentChart = () => {
   return (
-    <Card className="p-6">
+    <Card className="p-6 flex-1">
       <h3 className="font-semibold mb-4">Investment Trends</h3>
       
-      <div className="space-y-6">
+      <div className="grid grid-cols-2 gap-6">
         <div>
           <h4 className="text-sm text-muted-foreground mb-3">Monthly Funding ($B)</h4>
-          <ResponsiveContainer width="100%" height={150}>
+          <ResponsiveContainer width="100%" height={200}>
             <LineChart data={trendData}>
               <XAxis
                 dataKey="month"
@@ -40,7 +41,9 @@ const InvestmentChart = () => {
                   backgroundColor: "hsl(var(--card))",
                   border: "1px solid hsl(var(--border))",
                   borderRadius: "6px",
+                  color: "hsl(var(--card-foreground))",
                 }}
+                labelStyle={{ color: "hsl(var(--card-foreground))" }}
               />
               <Line
                 type="monotone"
@@ -55,14 +58,14 @@ const InvestmentChart = () => {
 
         <div>
           <h4 className="text-sm text-muted-foreground mb-3">Industry Allocation</h4>
-          <ResponsiveContainer width="100%" height={180}>
+          <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
                 data={industryData}
                 cx="50%"
                 cy="50%"
-                innerRadius={50}
-                outerRadius={80}
+                innerRadius={40}
+                outerRadius={70}
                 paddingAngle={2}
                 dataKey="value"
               >
@@ -75,7 +78,9 @@ const InvestmentChart = () => {
                   backgroundColor: "hsl(var(--card))",
                   border: "1px solid hsl(var(--border))",
                   borderRadius: "6px",
+                  color: "hsl(var(--card-foreground))",
                 }}
+                labelStyle={{ color: "hsl(var(--card-foreground))" }}
                 formatter={(value: number) => `$${(value / 1000).toFixed(1)}B`}
               />
             </PieChart>
