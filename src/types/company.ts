@@ -85,3 +85,35 @@ export interface IndustryData {
   topCompanies: Company[];
   growth: number;
 }
+
+export interface VentureCapital {
+  id: string;
+  name: string;
+  location: string;
+  score: number;
+  investments: number;
+  portfolio: number;
+  region: string;
+  description: string;
+  website: string;
+  foundingYear: number;
+  portfolioCompanies: Array<{
+    companyId: string;
+    companyName: string;
+    industry: string;
+    investmentStage: string;
+    investmentAmount: number;
+  }>;
+  recentNews: Array<{
+    title: string;
+    date: string;
+    source: string;
+    summary: string;
+    sentiment: 'positive' | 'neutral' | 'negative';
+  }>;
+  aiSummary: {
+    overview: string;
+    nvidiaRelevance: string;
+    ncpOpportunities: string;
+  };
+}

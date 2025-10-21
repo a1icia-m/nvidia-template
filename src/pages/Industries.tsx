@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { mockIndustries, mockVCs } from "@/data/mockData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -17,15 +18,31 @@ import {
   Cell,
 } from "recharts";
 import { TrendingUp, DollarSign, Building2, Briefcase } from "lucide-react";
+import VCDetailDialog from "@/components/VCDetailDialog";
+import { VentureCapital } from "@/types/company";
 
 const Industries = () => {
-  // Investment trends data
+  const [selectedVC, setSelectedVC] = useState<VentureCapital | null>(null);
+  const [vcDialogOpen, setVCDialogOpen] = useState(false);
+
+  const handleVCClick = (vc: VentureCapital) => {
+    setSelectedVC(vc);
+    setVCDialogOpen(true);
+  };
+  // Investment trends data - month over month
   const investmentTrendsData = [
-    { year: "2020", funding: 1.0, deals: 80 },
-    { year: "2021", funding: 1.8, deals: 120 },
-    { year: "2022", funding: 2.2, deals: 140 },
-    { year: "2023", funding: 2.6, deals: 165 },
-    { year: "2024", funding: 3.0, deals: 180 },
+    { month: "Jan", funding: 2.1, deals: 15 },
+    { month: "Feb", funding: 2.4, deals: 16 },
+    { month: "Mar", funding: 2.8, deals: 18 },
+    { month: "Apr", funding: 3.2, deals: 19 },
+    { month: "May", funding: 3.6, deals: 20 },
+    { month: "Jun", funding: 4.0, deals: 22 },
+    { month: "Jul", funding: 4.4, deals: 23 },
+    { month: "Aug", funding: 4.8, deals: 25 },
+    { month: "Sep", funding: 5.2, deals: 27 },
+    { month: "Oct", funding: 5.6, deals: 28 },
+    { month: "Nov", funding: 6.0, deals: 30 },
+    { month: "Dec", funding: 6.4, deals: 32 },
   ];
 
   // Category data
@@ -143,11 +160,11 @@ const Industries = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         <Card className="p-6">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="font-semibold">Investment Trends Year-over-Year</h3>
+            <h3 className="font-semibold">Investment Trends Month-over-Month</h3>
           </div>
           <ResponsiveContainer width="100%" height={280}>
             <LineChart data={investmentTrendsData}>
-              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
               <YAxis yAxisId="left" stroke="hsl(var(--muted-foreground))" fontSize={12} />
               <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--muted-foreground))" fontSize={12} />
               <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "6px" }} />
@@ -160,16 +177,42 @@ const Industries = () => {
 
         <Card className="p-6">
           <h3 className="font-semibold mb-6">Investments by Category</h3>
-          <ResponsiveContainer width="100%" height={240}>
+          <ResponsiveContainer width="100%" height={300}>
             <PieChart>
-              <Pie data={categoryData} cx="50%" cy="50%" labelLine={false} label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`} outerRadius={100} dataKey="value">
+              <Pie 
+                data={categoryData} 
+                cx="50%" 
+                cy="50%" 
+                labelLine={true}
+                label={(entry) => entry.name}
+                outerRadius={90} 
+                dataKey="value"
+              >
                 {categoryData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "6px" }} formatter={(value: number) => `$${value.toFixed(2)}B`} />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: "hsl(var(--card))", 
+                  border: "1px solid hsl(var(--border))", 
+                  borderRadius: "6px" 
+                }} 
+                formatter={(value: number) => `$${value.toFixed(2)}B`} 
+              />
             </PieChart>
           </ResponsiveContainer>
+          <div className="grid grid-cols-2 gap-2 mt-4">
+            {categoryData.map((item, index) => (
+              <div key={index} className="flex items-center gap-2 text-xs">
+                <div
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: item.color }}
+                />
+                <span className="text-muted-foreground">{item.name}</span>
+              </div>
+            ))}
+          </div>
         </Card>
       </div>
 
@@ -190,7 +233,11 @@ const Industries = () => {
             <TabsContent key={region} value={region === "ROAP/JAPAN" ? "ROAP" : region} className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {mockVCs.filter(vc => vc.region === region).map((vc, idx) => (
-                  <Card key={idx} className="p-5 hover:border-primary transition-colors cursor-pointer">
+                  <Card 
+                    key={idx} 
+                    className="p-5 hover:border-primary transition-colors cursor-pointer"
+                    onClick={() => handleVCClick(vc)}
+                  >
                     <div className="w-12 h-12 bg-secondary rounded flex items-center justify-center font-bold text-lg mb-3">
                       {vc.name.charAt(0)}
                     </div>
@@ -276,6 +323,13 @@ const Industries = () => {
           ))}
         </div>
       </Card>
+
+      {/* VC Detail Dialog */}
+      <VCDetailDialog
+        vc={selectedVC}
+        open={vcDialogOpen}
+        onOpenChange={setVCDialogOpen}
+      />
     </div>
   );
 };

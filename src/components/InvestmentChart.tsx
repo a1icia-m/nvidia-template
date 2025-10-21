@@ -2,11 +2,18 @@ import { Card } from "@/components/ui/card";
 import { LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
 const trendData = [
-  { month: "Jun", funding: 2.1 },
-  { month: "Jul", funding: 3.4 },
-  { month: "Aug", funding: 2.8 },
-  { month: "Sep", funding: 4.2 },
-  { month: "Oct", funding: 5.8 },
+  { month: "Jan", funding: 2.1 },
+  { month: "Feb", funding: 2.4 },
+  { month: "Mar", funding: 2.8 },
+  { month: "Apr", funding: 3.2 },
+  { month: "May", funding: 3.6 },
+  { month: "Jun", funding: 4.0 },
+  { month: "Jul", funding: 4.4 },
+  { month: "Aug", funding: 4.8 },
+  { month: "Sep", funding: 5.2 },
+  { month: "Oct", funding: 5.6 },
+  { month: "Nov", funding: 6.0 },
+  { month: "Dec", funding: 6.4 },
 ];
 
 const industryData = [
@@ -22,9 +29,9 @@ const InvestmentChart = () => {
     <Card className="p-6 flex-1">
       <h3 className="font-semibold mb-4">Investment Trends</h3>
       
-      <div className="grid grid-cols-2 gap-6">
+      <div className="space-y-6">
         <div>
-          <h4 className="text-sm text-muted-foreground mb-3">Monthly Funding ($B)</h4>
+          <h4 className="text-sm text-muted-foreground mb-3">Month-over-Month Funding ($B)</h4>
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={trendData}>
               <XAxis
