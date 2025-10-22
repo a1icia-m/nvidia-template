@@ -26,11 +26,11 @@ const industryData = [
 
 const InvestmentChart = () => {
   return (
-    <Card className="p-6 flex-1">
+    <Card className="p-6 flex-1 flex flex-col">
       <h3 className="font-semibold mb-4">Investment Trends</h3>
       
-      <div className="space-y-6">
-        <div>
+      <div className="space-y-6 flex-1 flex flex-col justify-center">
+        <div className="flex flex-col items-center">
           <h4 className="text-sm text-muted-foreground mb-3">Month-over-Month Funding ($B)</h4>
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={trendData}>
@@ -63,7 +63,7 @@ const InvestmentChart = () => {
           </ResponsiveContainer>
         </div>
 
-        <div>
+        <div className="flex flex-col items-center">
           <h4 className="text-sm text-muted-foreground mb-3">Industry Allocation</h4>
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
@@ -92,7 +92,7 @@ const InvestmentChart = () => {
               />
             </PieChart>
           </ResponsiveContainer>
-          <div className="grid grid-cols-2 gap-2 mt-3">
+          <div className="grid grid-cols-2 gap-2 mt-3 w-full max-w-xs mx-auto">
             {industryData.map((item, index) => (
               <div key={index} className="flex items-center gap-2 text-xs">
                 <div

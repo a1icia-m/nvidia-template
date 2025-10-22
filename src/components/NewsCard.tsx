@@ -5,9 +5,10 @@ import { AlertCircle, TrendingUp, Minus, TrendingDown } from "lucide-react";
 
 interface NewsCardProps {
   news: NewsItem;
+  onClick?: () => void;
 }
 
-const NewsCard = ({ news }: NewsCardProps) => {
+const NewsCard = ({ news, onClick }: NewsCardProps) => {
   const sentimentConfig = {
     positive: {
       icon: TrendingUp,
@@ -30,7 +31,10 @@ const NewsCard = ({ news }: NewsCardProps) => {
   const SentimentIcon = config.icon;
 
   return (
-    <Card className={`p-4 ${news.isFlagged ? "border-warning" : ""}`}>
+    <Card 
+      className={`p-4 ${news.isFlagged ? "border-warning" : ""} ${onClick ? "cursor-pointer hover:border-primary transition-colors" : ""}`}
+      onClick={onClick}
+    >
       <div className="flex items-start gap-3">
         <SentimentIcon className={`w-5 h-5 mt-1 flex-shrink-0 ${config.color}`} />
         <div className="flex-1 min-w-0">

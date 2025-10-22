@@ -367,6 +367,11 @@ export const mockNews: NewsItem[] = [
     companyId: "1",
     isFlagged: false,
     summary: "Major enterprise AI safety announcement with potential NVIDIA GPU demand implications.",
+    aiSummary: {
+      briefSummary: "Anthropic has released a new Constitutional AI framework aimed at enterprise customers, focusing on AI safety and alignment. The framework provides guardrails and oversight mechanisms for large-scale AI deployments.",
+      ncpRelevance: "This announcement positions Anthropic as a leader in enterprise AI safety, which could make them an attractive NCP partner for companies requiring secure AI implementations. Their focus on responsible AI aligns with corporate governance requirements.",
+      nvidiaRelationship: "Anthropic's enterprise framework will likely drive increased demand for NVIDIA's H100 and upcoming Blackwell GPUs for training and deploying these safer AI systems. This could open opportunities for NVIDIA to position itself as the preferred infrastructure provider for constitutional AI deployments.",
+    },
   },
   {
     id: "n2",
@@ -379,6 +384,11 @@ export const mockNews: NewsItem[] = [
     companyId: "2",
     isFlagged: false,
     summary: "Direct NVIDIA investment strengthens partnership and validates enterprise AI approach.",
+    aiSummary: {
+      briefSummary: "Cohere has closed a significant $500M Series D funding round with NVIDIA as the lead investor, bringing the company's valuation to $5.5B. The funding will accelerate product development and global expansion.",
+      ncpRelevance: "NVIDIA's direct investment validates Cohere's enterprise approach and signals strong alignment. This makes Cohere a priority target for NCP expansion, as existing NVIDIA relationship provides warm introduction path.",
+      nvidiaRelationship: "This investment deepens an already strong partnership. Cohere will likely receive priority access to new NVIDIA hardware and co-development opportunities. NCP should leverage this existing relationship to position itself as an extension of NVIDIA's enterprise AI ecosystem.",
+    },
   },
   {
     id: "n3",
@@ -391,6 +401,11 @@ export const mockNews: NewsItem[] = [
     companyId: "3",
     isFlagged: true,
     summary: "Potential PR risk: leadership uncertainty may impact partnership discussions.",
+    aiSummary: {
+      briefSummary: "Stability AI is experiencing significant leadership changes and internal governance disputes, with reports of disagreements over company direction and financial management. Multiple senior executives have departed in recent weeks.",
+      ncpRelevance: "Caution advised: The governance instability presents reputational risk for NCP partnerships. However, this could also present an opportunity if new leadership brings stability and is seeking strategic partnerships to rebuild credibility.",
+      nvidiaRelationship: "NVIDIA should monitor this situation closely. While Stability AI is a significant user of NVIDIA GPUs, the governance issues could affect their ability to execute on product roadmap. NCP outreach should be delayed until leadership stabilizes to avoid association with negative press.",
+    },
   },
   {
     id: "n4",
@@ -403,6 +418,11 @@ export const mockNews: NewsItem[] = [
     companyId: "4",
     isFlagged: true,
     summary: "Red flag: significant brain drain raises questions about company direction.",
+    aiSummary: {
+      briefSummary: "Microsoft has hired a significant portion of Inflection AI's research team, including several co-founders. The move raises questions about Inflection's future viability and strategy.",
+      ncpRelevance: "High risk: The talent exodus suggests potential issues with Inflection's business model or investor relations. NCP should deprioritize this company for partnership discussions until their strategic direction becomes clearer.",
+      nvidiaRelationship: "This development may reduce Inflection's near-term GPU requirements as their team rebuilds. However, if they pivot successfully, they could become a stronger partner. NVIDIA should maintain awareness but reduce active engagement until situation stabilizes.",
+    },
   },
   {
     id: "n5",
@@ -415,6 +435,11 @@ export const mockNews: NewsItem[] = [
     companyId: "5",
     isFlagged: false,
     summary: "Strong technical partnership showcase; demonstrates NVIDIA-optimized workflows.",
+    aiSummary: {
+      briefSummary: "Runway has released Gen-3, their latest generative video model, specifically optimized for NVIDIA's GPU architecture. The release showcases significant performance improvements and new creative capabilities.",
+      ncpRelevance: "Runway's public acknowledgment of NVIDIA optimization demonstrates technical alignment and partnership potential. Their creative industry focus positions them well for NCP engagement with media and entertainment companies.",
+      nvidiaRelationship: "This release strengthens Runway's position as a showcase partner for NVIDIA GPU capabilities in creative AI. NCP should leverage this success story when approaching other creative industry companies, positioning Runway as a model for NVIDIA-optimized AI implementation.",
+    },
   },
   {
     id: "n6",
@@ -426,6 +451,11 @@ export const mockNews: NewsItem[] = [
     importance: 8,
     isFlagged: false,
     summary: "Market trend supports increased GPU demand across all AI sectors.",
+    aiSummary: {
+      briefSummary: "Industry analysts predict AI infrastructure spending will reach $250B in 2026, doubling from 2025 levels. The growth is driven by enterprise AI adoption and the need for more powerful computing infrastructure.",
+      ncpRelevance: "This macro trend validates NCP's strategic importance. Companies in the portfolio will need to scale their infrastructure significantly, creating natural opportunities for deeper NVIDIA partnerships through NCP engagement.",
+      nvidiaRelationship: "This market expansion directly benefits NVIDIA's core business. NCP should use this trend as a value proposition when reaching out to companies: partnering with NVIDIA positions them to capitalize on this infrastructure boom while potentially securing priority access to hardware during high-demand periods.",
+    },
   },
 ];
 

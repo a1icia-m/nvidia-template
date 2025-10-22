@@ -162,7 +162,7 @@ const Industries = () => {
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-semibold">Investment Trends Month-over-Month</h3>
           </div>
-          <ResponsiveContainer width="100%" height={280}>
+          <ResponsiveContainer width="100%" height={300}>
             <LineChart data={investmentTrendsData}>
               <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
               <YAxis yAxisId="left" stroke="hsl(var(--muted-foreground))" fontSize={12} />

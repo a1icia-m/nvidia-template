@@ -3,7 +3,8 @@ import { mockCompanies, mockNews } from "@/data/mockData";
 import NewsCard from "@/components/NewsCard";
 import InvestmentChart from "@/components/InvestmentChart";
 import CompanyDetailDialog from "@/components/CompanyDetailDialog";
-import { Company } from "@/types/company";
+import NewsDetailDialog from "@/components/NewsDetailDialog";
+import { Company, NewsItem } from "@/types/company";
 import { contactStore } from "@/lib/contactStore";
 import {
   Select,
@@ -24,6 +25,8 @@ const Overview = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
+  const [newsDialogOpen, setNewsDialogOpen] = useState(false);
   const [contactStats, setContactStats] = useState(contactStore.getContactStats());
 
   useEffect(() => {
@@ -56,6 +59,11 @@ const Overview = () => {
   const handleCompanyClick = (company: Company) => {
     setSelectedCompany(company);
     setDialogOpen(true);
+  };
+
+  const handleNewsClick = (news: NewsItem) => {
+    setSelectedNews(news);
+    setNewsDialogOpen(true);
   };
 
   return (
@@ -261,7 +269,11 @@ const Overview = () => {
                   <ScrollArea className="h-[250px] pr-4">
                     <div className="space-y-3">
                       {allNews.map((news) => (
-                        <NewsCard key={news.id} news={news} />
+                        <NewsCard 
+                          key={news.id} 
+                          news={news} 
+                          onClick={() => handleNewsClick(news)}
+                        />
                       ))}
                     </div>
                   </ScrollArea>
@@ -270,7 +282,11 @@ const Overview = () => {
                   <ScrollArea className="h-[250px] pr-4">
                     <div className="space-y-3">
                       {flaggedNews.map((news) => (
-                        <NewsCard key={news.id} news={news} />
+                        <NewsCard 
+                          key={news.id} 
+                          news={news}
+                          onClick={() => handleNewsClick(news)}
+                        />
                       ))}
                     </div>
                   </ScrollArea>
@@ -289,6 +305,13 @@ const Overview = () => {
         company={selectedCompany}
         open={dialogOpen}
         onOpenChange={setDialogOpen}
+      />
+
+      {/* News Detail Dialog */}
+      <NewsDetailDialog
+        news={selectedNews}
+        open={newsDialogOpen}
+        onOpenChange={setNewsDialogOpen}
       />
     </div>
   );

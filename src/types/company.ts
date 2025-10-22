@@ -83,6 +83,11 @@ export interface NewsItem {
   companyId?: string;
   isFlagged: boolean;
   summary: string;
+  aiSummary: {
+    briefSummary: string;
+    ncpRelevance: string;
+    nvidiaRelationship: string;
+  };
 }
 
 export interface IndustryData {
