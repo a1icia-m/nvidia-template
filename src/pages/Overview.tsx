@@ -39,18 +39,37 @@ const Overview = () => {
     return unsubscribe;
   }, []);
 
-  const biggestMovers = [...mockCompanies]
+  // Filter data based on time period
+  const getFilteredData = () => {
+    // For demo purposes, we'll simulate filtering by adjusting the score deltas
+    // In a real app, this would filter by actual timestamps
+    const multiplier = {
+      weekly: 0.25,
+      monthly: 1,
+      quarterly: 3,
+      yearly: 12,
+    }[timeFilter] || 1;
+
+    return mockCompanies.map(company => ({
+      ...company,
+      scoreDelta: company.scoreDelta * multiplier,
+    }));
+  };
+
+  const filteredCompanies = getFilteredData();
+
+  const biggestMovers = [...filteredCompanies]
     .sort((a, b) => Math.abs(b.scoreDelta) - Math.abs(a.scoreDelta))
     .slice(0, 5);
 
-  const topCompanies = [...mockCompanies]
+  const topCompanies = [...filteredCompanies]
     .sort((a, b) => b.scores.total - a.scores.total);
 
   const flaggedNews = mockNews.filter((n) => n.isFlagged);
   const allNews = mockNews;
 
   // Contact tracking stats
-  const totalCompanies = mockCompanies.length;
+  const totalCompanies = filteredCompanies.length;
   const contactedByNCP = contactStats.contacted;
   const notContacted = totalCompanies - contactedByNCP;
   const newToContactToday = 3;

@@ -14,9 +14,10 @@ interface VCDetailDialogProps {
   vc: VentureCapital | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onCompanyClick?: (companyName: string) => void;
 }
 
-const VCDetailDialog = ({ vc, open, onOpenChange }: VCDetailDialogProps) => {
+const VCDetailDialog = ({ vc, open, onOpenChange, onCompanyClick }: VCDetailDialogProps) => {
   if (!vc) return null;
 
   const getSentimentColor = (sentiment: string) => {
@@ -102,7 +103,8 @@ const VCDetailDialog = ({ vc, open, onOpenChange }: VCDetailDialogProps) => {
                   {vc.portfolioCompanies.map((company, idx) => (
                     <div
                       key={idx}
-                      className="border border-border rounded-lg p-4 hover:border-primary transition-colors"
+                      className="border border-border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
+                      onClick={() => onCompanyClick?.(company.companyName)}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div>

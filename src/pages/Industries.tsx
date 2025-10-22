@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { mockIndustries, mockVCs } from "@/data/mockData";
+import { mockIndustries, mockVCs, mockCompanies } from "@/data/mockData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -19,15 +19,38 @@ import {
 } from "recharts";
 import { TrendingUp, DollarSign, Building2, Briefcase } from "lucide-react";
 import VCDetailDialog from "@/components/VCDetailDialog";
-import { VentureCapital } from "@/types/company";
+import IndustryDetailDialog from "@/components/IndustryDetailDialog";
+import CompanyDetailDialog from "@/components/CompanyDetailDialog";
+import { VentureCapital, IndustryData, Company } from "@/types/company";
 
 const Industries = () => {
   const [selectedVC, setSelectedVC] = useState<VentureCapital | null>(null);
   const [vcDialogOpen, setVCDialogOpen] = useState(false);
+  const [selectedIndustry, setSelectedIndustry] = useState<IndustryData | null>(null);
+  const [industryDialogOpen, setIndustryDialogOpen] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [companyDialogOpen, setCompanyDialogOpen] = useState(false);
 
   const handleVCClick = (vc: VentureCapital) => {
     setSelectedVC(vc);
     setVCDialogOpen(true);
+  };
+
+  const handleIndustryClick = (industry: IndustryData) => {
+    setSelectedIndustry(industry);
+    setIndustryDialogOpen(true);
+  };
+
+  const handleCompanyClick = (company: Company) => {
+    setSelectedCompany(company);
+    setCompanyDialogOpen(true);
+  };
+
+  const handleVCCompanyClick = (companyName: string) => {
+    const company = mockCompanies.find(c => c.name === companyName);
+    if (company) {
+      handleCompanyClick(company);
+    }
   };
   // Investment trends data - month over month
   const investmentTrendsData = [
@@ -285,7 +308,8 @@ const Industries = () => {
           {mockIndustries.map((industry, index) => (
             <div
               key={index}
-              className="border border-border rounded-lg p-5 hover:border-primary transition-colors"
+              className="border border-border rounded-lg p-5 hover:border-primary transition-colors cursor-pointer"
+              onClick={() => handleIndustryClick(industry)}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -342,6 +366,22 @@ const Industries = () => {
         vc={selectedVC}
         open={vcDialogOpen}
         onOpenChange={setVCDialogOpen}
+        onCompanyClick={handleVCCompanyClick}
+      />
+
+      {/* Industry Detail Dialog */}
+      <IndustryDetailDialog
+        industry={selectedIndustry}
+        open={industryDialogOpen}
+        onOpenChange={setIndustryDialogOpen}
+        onCompanyClick={handleCompanyClick}
+      />
+
+      {/* Company Detail Dialog */}
+      <CompanyDetailDialog
+        company={selectedCompany}
+        open={companyDialogOpen}
+        onOpenChange={setCompanyDialogOpen}
       />
     </div>
   );

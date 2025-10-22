@@ -97,6 +97,24 @@ export interface IndustryData {
   totalFunding: number;
   topCompanies: Company[];
   growth: number;
+  investmentTrends: {
+    month: string;
+    funding: number;
+    deals: number;
+  }[];
+  recentNews: {
+    title: string;
+    source: string;
+    date: string;
+    summary: string;
+    sentiment: string;
+  }[];
+  aiAnalysis: {
+    overview: string;
+    futureOutlook: string;
+    keyTrends: string;
+    ncpOpportunities: string;
+  };
 }
 
 export interface VentureCapital {
