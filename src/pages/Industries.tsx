@@ -193,12 +193,25 @@ const Industries = () => {
                 ))}
               </Pie>
               <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: "hsl(var(--card))", 
-                  border: "1px solid hsl(var(--border))", 
-                  borderRadius: "6px" 
-                }} 
-                formatter={(value: number) => `$${value.toFixed(2)}B`} 
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div style={{
+                        backgroundColor: "hsl(var(--background))",
+                        border: "1px solid hsl(var(--border))",
+                        borderRadius: "6px",
+                        padding: "8px 12px",
+                        color: "hsl(var(--foreground))",
+                        fontSize: "12px"
+                      }}>
+                        <p style={{ color: "hsl(var(--foreground))", margin: 0 }}>
+                          {payload[0].name}: ${(Number(payload[0].value || 0)).toFixed(2)}B
+                        </p>
+                      </div>
+                    );
+                  }
+                  return null;
+                }}
               />
             </PieChart>
           </ResponsiveContainer>
