@@ -28,15 +28,28 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Former VP Research at OpenAI, PhD Physics",
           previousVentures: ["OpenAI"],
+          research: {
+            publications: 52,
+            patents: 8,
+            githubContributions: 234,
+            reputation: "Renowned AI safety researcher with strong academic credentials. Led key research initiatives at OpenAI before founding Anthropic. Highly respected in the AI safety community with extensive publications in interpretability and alignment.",
+          },
         },
         {
           name: "Daniela Amodei",
           role: "President",
           background: "Former VP Operations at OpenAI",
           previousVentures: ["OpenAI"],
+          research: {
+            publications: 12,
+            patents: 3,
+            githubContributions: 89,
+            reputation: "Experienced operations leader with deep expertise in scaling AI research organizations. Strong track record of building efficient research operations and managing complex partnerships.",
+          },
         },
       ],
     },
+    aiSummary: "Anthropic leads the AI safety space with Claude as a top-tier LLM. Founded by former OpenAI leadership, the company focuses on constitutional AI and enterprise applications. With $7.3B in funding from Amazon, Google, and Spark Capital, they're heavily invested in NVIDIA infrastructure. Strong lighthouse potential for NCP given their scale, enterprise focus, and commitment to responsible AI development.",
     funding: {
       totalRaised: 7300000000,
       latestRound: {
@@ -93,9 +106,16 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Co-author of 'Attention Is All You Need', University of Toronto",
           previousVentures: ["Google Brain"],
+          research: {
+            publications: 67,
+            patents: 15,
+            githubContributions: 456,
+            reputation: "Co-author of the groundbreaking Transformer paper that revolutionized AI. Deep technical expertise in attention mechanisms and large language models. Respected researcher with strong academic and industry credentials from Google Brain.",
+          },
         },
       ],
     },
+    aiSummary: "Cohere delivers enterprise-focused LLMs with strong sovereign AI positioning. Direct NVIDIA investment in Series D validates their approach. Based in Toronto, they offer multilingual models optimized for business use cases. $925M in total funding with partnerships across Oracle, Salesforce, and LivePerson. Excellent NCP candidate due to NVIDIA investment, enterprise focus, and growing GPU infrastructure needs.",
     funding: {
       totalRaised: 925000000,
       latestRound: {
@@ -152,9 +172,16 @@ export const mockCompanies: Company[] = [
           name: "Emad Mostaque",
           role: "Founder (Former CEO)",
           background: "Hedge fund background, AI researcher",
+          research: {
+            publications: 18,
+            patents: 4,
+            githubContributions: 178,
+            reputation: "Controversial figure with vision for open-source AI but mixed leadership track record. Recently stepped down as CEO amid governance concerns. Strong community following but questions around execution and company stability.",
+          },
         },
       ],
     },
+    aiSummary: "Stability AI pioneered open-source generative AI with Stable Diffusion. However, recent leadership transitions and governance issues present significant PR risks. $101M total funding with strong developer community but operational challenges. Partnership opportunities exist given their open-source approach, but proceed with caution given leadership uncertainty and press risk flags.",
     funding: {
       totalRaised: 101000000,
       latestRound: {
@@ -210,15 +237,28 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "Co-founder of DeepMind",
           previousVentures: ["DeepMind"],
+          research: {
+            publications: 38,
+            patents: 19,
+            githubContributions: 145,
+            reputation: "Co-founded DeepMind, one of the most influential AI research labs. Deep expertise in AI safety and applied AI systems. However, recently moved to Microsoft AI, creating uncertainty around Inflection's future direction.",
+          },
         },
         {
           name: "Reid Hoffman",
           role: "Co-founder",
           background: "LinkedIn founder, Greylock Partner",
           previousVentures: ["LinkedIn", "PayPal"],
+          research: {
+            publications: 8,
+            patents: 12,
+            githubContributions: 23,
+            reputation: "Legendary entrepreneur and investor with track record building massive platforms. Strategic thinker with deep network effects expertise. Less hands-on technically but brings exceptional business and partnership acumen.",
+          },
         },
       ],
     },
+    aiSummary: "Inflection AI raised $1.5B including major NVIDIA investment but faces significant uncertainty after Microsoft acquired key talent including co-founder Mustafa Suleyman. Strong technical pedigree from DeepMind and LinkedIn founders, but recent talent exodus raises concerns about future direction. Product pivot uncertainty makes NCP partnership timing questionable despite prior NVIDIA investment.",
     funding: {
       totalRaised: 1525000000,
       latestRound: {
@@ -273,9 +313,16 @@ export const mockCompanies: Company[] = [
           name: "Cristóbal Valenzuela",
           role: "CEO",
           background: "NYU ITP, creative technologist",
+          research: {
+            publications: 24,
+            patents: 7,
+            githubContributions: 892,
+            reputation: "Creative technologist with strong vision for democratizing AI video generation. Built impressive product-market fit in creative industry. Well-respected in both AI research and creative communities. Strong technical execution paired with design sensibility.",
+          },
         },
       ],
     },
+    aiSummary: "Runway leads AI-powered video generation with strong creative industry positioning. $237M raised including direct NVIDIA investment in Series D. Strategic partnerships with Adobe and Frame.io demonstrate enterprise traction. Excellent product-market fit with content creators and media companies. High priority NCP partner given NVIDIA investment, GPU-intensive workloads, and enterprise customer base.",
     funding: {
       totalRaised: 237000000,
       latestRound: {

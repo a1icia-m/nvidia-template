@@ -200,25 +200,53 @@ const CompanyDetailDialog = ({
 
             <Separator />
 
-            {/* Research & Reputation */}
+            {/* AI Summary */}
             <div>
-              <h3 className="font-semibold mb-3">Research & Reputation</h3>
-              <div className="grid grid-cols-3 gap-3 mb-3">
-                <div className="border border-border rounded-lg p-3 text-center">
-                  <Github className="w-5 h-5 mx-auto mb-1 text-muted-foreground" />
-                  <div className="font-bold">{company.research.githubRepos}</div>
-                  <div className="text-xs text-muted-foreground">Repos</div>
-                </div>
-                <div className="border border-border rounded-lg p-3 text-center">
-                  <FileText className="w-5 h-5 mx-auto mb-1 text-muted-foreground" />
-                  <div className="font-bold">{company.research.publications}</div>
-                  <div className="text-xs text-muted-foreground">Publications</div>
-                </div>
-                <div className="border border-border rounded-lg p-3 text-center">
-                  <Award className="w-5 h-5 mx-auto mb-1 text-muted-foreground" />
-                  <div className="font-bold">{company.research.patents}</div>
-                  <div className="text-xs text-muted-foreground">Patents</div>
-                </div>
+              <h3 className="font-semibold mb-3">AI Summary</h3>
+              <div className="bg-primary/10 rounded-lg p-4">
+                <p className="text-sm text-muted-foreground">{company.aiSummary}</p>
+              </div>
+            </div>
+
+            <Separator />
+
+            {/* Research & Reputation - By Founder */}
+            <div>
+              <h3 className="font-semibold mb-3">Founding Team Research & Reputation</h3>
+              <div className="space-y-4">
+                {company.leadership.founders.map((founder, idx) => (
+                  <div key={idx} className="border border-border rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <div className="font-semibold text-lg">{founder.name}</div>
+                        <div className="text-sm text-muted-foreground">{founder.role}</div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-3 mb-3">
+                      <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                        <Github className="w-5 h-5 mx-auto mb-1 text-muted-foreground" />
+                        <div className="font-bold">{founder.research.githubContributions}</div>
+                        <div className="text-xs text-muted-foreground">GitHub</div>
+                      </div>
+                      <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                        <FileText className="w-5 h-5 mx-auto mb-1 text-muted-foreground" />
+                        <div className="font-bold">{founder.research.publications}</div>
+                        <div className="text-xs text-muted-foreground">Publications</div>
+                      </div>
+                      <div className="bg-secondary/50 rounded-lg p-3 text-center">
+                        <Award className="w-5 h-5 mx-auto mb-1 text-muted-foreground" />
+                        <div className="font-bold">{founder.research.patents}</div>
+                        <div className="text-xs text-muted-foreground">Patents</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-secondary/30 rounded-lg p-3">
+                      <div className="text-xs font-medium mb-1 text-muted-foreground">Reputation Analysis:</div>
+                      <p className="text-sm">{founder.research.reputation}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 

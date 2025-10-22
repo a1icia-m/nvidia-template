@@ -28,8 +28,16 @@ export interface Company {
       role: string;
       background: string;
       previousVentures?: string[];
+      research: {
+        publications: number;
+        patents: number;
+        githubContributions: number;
+        reputation: string;
+      };
     }>;
   };
+  
+  aiSummary: string;
   
   funding: {
     totalRaised: number;
