@@ -8,7 +8,7 @@ export const mockCompanies: Company[] = [
     headquarters: "San Francisco, CA",
     country: "USA",
     website: "https://anthropic.com",
-    description: "AI safety and research company focused on building reliable, interpretable, and steerable AI systems.",
+    description: "AI safety and research company focused on building reliable, interpretable, and steerable AI systems through constitutional AI.",
     industry: "Software",
     isDigitalNative: true,
     scores: {
@@ -26,7 +26,7 @@ export const mockCompanies: Company[] = [
         {
           name: "Dario Amodei",
           role: "CEO",
-          background: "Former VP Research at OpenAI, PhD Physics",
+          background: "Former VP Research at OpenAI, PhD Physics from Stanford",
           previousVentures: ["OpenAI"],
           research: {
             publications: 52,
@@ -49,19 +49,52 @@ export const mockCompanies: Company[] = [
         },
       ],
     },
-    aiSummary: "Anthropic leads the AI safety space with Claude as a top-tier LLM. Founded by former OpenAI leadership, the company focuses on constitutional AI and enterprise applications. With $7.3B in funding from Amazon, Google, and Spark Capital, they're heavily invested in NVIDIA infrastructure. Strong lighthouse potential for NCP given their scale, enterprise focus, and commitment to responsible AI development.",
+    aiSummary: "Anthropic leads the AI safety space with Claude as a top-tier LLM. Founded by former OpenAI leadership, the company focuses on constitutional AI and enterprise applications. With $18.4B in total funding from Amazon, Google, and major institutional investors, they're heavily invested in NVIDIA infrastructure. Strong lighthouse potential for NCP given their scale, enterprise focus, and commitment to responsible AI development.",
     funding: {
-      totalRaised: 7300000000,
+      totalRaised: 18404000000,
       latestRound: {
-        type: "Series C",
-        amount: 4000000000,
-        date: "2024-03",
-        investors: ["Amazon", "Google", "Spark Capital"],
+        type: "Series F",
+        amount: 13000000000,
+        date: "2025-09",
+        investors: ["Iconiq Capital", "Fidelity Management & Research", "Lightspeed Venture Partners", "Altimeter", "Baillie Gifford", "BlackRock", "Blackstone", "Coatue", "D1 Capital Partners", "General Atlantic", "General Catalyst", "GIC", "Goldman Sachs", "Insight Partners", "Jane Street", "Ontario Teachers' Pension Plan", "Qatar Investment Authority", "TPG", "T. Rowe Price", "WCM Investment Management", "XN", "Amazon", "Google"],
       },
       allRounds: [
-        { type: "Series A", amount: 124000000, date: "2021-05" },
-        { type: "Series B", amount: 580000000, date: "2022-04" },
-        { type: "Series C", amount: 4000000000, date: "2024-03" },
+        { 
+          type: "Series A", 
+          amount: 124000000, 
+          date: "2021-05",
+          investors: ["Jaan Tallinn", "Dustin Moskovitz", "Eric Schmidt", "Center for Emerging Risk Research"]
+        },
+        { 
+          type: "Series B", 
+          amount: 580000000, 
+          date: "2022-04",
+          investors: ["Sam Bankman-Fried", "Caroline Ellison", "Jim McClave", "Nishad Singh", "Jaan Tallinn"]
+        },
+        { 
+          type: "Series C", 
+          amount: 450000000, 
+          date: "2023-05",
+          investors: ["Spark Capital", "Google", "Salesforce Ventures", "Sound Ventures", "Zoom Ventures"]
+        },
+        { 
+          type: "Series D", 
+          amount: 750000000, 
+          date: "2023-12",
+          investors: ["Google", "Salesforce Ventures", "Sound Ventures"]
+        },
+        { 
+          type: "Series E", 
+          amount: 3500000000, 
+          date: "2025-02",
+          investors: ["Lightspeed Venture Partners", "Bessemer Venture Partners", "Cisco Investments", "Fidelity", "General Catalyst", "Jane Street", "Menlo Ventures", "Salesforce Ventures"]
+        },
+        { 
+          type: "Series F", 
+          amount: 13000000000, 
+          date: "2025-09",
+          investors: ["Iconiq Capital", "Fidelity Management & Research", "Lightspeed Venture Partners", "Altimeter", "Baillie Gifford", "BlackRock", "Blackstone", "Coatue", "D1 Capital Partners", "General Atlantic", "General Catalyst", "GIC", "Goldman Sachs", "Insight Partners", "Jane Street", "Ontario Teachers' Pension Plan", "Qatar Investment Authority", "TPG", "T. Rowe Price", "WCM Investment Management", "XN", "Amazon", "Google"]
+        },
       ],
     },
     partnerships: ["AWS", "Google Cloud", "Zoom"],
@@ -86,7 +119,7 @@ export const mockCompanies: Company[] = [
     headquarters: "Toronto, Canada",
     country: "Canada",
     website: "https://cohere.ai",
-    description: "Enterprise AI platform delivering LLMs optimized for business applications.",
+    description: "Enterprise AI platform delivering large language models optimized for business applications with focus on multilingual capabilities.",
     industry: "Software",
     isDigitalNative: true,
     scores: {
@@ -104,7 +137,7 @@ export const mockCompanies: Company[] = [
         {
           name: "Aidan Gomez",
           role: "CEO",
-          background: "Co-author of 'Attention Is All You Need', University of Toronto",
+          background: "Co-author of 'Attention Is All You Need' paper, former Google Brain researcher",
           previousVentures: ["Google Brain"],
           research: {
             publications: 67,
@@ -113,11 +146,35 @@ export const mockCompanies: Company[] = [
             reputation: "Co-author of the groundbreaking Transformer paper that revolutionized AI. Deep technical expertise in attention mechanisms and large language models. Respected researcher with strong academic and industry credentials from Google Brain.",
           },
         },
+        {
+          name: "Nick Frosst",
+          role: "Co-founder",
+          background: "Former Google Brain researcher, University of Toronto",
+          previousVentures: ["Google Brain"],
+          research: {
+            publications: 45,
+            patents: 12,
+            githubContributions: 234,
+            reputation: "Expert in neural networks and machine learning with strong research background from Google Brain and academic institutions.",
+          },
+        },
+        {
+          name: "Ivan Zhang",
+          role: "Co-founder",
+          background: "Former Google Brain researcher",
+          previousVentures: ["Google Brain"],
+          research: {
+            publications: 38,
+            patents: 9,
+            githubContributions: 189,
+            reputation: "Experienced in large-scale machine learning systems and distributed computing, with strong background in building production AI systems.",
+          },
+        },
       ],
     },
-    aiSummary: "Cohere delivers enterprise-focused LLMs with strong sovereign AI positioning. Direct NVIDIA investment in Series D validates their approach. Based in Toronto, they offer multilingual models optimized for business use cases. $925M in total funding with partnerships across Oracle, Salesforce, and LivePerson. Excellent NCP candidate due to NVIDIA investment, enterprise focus, and growing GPU infrastructure needs.",
+    aiSummary: "Cohere delivers enterprise-focused LLMs with strong sovereign AI positioning. Direct NVIDIA investment in Series D validates their approach. Based in Toronto, they offer multilingual models optimized for business use cases. $935M in total funding with partnerships across Oracle, Salesforce, and LivePerson. Excellent NCP candidate due to NVIDIA investment, enterprise focus, and growing GPU infrastructure needs.",
     funding: {
-      totalRaised: 925000000,
+      totalRaised: 935000000,
       latestRound: {
         type: "Series D",
         amount: 500000000,
@@ -125,10 +182,30 @@ export const mockCompanies: Company[] = [
         investors: ["NVIDIA", "Salesforce Ventures", "Oracle"],
       },
       allRounds: [
-        { type: "Series A", amount: 40000000, date: "2021-01" },
-        { type: "Series B", amount: 125000000, date: "2021-11" },
-        { type: "Series C", amount: 270000000, date: "2023-06" },
-        { type: "Series D", amount: 500000000, date: "2024-06" },
+        { 
+          type: "Series A", 
+          amount: 40000000, 
+          date: "2021-01",
+          investors: ["Index Ventures", "Radical Ventures", "Section 32"]
+        },
+        { 
+          type: "Series B", 
+          amount: 125000000, 
+          date: "2021-11",
+          investors: ["Tiger Global", "Index Ventures", "Radical Ventures"]
+        },
+        { 
+          type: "Series C", 
+          amount: 270000000, 
+          date: "2023-06",
+          investors: ["Inovia Capital", "Tiger Global", "Index Ventures"]
+        },
+        { 
+          type: "Series D", 
+          amount: 500000000, 
+          date: "2024-06",
+          investors: ["NVIDIA", "Salesforce Ventures", "Oracle"]
+        },
       ],
     },
     partnerships: ["Oracle", "Salesforce", "LivePerson"],
@@ -153,7 +230,7 @@ export const mockCompanies: Company[] = [
     headquarters: "London, UK",
     country: "UK",
     website: "https://stability.ai",
-    description: "Open-source generative AI company behind Stable Diffusion.",
+    description: "Open-source generative AI company behind Stable Diffusion and other open-source AI models.",
     industry: "Media",
     isDigitalNative: true,
     scores: {
@@ -171,7 +248,7 @@ export const mockCompanies: Company[] = [
         {
           name: "Emad Mostaque",
           role: "Founder (Former CEO)",
-          background: "Hedge fund background, AI researcher",
+          background: "Former hedge fund manager, AI researcher and entrepreneur",
           research: {
             publications: 18,
             patents: 4,
@@ -181,9 +258,9 @@ export const mockCompanies: Company[] = [
         },
       ],
     },
-    aiSummary: "Stability AI pioneered open-source generative AI with Stable Diffusion. However, recent leadership transitions and governance issues present significant PR risks. $101M total funding with strong developer community but operational challenges. Partnership opportunities exist given their open-source approach, but proceed with caution given leadership uncertainty and press risk flags.",
+    aiSummary: "Stability AI pioneered open-source generative AI with Stable Diffusion. However, recent leadership transitions and governance issues present significant PR risks. $111M total funding with strong developer community but operational challenges. Partnership opportunities exist given their open-source approach, but proceed with caution given leadership uncertainty and press risk flags.",
     funding: {
-      totalRaised: 101000000,
+      totalRaised: 111000000,
       latestRound: {
         type: "Series A",
         amount: 101000000,
@@ -191,8 +268,18 @@ export const mockCompanies: Company[] = [
         investors: ["Coatue", "Lightspeed Venture Partners"],
       },
       allRounds: [
-        { type: "Seed", amount: 10000000, date: "2021-10" },
-        { type: "Series A", amount: 101000000, date: "2022-10" },
+        { 
+          type: "Seed", 
+          amount: 10000000, 
+          date: "2021-10",
+          investors: ["Future Ventures", "Presight Capital", "Sound Ventures"]
+        },
+        { 
+          type: "Series A", 
+          amount: 101000000, 
+          date: "2022-10",
+          investors: ["Coatue", "Lightspeed Venture Partners"]
+        },
       ],
     },
     partnerships: ["AWS", "Hugging Face"],
@@ -217,7 +304,7 @@ export const mockCompanies: Company[] = [
     headquarters: "Palo Alto, CA",
     country: "USA",
     website: "https://inflection.ai",
-    description: "Personal AI company creating conversational AI products.",
+    description: "Personal AI company creating conversational AI products, notably the Pi chatbot.",
     industry: "Software",
     isDigitalNative: true,
     scores: {
@@ -234,8 +321,8 @@ export const mockCompanies: Company[] = [
       founders: [
         {
           name: "Mustafa Suleyman",
-          role: "Co-founder",
-          background: "Co-founder of DeepMind",
+          role: "Co-founder (Former CEO)",
+          background: "Co-founder of DeepMind, now at Microsoft AI",
           previousVentures: ["DeepMind"],
           research: {
             publications: 38,
@@ -256,6 +343,18 @@ export const mockCompanies: Company[] = [
             reputation: "Legendary entrepreneur and investor with track record building massive platforms. Strategic thinker with deep network effects expertise. Less hands-on technically but brings exceptional business and partnership acumen.",
           },
         },
+        {
+          name: "Karén Simonyan",
+          role: "Co-founder",
+          background: "Former DeepMind researcher, co-author of ResNet",
+          previousVentures: ["DeepMind"],
+          research: {
+            publications: 45,
+            patents: 15,
+            githubContributions: 234,
+            reputation: "Co-author of the ResNet paper that revolutionized deep learning. Expert in computer vision and neural network architectures with strong research credentials.",
+          },
+        },
       ],
     },
     aiSummary: "Inflection AI raised $1.5B including major NVIDIA investment but faces significant uncertainty after Microsoft acquired key talent including co-founder Mustafa Suleyman. Strong technical pedigree from DeepMind and LinkedIn founders, but recent talent exodus raises concerns about future direction. Product pivot uncertainty makes NCP partnership timing questionable despite prior NVIDIA investment.",
@@ -268,8 +367,18 @@ export const mockCompanies: Company[] = [
         investors: ["Microsoft", "NVIDIA", "Bill Gates"],
       },
       allRounds: [
-        { type: "Series A", amount: 225000000, date: "2022-12" },
-        { type: "Series B", amount: 1300000000, date: "2023-06" },
+        { 
+          type: "Series A", 
+          amount: 225000000, 
+          date: "2022-12",
+          investors: ["Greylock Partners", "Reid Hoffman", "Eric Schmidt"]
+        },
+        { 
+          type: "Series B", 
+          amount: 1300000000, 
+          date: "2023-06",
+          investors: ["Microsoft", "NVIDIA", "Bill Gates"]
+        },
       ],
     },
     partnerships: ["Microsoft", "CoreWeave"],
@@ -294,7 +403,7 @@ export const mockCompanies: Company[] = [
     headquarters: "New York, NY",
     country: "USA",
     website: "https://runwayml.com",
-    description: "AI-powered creative tools for video generation and editing.",
+    description: "AI-powered creative tools for video generation and editing, known for Gen-1 and Gen-2 models.",
     industry: "Media",
     isDigitalNative: true,
     scores: {
@@ -312,12 +421,34 @@ export const mockCompanies: Company[] = [
         {
           name: "Cristóbal Valenzuela",
           role: "CEO",
-          background: "NYU ITP, creative technologist",
+          background: "NYU ITP graduate, creative technologist and entrepreneur",
           research: {
             publications: 24,
             patents: 7,
             githubContributions: 892,
             reputation: "Creative technologist with strong vision for democratizing AI video generation. Built impressive product-market fit in creative industry. Well-respected in both AI research and creative communities. Strong technical execution paired with design sensibility.",
+          },
+        },
+        {
+          name: "Alejandro Matamala-Ortiz",
+          role: "Co-founder",
+          background: "NYU ITP graduate, creative technologist",
+          research: {
+            publications: 18,
+            patents: 5,
+            githubContributions: 456,
+            reputation: "Creative technologist with expertise in machine learning and computer vision. Strong background in developing AI tools for creative applications.",
+          },
+        },
+        {
+          name: "Anastasis Germanidis",
+          role: "Co-founder",
+          background: "NYU ITP graduate, AI researcher",
+          research: {
+            publications: 22,
+            patents: 6,
+            githubContributions: 567,
+            reputation: "AI researcher with focus on computer vision and generative models. Strong technical background in developing cutting-edge AI applications for creative use cases.",
           },
         },
       ],
@@ -332,10 +463,30 @@ export const mockCompanies: Company[] = [
         investors: ["Google", "NVIDIA", "Salesforce Ventures"],
       },
       allRounds: [
-        { type: "Seed", amount: 8500000, date: "2019-06" },
-        { type: "Series A", amount: 35000000, date: "2021-12" },
-        { type: "Series C", amount: 50000000, date: "2022-12" },
-        { type: "Series D", amount: 141000000, date: "2023-12" },
+        { 
+          type: "Seed", 
+          amount: 8500000, 
+          date: "2019-06",
+          investors: ["Amplify Partners", "Compound", "Lerer Hippeau"]
+        },
+        { 
+          type: "Series A", 
+          amount: 35000000, 
+          date: "2021-12",
+          investors: ["Amplify Partners", "Lux Capital", "Compound"]
+        },
+        { 
+          type: "Series C", 
+          amount: 50000000, 
+          date: "2022-12",
+          investors: ["Lux Capital", "Amplify Partners", "Madrona"]
+        },
+        { 
+          type: "Series D", 
+          amount: 141000000, 
+          date: "2023-12",
+          investors: ["Google", "NVIDIA", "Salesforce Ventures"]
+        },
       ],
     },
     partnerships: ["Adobe", "Frame.io"],
@@ -353,108 +504,572 @@ export const mockCompanies: Company[] = [
       summary: "Strong creative industry positioning; NVIDIA investment aligns with content creation focus.",
     },
   },
+  {
+    id: "6",
+    name: "OpenAI",
+    foundingYear: 2015,
+    headquarters: "San Francisco, CA",
+    country: "USA",
+    website: "https://openai.com",
+    description: "AI research company focused on developing artificial general intelligence that benefits all of humanity, creators of ChatGPT.",
+    industry: "Software",
+    isDigitalNative: true,
+    scores: {
+      talent: 98,
+      market: 95,
+      ecosystem: 92,
+      research: 99,
+      total: 96.0,
+    },
+    scoreDelta: 12.3,
+    overallRank: 1,
+    isContactedByNCP: true,
+    leadership: {
+      founders: [
+        {
+          name: "Sam Altman",
+          role: "CEO",
+          background: "Former President of Y Combinator, entrepreneur and investor",
+          previousVentures: ["Loopt", "Y Combinator"],
+          research: {
+            publications: 15,
+            patents: 8,
+            githubContributions: 89,
+            reputation: "Visionary leader with deep understanding of AI's potential and risks. Strong track record in scaling technology companies and managing complex partnerships with major tech companies.",
+          },
+        },
+        {
+          name: "Greg Brockman",
+          role: "President & Co-founder",
+          background: "Former CTO of Stripe, software engineer",
+          previousVentures: ["Stripe"],
+          research: {
+            publications: 8,
+            patents: 12,
+            githubContributions: 234,
+            reputation: "Technical leader with expertise in building scalable systems. Strong background in payments infrastructure and now leading AI research initiatives.",
+          },
+        },
+        {
+          name: "Ilya Sutskever",
+          role: "Chief Scientist",
+          background: "Former Google Brain researcher, co-author of AlexNet",
+          previousVentures: ["Google Brain"],
+          research: {
+            publications: 67,
+            patents: 25,
+            githubContributions: 456,
+            reputation: "Leading AI researcher and co-author of the groundbreaking AlexNet paper. Deep expertise in deep learning and neural networks with strong academic credentials.",
+          },
+        },
+      ],
+    },
+    aiSummary: "OpenAI leads the AI industry with GPT models and ChatGPT, driving massive enterprise adoption. $60.6B in total funding from Microsoft, SoftBank, and other major investors. Strong partnership with Microsoft Azure and significant GPU infrastructure needs. Prime NCP target given their scale, enterprise focus, and commitment to AI safety.",
+    funding: {
+      totalRaised: 60600000000,
+      latestRound: {
+        type: "Series F",
+        amount: 40000000000,
+        date: "2025-03",
+        investors: ["SoftBank", "Microsoft", "Coatue", "Altimeter", "Thrive", "Dragoneer", "T. Rowe Price", "Blackstone"],
+      },
+      allRounds: [
+        { 
+          type: "Seed", 
+          amount: 100000000, 
+          date: "2015-12",
+          investors: ["Elon Musk", "Sam Altman", "Reid Hoffman", "Peter Thiel", "Jessica Livingston"]
+        },
+        { 
+          type: "Series A", 
+          amount: 1000000000, 
+          date: "2016-07",
+          investors: ["Microsoft", "Reid Hoffman", "Peter Thiel"]
+        },
+        { 
+          type: "Series B", 
+          amount: 2000000000, 
+          date: "2017-02",
+          investors: ["Microsoft", "Open Philanthropy Project"]
+        },
+        { 
+          type: "Series C", 
+          amount: 1000000000, 
+          date: "2019-07",
+          investors: ["Microsoft"]
+        },
+        { 
+          type: "Series D", 
+          amount: 10000000000, 
+          date: "2023-01",
+          investors: ["Microsoft"]
+        },
+        { 
+          type: "Series E", 
+          amount: 6600000000, 
+          date: "2024-10",
+          investors: ["Microsoft", "Andreessen Horowitz", "Sequoia Capital", "Tiger Global", "Thrive Capital", "NVIDIA", "SoftBank"]
+        },
+        { 
+          type: "Series F", 
+          amount: 40000000000, 
+          date: "2025-03",
+          investors: ["SoftBank", "Microsoft", "Coatue", "Altimeter", "Thrive", "Dragoneer", "T. Rowe Price", "Blackstone"]
+        },
+      ],
+    },
+    partnerships: ["Microsoft", "Salesforce", "Stripe"],
+    nvidiaMentions: 45,
+    isLighthouse: true,
+    research: {
+      githubRepos: 35,
+      publications: 89,
+      patents: 28,
+    },
+    prProfile: {
+      pressSafe: true,
+      riskFlags: [],
+      categories: ["AI Research", "Large Language Models", "Enterprise AI"],
+      summary: "Leading AI research company with strong enterprise partnerships and Microsoft backing.",
+    },
+  },
+  {
+    id: "7",
+    name: "Glean",
+    foundingYear: 2019,
+    headquarters: "Palo Alto, CA",
+    country: "USA",
+    website: "https://glean.com",
+    description: "Enterprise search and knowledge discovery platform powered by AI to help organizations find and connect information across all their tools.",
+    industry: "Software",
+    isDigitalNative: true,
+    scores: {
+      talent: 85,
+      market: 88,
+      ecosystem: 82,
+      research: 78,
+      total: 83.25,
+    },
+    scoreDelta: 7.2,
+    overallRank: 4,
+    isContactedByNCP: false,
+    leadership: {
+      founders: [
+        {
+          name: "Arvind Jain",
+          role: "CEO",
+          background: "Former VP Engineering at Google, co-founder of Rubrik",
+          previousVentures: ["Google", "Rubrik"],
+          research: {
+            publications: 23,
+            patents: 18,
+            githubContributions: 123,
+            reputation: "Experienced engineering leader with deep expertise in search and data infrastructure. Strong track record building enterprise software at Google and Rubrik.",
+          },
+        },
+        {
+          name: "Piyush Prahladka",
+          role: "Co-founder",
+          background: "Former Google engineer, search and ML expert",
+          previousVentures: ["Google"],
+          research: {
+            publications: 18,
+            patents: 12,
+            githubContributions: 189,
+            reputation: "Expert in search algorithms and machine learning with strong background in building large-scale search systems at Google.",
+          },
+        },
+      ],
+    },
+    aiSummary: "Glean provides enterprise search and knowledge discovery using AI to connect information across organizational tools. $200M+ in funding with strong enterprise traction. Growing demand for GPU infrastructure as they scale AI-powered search capabilities. Strong NCP candidate for enterprise AI solutions.",
+    funding: {
+      totalRaised: 200000000,
+      latestRound: {
+        type: "Series C",
+        amount: 100000000,
+        date: "2023-06",
+        investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"],
+      },
+      allRounds: [
+        { 
+          type: "Series A", 
+          amount: 25000000, 
+          date: "2021-01",
+          investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"]
+        },
+        { 
+          type: "Series B", 
+          amount: 75000000, 
+          date: "2022-06",
+          investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"]
+        },
+        { 
+          type: "Series C", 
+          amount: 100000000, 
+          date: "2023-06",
+          investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"]
+        },
+      ],
+    },
+    partnerships: ["Microsoft", "Google Workspace", "Slack"],
+    nvidiaMentions: 8,
+    isLighthouse: false,
+    research: {
+      githubRepos: 12,
+      publications: 15,
+      patents: 6,
+    },
+    prProfile: {
+      pressSafe: true,
+      riskFlags: [],
+      categories: ["Enterprise Search", "Knowledge Management", "AI-Powered Search"],
+      summary: "Strong enterprise search platform with growing AI infrastructure needs.",
+    },
+  },
+  {
+    id: "8",
+    name: "Thinking Machines",
+    foundingYear: 2023,
+    headquarters: "San Francisco, CA",
+    country: "USA",
+    website: "https://thinkingmachines.ai",
+    description: "AI research company focused on developing reasoning and planning capabilities for large language models.",
+    industry: "Software",
+    isDigitalNative: true,
+    scores: {
+      talent: 92,
+      market: 75,
+      ecosystem: 78,
+      research: 95,
+      total: 85.0,
+    },
+    scoreDelta: 15.8,
+    overallRank: 3,
+    isContactedByNCP: false,
+    leadership: {
+      founders: [
+        {
+          name: "Erik Nijkamp",
+          role: "CEO",
+          background: "Former research scientist at NVIDIA, PhD in Computer Science",
+          previousVentures: ["NVIDIA"],
+          research: {
+            publications: 45,
+            patents: 15,
+            githubContributions: 567,
+            reputation: "Expert in AI reasoning and planning with strong research background. Former NVIDIA researcher with deep expertise in GPU-accelerated AI and neural network architectures.",
+          },
+        },
+        {
+          name: "Yingbo Zhou",
+          role: "Co-founder",
+          background: "Former research scientist at NVIDIA, PhD in Machine Learning",
+          previousVentures: ["NVIDIA"],
+          research: {
+            publications: 38,
+            patents: 12,
+            githubContributions: 234,
+            reputation: "Specialist in large language models and reasoning systems. Strong background in developing AI systems that can plan and reason about complex tasks.",
+          },
+        },
+      ],
+    },
+    aiSummary: "Thinking Machines focuses on advancing AI reasoning and planning capabilities. Founded by former NVIDIA researchers with strong technical expertise. Early-stage company with significant potential for GPU-intensive AI research. Strong NCP candidate given NVIDIA background and focus on advanced AI capabilities.",
+    funding: {
+      totalRaised: 50000000,
+      latestRound: {
+        type: "Series A",
+        amount: 50000000,
+        date: "2024-03",
+        investors: ["NVIDIA", "Sequoia Capital", "Andreessen Horowitz"],
+      },
+      allRounds: [
+        { 
+          type: "Seed", 
+          amount: 10000000, 
+          date: "2023-06",
+          investors: ["NVIDIA", "Sequoia Capital", "Andreessen Horowitz"]
+        },
+        { 
+          type: "Series A", 
+          amount: 50000000, 
+          date: "2024-03",
+          investors: ["NVIDIA", "Sequoia Capital", "Andreessen Horowitz"]
+        },
+      ],
+    },
+    partnerships: ["NVIDIA", "OpenAI"],
+    nvidiaMentions: 12,
+    isLighthouse: true,
+    research: {
+      githubRepos: 8,
+      publications: 12,
+      patents: 4,
+    },
+    prProfile: {
+      pressSafe: true,
+      riskFlags: [],
+      categories: ["AI Research", "Reasoning Systems", "NVIDIA Partnership"],
+      summary: "Early-stage AI research company with strong NVIDIA backing and focus on reasoning capabilities.",
+    },
+  },
+  {
+    id: "9",
+    name: "AmySphere",
+    foundingYear: 2022,
+    headquarters: "London, UK",
+    country: "UK",
+    website: "https://amysphere.ai",
+    description: "AI-powered customer service platform specializing in conversational AI and automated support solutions.",
+    industry: "Software",
+    isDigitalNative: true,
+    scores: {
+      talent: 78,
+      market: 82,
+      ecosystem: 75,
+      research: 72,
+      total: 76.75,
+    },
+    scoreDelta: 4.2,
+    overallRank: 6,
+    isContactedByNCP: false,
+    leadership: {
+      founders: [
+        {
+          name: "Amy Chen",
+          role: "CEO",
+          background: "Former product manager at Salesforce, AI researcher",
+          previousVentures: ["Salesforce"],
+          research: {
+            publications: 18,
+            patents: 8,
+            githubContributions: 123,
+            reputation: "Expert in conversational AI and customer service automation. Strong background in product management and AI research with focus on human-AI interaction.",
+          },
+        },
+        {
+          name: "David Park",
+          role: "CTO",
+          background: "Former engineer at Google, NLP specialist",
+          previousVentures: ["Google"],
+          research: {
+            publications: 25,
+            patents: 12,
+            githubContributions: 234,
+            reputation: "Specialist in natural language processing and conversational AI. Strong background in building scalable AI systems for customer service applications.",
+          },
+        },
+      ],
+    },
+    aiSummary: "AmySphere provides AI-powered customer service solutions with focus on conversational AI. $30M in funding with growing enterprise adoption. Moderate GPU infrastructure needs for NLP and conversational AI workloads. Potential NCP partner for customer service AI solutions.",
+    funding: {
+      totalRaised: 30000000,
+      latestRound: {
+        type: "Series A",
+        amount: 20000000,
+        date: "2024-01",
+        investors: ["Balderton Capital", "Index Ventures", "LocalGlobe"],
+      },
+      allRounds: [
+        { 
+          type: "Seed", 
+          amount: 5000000, 
+          date: "2022-06",
+          investors: ["LocalGlobe", "Seedcamp", "Entrepreneur First"]
+        },
+        { 
+          type: "Series A", 
+          amount: 20000000, 
+          date: "2024-01",
+          investors: ["Balderton Capital", "Index Ventures", "LocalGlobe"]
+        },
+      ],
+    },
+    partnerships: ["Salesforce", "Zendesk", "Intercom"],
+    nvidiaMentions: 5,
+    isLighthouse: false,
+    research: {
+      githubRepos: 8,
+      publications: 12,
+      patents: 6,
+    },
+    prProfile: {
+      pressSafe: true,
+      riskFlags: [],
+      categories: ["Customer Service AI", "Conversational AI", "NLP"],
+      summary: "Growing customer service AI platform with moderate GPU infrastructure needs.",
+    },
+  },
 ];
 
 export const mockNews: NewsItem[] = [
   {
     id: "n1",
-    title: "Anthropic Announces Constitutional AI Framework for Enterprise",
+    title: "Anthropic Releases Claude 3.5 Sonnet with Enhanced Enterprise Features",
     source: "TechCrunch",
-    date: "2025-10-18",
+    date: "2024-10-18",
     url: "#",
     sentiment: "positive",
     importance: 9,
     companyId: "1",
     isFlagged: false,
-    summary: "Major enterprise AI safety announcement with potential NVIDIA GPU demand implications.",
+    summary: "Latest Claude model includes improved reasoning capabilities and enterprise security features.",
     aiSummary: {
-      briefSummary: "Anthropic has released a new Constitutional AI framework aimed at enterprise customers, focusing on AI safety and alignment. The framework provides guardrails and oversight mechanisms for large-scale AI deployments.",
-      ncpRelevance: "This announcement positions Anthropic as a leader in enterprise AI safety, which could make them an attractive NCP partner for companies requiring secure AI implementations. Their focus on responsible AI aligns with corporate governance requirements.",
-      nvidiaRelationship: "Anthropic's enterprise framework will likely drive increased demand for NVIDIA's H100 and upcoming Blackwell GPUs for training and deploying these safer AI systems. This could open opportunities for NVIDIA to position itself as the preferred infrastructure provider for constitutional AI deployments.",
+      briefSummary: "Anthropic has released Claude 3.5 Sonnet, their latest language model with enhanced reasoning capabilities and enterprise-grade security features. The model demonstrates improved performance on complex tasks while maintaining safety standards.",
+      ncpRelevance: "This release strengthens Anthropic's position in enterprise AI, making them an attractive NCP partner for companies requiring secure AI implementations. Their focus on responsible AI aligns with corporate governance requirements.",
+      nvidiaRelationship: "Claude 3.5 Sonnet's training and inference requirements will drive demand for NVIDIA's H100 and upcoming Blackwell GPUs. This positions NVIDIA as the preferred infrastructure provider for enterprise AI deployments.",
     },
   },
   {
     id: "n2",
-    title: "Cohere Secures $500M in Series D Led by NVIDIA",
+    title: "Cohere Raises $270M Series C to Expand Enterprise AI Platform",
     source: "Bloomberg",
-    date: "2025-10-17",
+    date: "2024-10-17",
     url: "#",
     sentiment: "positive",
     importance: 10,
     companyId: "2",
     isFlagged: false,
-    summary: "Direct NVIDIA investment strengthens partnership and validates enterprise AI approach.",
+    summary: "Latest funding round validates enterprise AI approach and strengthens NVIDIA partnership.",
     aiSummary: {
-      briefSummary: "Cohere has closed a significant $500M Series D funding round with NVIDIA as the lead investor, bringing the company's valuation to $5.5B. The funding will accelerate product development and global expansion.",
-      ncpRelevance: "NVIDIA's direct investment validates Cohere's enterprise approach and signals strong alignment. This makes Cohere a priority target for NCP expansion, as existing NVIDIA relationship provides warm introduction path.",
-      nvidiaRelationship: "This investment deepens an already strong partnership. Cohere will likely receive priority access to new NVIDIA hardware and co-development opportunities. NCP should leverage this existing relationship to position itself as an extension of NVIDIA's enterprise AI ecosystem.",
+      briefSummary: "Cohere has closed a $270M Series C funding round to expand their enterprise AI platform. The funding will accelerate product development and global expansion of their multilingual language models.",
+      ncpRelevance: "This funding validates Cohere's enterprise approach and strengthens their position as an NVIDIA partner. This makes Cohere a priority target for NCP expansion, as existing NVIDIA relationship provides warm introduction path.",
+      nvidiaRelationship: "Cohere's enterprise focus aligns with NVIDIA's data center strategy. The company's multilingual models require significant GPU infrastructure, creating opportunities for NCP to provide specialized enterprise solutions.",
     },
   },
   {
     id: "n3",
-    title: "Stability AI Faces Governance Challenges Amid Leadership Transition",
+    title: "Stability AI Releases Stable Diffusion 3.5 with Improved Image Quality",
     source: "The Information",
-    date: "2025-10-16",
+    date: "2024-10-16",
     url: "#",
-    sentiment: "negative",
+    sentiment: "positive",
     importance: 8,
     companyId: "3",
-    isFlagged: true,
-    summary: "Potential PR risk: leadership uncertainty may impact partnership discussions.",
+    isFlagged: false,
+    summary: "Latest model shows significant improvements in image generation quality and efficiency.",
     aiSummary: {
-      briefSummary: "Stability AI is experiencing significant leadership changes and internal governance disputes, with reports of disagreements over company direction and financial management. Multiple senior executives have departed in recent weeks.",
-      ncpRelevance: "Caution advised: The governance instability presents reputational risk for NCP partnerships. However, this could also present an opportunity if new leadership brings stability and is seeking strategic partnerships to rebuild credibility.",
-      nvidiaRelationship: "NVIDIA should monitor this situation closely. While Stability AI is a significant user of NVIDIA GPUs, the governance issues could affect their ability to execute on product roadmap. NCP outreach should be delayed until leadership stabilizes to avoid association with negative press.",
+      briefSummary: "Stability AI has released Stable Diffusion 3.5, featuring improved image generation quality, better text understanding, and more efficient inference. The model demonstrates significant advances in open-source generative AI capabilities.",
+      ncpRelevance: "This release strengthens Stability AI's position in the creative AI market. Their open-source approach and strong community following make them an interesting NCP partner for companies seeking accessible AI tools.",
+      nvidiaRelationship: "Stable Diffusion 3.5's improved efficiency and quality will drive continued demand for NVIDIA GPUs in creative workflows. The model's optimization for NVIDIA hardware positions it well for enterprise deployment through NCP partnerships.",
     },
   },
   {
     id: "n4",
-    title: "Microsoft Acquires Key Talent from Inflection AI",
+    title: "Inflection AI Launches Pi 2.0 with Enhanced Conversational Capabilities",
     source: "WSJ",
-    date: "2025-10-15",
+    date: "2024-10-15",
     url: "#",
-    sentiment: "negative",
+    sentiment: "positive",
     importance: 9,
     companyId: "4",
-    isFlagged: true,
-    summary: "Red flag: significant brain drain raises questions about company direction.",
+    isFlagged: false,
+    summary: "Latest version of Pi chatbot demonstrates improved reasoning and personalization features.",
     aiSummary: {
-      briefSummary: "Microsoft has hired a significant portion of Inflection AI's research team, including several co-founders. The move raises questions about Inflection's future viability and strategy.",
-      ncpRelevance: "High risk: The talent exodus suggests potential issues with Inflection's business model or investor relations. NCP should deprioritize this company for partnership discussions until their strategic direction becomes clearer.",
-      nvidiaRelationship: "This development may reduce Inflection's near-term GPU requirements as their team rebuilds. However, if they pivot successfully, they could become a stronger partner. NVIDIA should maintain awareness but reduce active engagement until situation stabilizes.",
+      briefSummary: "Inflection AI has launched Pi 2.0, their latest conversational AI model with enhanced reasoning capabilities, improved personalization, and better emotional intelligence. The update represents significant progress in personal AI technology.",
+      ncpRelevance: "This release strengthens Inflection AI's position in the personal AI market. Their focus on conversational AI and emotional intelligence makes them an interesting NCP partner for companies seeking human-like AI interactions.",
+      nvidiaRelationship: "Pi 2.0's advanced capabilities require significant GPU infrastructure for training and inference. The model's focus on real-time conversation creates opportunities for NCP to provide specialized low-latency compute solutions.",
     },
   },
   {
     id: "n5",
-    title: "Runway Launches Gen-3 with Enhanced NVIDIA GPU Optimization",
+    title: "Runway Launches Gen-3 with Enhanced Video Generation Capabilities",
     source: "VentureBeat",
-    date: "2025-10-14",
+    date: "2024-10-14",
     url: "#",
     sentiment: "positive",
     importance: 7,
     companyId: "5",
     isFlagged: false,
-    summary: "Strong technical partnership showcase; demonstrates NVIDIA-optimized workflows.",
+    summary: "Latest video generation model shows significant improvements in quality and efficiency.",
     aiSummary: {
-      briefSummary: "Runway has released Gen-3, their latest generative video model, specifically optimized for NVIDIA's GPU architecture. The release showcases significant performance improvements and new creative capabilities.",
-      ncpRelevance: "Runway's public acknowledgment of NVIDIA optimization demonstrates technical alignment and partnership potential. Their creative industry focus positions them well for NCP engagement with media and entertainment companies.",
-      nvidiaRelationship: "This release strengthens Runway's position as a showcase partner for NVIDIA GPU capabilities in creative AI. NCP should leverage this success story when approaching other creative industry companies, positioning Runway as a model for NVIDIA-optimized AI implementation.",
+      briefSummary: "Runway has released Gen-3, their latest generative video model with enhanced capabilities for creating high-quality video content from text prompts. The model demonstrates significant improvements in video quality, consistency, and creative control.",
+      ncpRelevance: "This release strengthens Runway's position in the creative AI market. Their focus on video generation and creative tools makes them an excellent NCP partner for media and entertainment companies seeking AI-powered content creation solutions.",
+      nvidiaRelationship: "Gen-3's advanced video generation capabilities require significant GPU infrastructure for both training and inference. The model's optimization for NVIDIA hardware positions it well for enterprise deployment through NCP partnerships.",
     },
   },
   {
     id: "n6",
-    title: "AI Infrastructure Spending Expected to Double in 2026",
+    title: "AI Infrastructure Spending Expected to Reach $200B by 2025",
     source: "Reuters",
-    date: "2025-10-13",
+    date: "2024-10-13",
     url: "#",
     sentiment: "positive",
     importance: 8,
     isFlagged: false,
     summary: "Market trend supports increased GPU demand across all AI sectors.",
     aiSummary: {
-      briefSummary: "Industry analysts predict AI infrastructure spending will reach $250B in 2026, doubling from 2025 levels. The growth is driven by enterprise AI adoption and the need for more powerful computing infrastructure.",
+      briefSummary: "Industry analysts predict AI infrastructure spending will reach $200B by 2025, driven by enterprise AI adoption and the need for more powerful computing infrastructure. The growth is particularly strong in data center GPU deployments.",
       ncpRelevance: "This macro trend validates NCP's strategic importance. Companies in the portfolio will need to scale their infrastructure significantly, creating natural opportunities for deeper NVIDIA partnerships through NCP engagement.",
       nvidiaRelationship: "This market expansion directly benefits NVIDIA's core business. NCP should use this trend as a value proposition when reaching out to companies: partnering with NVIDIA positions them to capitalize on this infrastructure boom while potentially securing priority access to hardware during high-demand periods.",
+    },
+  },
+  {
+    id: "n7",
+    title: "OpenAI Launches GPT-4o with Multimodal Capabilities",
+    source: "The Verge",
+    date: "2024-10-12",
+    url: "#",
+    sentiment: "positive",
+    importance: 10,
+    companyId: "6",
+    isFlagged: false,
+    summary: "Latest OpenAI model demonstrates advanced multimodal reasoning and enterprise features.",
+    aiSummary: {
+      briefSummary: "OpenAI has released GPT-4o, their latest multimodal language model with enhanced capabilities for processing text, images, and audio. The model demonstrates significant improvements in reasoning and enterprise applications.",
+      ncpRelevance: "This release strengthens OpenAI's position as the leading AI company. Their enterprise focus and Microsoft partnership make them a top priority for NCP engagement and partnership opportunities.",
+      nvidiaRelationship: "GPT-4o's advanced capabilities require significant GPU infrastructure for training and inference. The model's multimodal nature creates opportunities for NCP to provide specialized compute solutions for complex AI workloads.",
+    },
+  },
+  {
+    id: "n8",
+    title: "Glean Raises $100M Series C for Enterprise AI Search",
+    source: "TechCrunch",
+    date: "2024-10-11",
+    url: "#",
+    sentiment: "positive",
+    importance: 7,
+    companyId: "7",
+    isFlagged: false,
+    summary: "Latest funding round validates enterprise AI search market and strengthens NVIDIA partnership potential.",
+    aiSummary: {
+      briefSummary: "Glean has closed a $100M Series C funding round to expand their enterprise AI search platform. The funding will accelerate product development and global expansion of their knowledge discovery solutions.",
+      ncpRelevance: "This funding validates Glean's enterprise approach and strengthens their position in the AI search market. Their focus on enterprise knowledge management makes them an interesting NCP partner for AI-powered search solutions.",
+      nvidiaRelationship: "Glean's AI-powered search capabilities require GPU infrastructure for natural language processing and knowledge graph construction. The company's enterprise focus creates opportunities for NCP to provide specialized AI compute solutions.",
+    },
+  },
+  {
+    id: "n9",
+    title: "Thinking Machines Secures $50M Series A Led by NVIDIA",
+    source: "Bloomberg",
+    date: "2024-10-10",
+    url: "#",
+    sentiment: "positive",
+    importance: 9,
+    companyId: "8",
+    isFlagged: false,
+    summary: "Direct NVIDIA investment validates AI reasoning research and strengthens partnership opportunities.",
+    aiSummary: {
+      briefSummary: "Thinking Machines has closed a $50M Series A funding round with NVIDIA as the lead investor. The funding will accelerate research into AI reasoning and planning capabilities for large language models.",
+      ncpRelevance: "NVIDIA's direct investment validates Thinking Machines' approach to AI reasoning. This makes them a priority target for NCP expansion, as existing NVIDIA relationship provides warm introduction path.",
+      nvidiaRelationship: "This investment deepens an already strong partnership. Thinking Machines will likely receive priority access to new NVIDIA hardware and co-development opportunities. NCP should leverage this existing relationship to position itself as an extension of NVIDIA's AI research ecosystem.",
+    },
+  },
+  {
+    id: "n10",
+    title: "AmySphere Expands European AI Customer Service Market",
+    source: "Financial Times",
+    date: "2024-10-08",
+    url: "#",
+    sentiment: "positive",
+    importance: 6,
+    companyId: "9",
+    isFlagged: false,
+    summary: "Growing customer service AI platform demonstrates strong European market traction.",
+    aiSummary: {
+      briefSummary: "AmySphere has expanded its European operations with new customer service AI solutions. The company has secured partnerships with major European enterprises and is growing its AI-powered customer service platform.",
+      ncpRelevance: "This expansion strengthens AmySphere's position in the European AI market. Their focus on customer service AI makes them an interesting NCP partner for companies seeking conversational AI solutions.",
+      nvidiaRelationship: "AmySphere's conversational AI capabilities require GPU infrastructure for natural language processing and real-time inference. The company's European focus creates opportunities for NCP to provide specialized AI compute solutions in the region.",
     },
   },
 ];
@@ -724,7 +1339,7 @@ export const mockIndustries: IndustryData[] = [
     totalCompanies: 7,
     averageScore: 86.1,
     totalFunding: 4200000000,
-    topCompanies: mockCompanies.filter((c) => c.industry === "GenAI").slice(0, 3),
+    topCompanies: mockCompanies.filter((c) => c.industry === "Software").slice(0, 3),
     growth: 156,
     investmentTrends: [
       { month: "Jan", funding: 0.25, deals: 6 },
@@ -742,8 +1357,8 @@ export const mockIndustries: IndustryData[] = [
     ],
     recentNews: [
       {
-        title: "Enterprise AI Adoption Reaches 85% Across Fortune 500",
-        date: "2025-10-23",
+        title: "Enterprise AI Adoption Reaches 75% Across Fortune 500",
+        date: "2024-10-23",
         source: "Forbes",
         summary: "Major corporations integrate AI across operations, driving demand for enterprise AI platforms.",
         sentiment: "positive",
@@ -768,7 +1383,7 @@ export const mockVCs: VentureCapital[] = [
     investments: 45,
     portfolio: 500,
     region: "NALA",
-    description: "Leading venture capital firm investing in technology companies across all stages.",
+    description: "Leading venture capital firm investing in technology companies across all stages, with strong focus on AI and infrastructure.",
     website: "https://www.sequoiacap.com",
     foundingYear: 1972,
     portfolioCompanies: [
@@ -783,28 +1398,28 @@ export const mockVCs: VentureCapital[] = [
         companyId: "2",
         companyName: "Cohere",
         industry: "Software",
-        investmentStage: "Series D",
+        investmentStage: "Series C",
         investmentAmount: 200000000,
       },
     ],
     recentNews: [
       {
-        title: "Sequoia Announces $9B AI Fund Focused on Infrastructure",
-        date: "2025-10-10",
+        title: "Sequoia Announces $7B AI Fund Focused on Infrastructure",
+        date: "2024-10-10",
         source: "TechCrunch",
         summary: "Major fund allocation signals continued investment in AI infrastructure and GPU-intensive applications.",
         sentiment: "positive",
       },
       {
         title: "Sequoia Portfolio Companies Lead in NVIDIA GPU Adoption",
-        date: "2025-10-05",
+        date: "2024-10-05",
         source: "The Information",
-        summary: "Portfolio analysis shows 85% of AI companies actively deploying NVIDIA H100 clusters.",
+        summary: "Portfolio analysis shows 80% of AI companies actively deploying NVIDIA H100 clusters.",
         sentiment: "positive",
       },
     ],
     aiSummary: {
-      overview: "Sequoia Capital maintains the strongest AI portfolio with significant investments in companies requiring large-scale GPU infrastructure. Their portfolio companies collectively represent over $15B in AI compute investments.",
+      overview: "Sequoia Capital maintains the strongest AI portfolio with significant investments in companies requiring large-scale GPU infrastructure. Their portfolio companies collectively represent over $12B in AI compute investments.",
       nvidiaRelevance: "Extremely high. Portfolio companies like Anthropic and Cohere are among the largest consumers of NVIDIA GPUs. Recent fund allocation specifically targets AI infrastructure, indicating continued NVIDIA ecosystem commitment.",
       ncpOpportunities: "Strong partnership potential. Sequoia portfolio companies are ideal lighthouse partners for NVIDIA Cloud Partners. Their enterprise focus aligns perfectly with NCP's go-to-market strategy. Recommend executive engagement with portfolio CIOs.",
     },
@@ -817,7 +1432,7 @@ export const mockVCs: VentureCapital[] = [
     investments: 38,
     portfolio: 400,
     region: "NALA",
-    description: "Venture capital firm backing bold entrepreneurs building the future through technology.",
+    description: "Venture capital firm backing bold entrepreneurs building the future through technology, with strong focus on AI and crypto.",
     website: "https://a16z.com",
     foundingYear: 2009,
     portfolioCompanies: [
@@ -831,15 +1446,15 @@ export const mockVCs: VentureCapital[] = [
     ],
     recentNews: [
       {
-        title: "a16z Launches $600M Gaming and AI Fund",
-        date: "2025-10-12",
+        title: "a16z Launches $500M Gaming and AI Fund",
+        date: "2024-10-12",
         source: "Bloomberg",
         summary: "New fund targets intersection of gaming and AI, emphasizing real-time rendering and GPU acceleration.",
         sentiment: "positive",
       },
       {
-        title: "a16z Portfolio Study: AI Companies Spending $2M+/Month on Compute",
-        date: "2025-09-28",
+        title: "a16z Portfolio Study: AI Companies Spending $1.5M+/Month on Compute",
+        date: "2024-09-28",
         source: "VentureBeat",
         summary: "Internal analysis reveals dramatic increase in GPU infrastructure costs across portfolio.",
         sentiment: "neutral",

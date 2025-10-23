@@ -51,6 +51,7 @@ export interface Company {
       type: string;
       amount: number;
       date: string;
+      investors: string[];
     }>;
   };
   

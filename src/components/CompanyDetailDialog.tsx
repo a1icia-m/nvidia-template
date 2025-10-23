@@ -133,23 +133,43 @@ const CompanyDetailDialog = ({
               <h3 className="font-semibold mb-3">Funding History & Investors</h3>
               <div className="bg-primary/10 rounded-lg p-4 mb-3">
                 <div className="text-2xl font-bold text-primary">
-                  ${(company.funding.totalRaised / 1000000000).toFixed(2)}B
+                  {company.funding.totalRaised >= 1000000000 
+                    ? `$${(company.funding.totalRaised / 1000000000).toFixed(1)}B`
+                    : `$${(company.funding.totalRaised / 1000000).toFixed(0)}M`
+                  }
                 </div>
                 <div className="text-sm text-muted-foreground">Total Raised</div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {company.funding.allRounds.map((round, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between border border-border rounded-lg p-3"
+                    className="border border-border rounded-lg p-4"
                   >
-                    <div>
-                      <div className="font-semibold">{round.type}</div>
-                      <div className="text-xs text-muted-foreground">{round.date}</div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="font-semibold">{round.type}</div>
+                        <div className="text-xs text-muted-foreground">{round.date}</div>
+                      </div>
+                      <div className="text-lg font-bold text-success">
+                        {round.amount >= 1000000000 
+                          ? `$${(round.amount / 1000000000).toFixed(1)}B`
+                          : `$${(round.amount / 1000000).toFixed(0)}M`
+                        }
+                      </div>
                     </div>
-                    <div className="text-lg font-bold text-success">
-                      ${(round.amount / 1000000).toFixed(0)}M
-                    </div>
+                    {round.investors && round.investors.length > 0 && (
+                      <div>
+                        <div className="text-sm font-medium mb-2 text-muted-foreground">Investors:</div>
+                        <div className="flex flex-wrap gap-2">
+                          {round.investors.map((investor, investorIdx) => (
+                            <Badge key={investorIdx} variant="secondary" className="text-xs">
+                              {investor}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
