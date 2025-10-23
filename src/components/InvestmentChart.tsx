@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
 const companyData = [
@@ -16,9 +18,19 @@ const industryData = [
 ];
 
 const InvestmentChart = () => {
+  const [viewMode, setViewMode] = useState<"monthly" | "yearly">("monthly");
   return (
     <Card className="p-6 flex-1 flex flex-col">
-      <h3 className="font-semibold mb-6">Company Overview</h3>
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="font-semibold">Company Overview</h3>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setViewMode(viewMode === "monthly" ? "yearly" : "monthly")}
+        >
+          {viewMode === "monthly" ? "Month-over-Month" : "Year-over-Year"}
+        </Button>
+      </div>
       
       <div className="space-y-6 flex-1 flex flex-col justify-center">
         <div className="flex flex-col items-center">

@@ -973,7 +973,7 @@ export const mockNews: NewsItem[] = [
     sentiment: "positive",
     importance: 10,
     companyId: "2",
-    isFlagged: false,
+    isFlagged: true,
     summary: "Latest funding round validates enterprise AI approach and strengthens NVIDIA partnership.",
     aiSummary: {
       briefSummary: "Cohere has closed a $270M Series C funding round to expand their enterprise AI platform. The funding will accelerate product development and global expansion of their multilingual language models.",
@@ -1040,7 +1040,7 @@ export const mockNews: NewsItem[] = [
     url: "#",
     sentiment: "positive",
     importance: 8,
-    isFlagged: false,
+    isFlagged: true,
     summary: "Market trend supports increased GPU demand across all AI sectors.",
     aiSummary: {
       briefSummary: "Industry analysts predict AI infrastructure spending will reach $200B by 2025, driven by enterprise AI adoption and the need for more powerful computing infrastructure. The growth is particularly strong in data center GPU deployments.",
@@ -1057,7 +1057,7 @@ export const mockNews: NewsItem[] = [
     sentiment: "positive",
     importance: 10,
     companyId: "6",
-    isFlagged: false,
+    isFlagged: true,
     summary: "Latest OpenAI model demonstrates advanced multimodal reasoning and enterprise features.",
     aiSummary: {
       briefSummary: "OpenAI has released GPT-4o, their latest multimodal language model with enhanced capabilities for processing text, images, and audio. The model demonstrates significant improvements in reasoning and enterprise applications.",
@@ -1091,7 +1091,7 @@ export const mockNews: NewsItem[] = [
     sentiment: "positive",
     importance: 9,
     companyId: "8",
-    isFlagged: false,
+    isFlagged: true,
     summary: "Direct NVIDIA investment validates AI reasoning research and strengthens partnership opportunities.",
     aiSummary: {
       briefSummary: "Thinking Machines has closed a $50M Series A funding round with NVIDIA as the lead investor. The funding will accelerate research into AI reasoning and planning capabilities for large language models.",
