@@ -18,7 +18,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import { TrendingUp, DollarSign, Building2, Briefcase } from "lucide-react";
+import { TrendingUp, DollarSign, Building2, Briefcase, CheckCircle2 } from "lucide-react";
 import VCDetailDialog from "@/components/VCDetailDialog";
 import IndustryDetailDialog from "@/components/IndustryDetailDialog";
 import CompanyDetailDialog from "@/components/CompanyDetailDialog";
@@ -371,8 +371,11 @@ const Industries = () => {
                   <p className="text-sm font-medium mb-2">Top Companies:</p>
                   <div className="flex flex-wrap gap-2">
                     {industry.topCompanies.slice(0, 5).map((company) => (
-                      <Badge key={company.id} variant="outline">
+                      <Badge key={company.id} variant="outline" className="flex items-center gap-1">
                         {company.name} ({company.scores.total.toFixed(1)})
+                        {company.isNCPPartner && (
+                          <CheckCircle2 className="w-3 h-3 text-primary" />
+                        )}
                       </Badge>
                     ))}
                   </div>

@@ -16,7 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { Filter, Users, UserCheck, UserX, AlertCircle } from "lucide-react";
+import { Filter, Users, UserCheck, UserX, AlertCircle, CheckCircle2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
@@ -232,7 +232,12 @@ const Overview = () => {
                     <div className="flex-1">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h4 className="font-semibold text-sm">{company.name}</h4>
+                          <div className="flex items-center gap-1">
+                            <h4 className="font-semibold text-sm">{company.name}</h4>
+                            {company.isNCPPartner && (
+                              <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0" />
+                            )}
+                          </div>
                           <div className="text-xs text-muted-foreground">Rank #{company.overallRank}</div>
                         </div>
                         <span
@@ -283,7 +288,12 @@ const Overview = () => {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between mb-2">
                           <div>
-                            <h4 className="font-semibold">{company.name}</h4>
+                            <div className="flex items-center gap-1">
+                              <h4 className="font-semibold">{company.name}</h4>
+                              {company.isNCPPartner && (
+                                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                              )}
+                            </div>
                             <p className="text-xs text-muted-foreground">
                               {company.industry} • {company.country}
                             </p>
