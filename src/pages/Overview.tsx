@@ -16,7 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { Filter, Users, UserCheck, UserX } from "lucide-react";
+import { Filter, Users, UserCheck, UserX, AlertCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
@@ -183,15 +183,24 @@ const Overview = () => {
             </TabsContent>
             <TabsContent value="flagged" className="mt-0">
               <ScrollArea className="h-[200px] pr-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {flaggedNews.slice(0, 6).map((news) => (
-                    <NewsCard 
-                      key={news.id} 
-                      news={news}
-                      onClick={() => handleNewsClick(news)}
-                    />
-                  ))}
-                </div>
+                {flaggedNews.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {flaggedNews.slice(0, 6).map((news) => (
+                      <NewsCard 
+                        key={news.id} 
+                        news={news}
+                        onClick={() => handleNewsClick(news)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center h-full text-muted-foreground">
+                    <div className="text-center">
+                      <AlertCircle className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
+                      <p>No flagged news items</p>
+                    </div>
+                  </div>
+                )}
               </ScrollArea>
             </TabsContent>
           </Tabs>
