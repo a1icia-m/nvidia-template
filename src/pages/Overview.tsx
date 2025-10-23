@@ -124,7 +124,7 @@ const Overview = () => {
         <div>
           <h2 className="text-3xl font-bold">Dashboard Overview</h2>
           <p className="text-muted-foreground mt-1">
-            AI Natives & Digital Partners Research
+            Digital & AI Natives Research
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -147,6 +147,54 @@ const Overview = () => {
               <SelectItem value="yearly">Yearly</SelectItem>
             </SelectContent>
           </Select>
+        </div>
+      </div>
+
+      {/* News Section - Horizontal Rectangle */}
+      <div className="mb-8">
+        <div className="bg-card border border-border rounded-lg p-5">
+          <Tabs defaultValue="all" className="w-full">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold">News</h3>
+              <TabsList className="h-8">
+                <TabsTrigger value="all" className="text-xs">
+                  All
+                </TabsTrigger>
+                <TabsTrigger
+                  value="flagged"
+                  className="text-xs"
+                >
+                  Flagged ({flaggedNews.length})
+                </TabsTrigger>
+              </TabsList>
+            </div>
+            <TabsContent value="all" className="mt-0">
+              <ScrollArea className="h-[200px] pr-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {allNews.slice(0, 6).map((news) => (
+                    <NewsCard 
+                      key={news.id} 
+                      news={news} 
+                      onClick={() => handleNewsClick(news)}
+                    />
+                  ))}
+                </div>
+              </ScrollArea>
+            </TabsContent>
+            <TabsContent value="flagged" className="mt-0">
+              <ScrollArea className="h-[200px] pr-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {flaggedNews.slice(0, 6).map((news) => (
+                    <NewsCard 
+                      key={news.id} 
+                      news={news}
+                      onClick={() => handleNewsClick(news)}
+                    />
+                  ))}
+                </div>
+              </ScrollArea>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
 
@@ -264,54 +312,9 @@ const Overview = () => {
           </div>
         </div>
 
-        {/* News & Investment Trends - Right Column */}
+        {/* Investment Trends - Right Column */}
         <div className="col-span-12 lg:col-span-4 flex flex-col">
           <div className="space-y-6 h-full">
-            {/* News Section */}
-            <div className="bg-card border border-border rounded-lg p-5">
-              <Tabs defaultValue="all" className="w-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold">News</h3>
-                  <TabsList className="h-8">
-                    <TabsTrigger value="all" className="text-xs">
-                      All
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="flagged"
-                      className="text-xs"
-                    >
-                      Flagged ({flaggedNews.length})
-                    </TabsTrigger>
-                  </TabsList>
-                </div>
-                <TabsContent value="all" className="mt-0">
-                  <ScrollArea className="h-[250px] pr-4">
-                    <div className="space-y-3">
-                      {allNews.map((news) => (
-                        <NewsCard 
-                          key={news.id} 
-                          news={news} 
-                          onClick={() => handleNewsClick(news)}
-                        />
-                      ))}
-                    </div>
-                  </ScrollArea>
-                </TabsContent>
-                <TabsContent value="flagged" className="mt-0">
-                  <ScrollArea className="h-[250px] pr-4">
-                    <div className="space-y-3">
-                      {flaggedNews.map((news) => (
-                        <NewsCard 
-                          key={news.id} 
-                          news={news}
-                          onClick={() => handleNewsClick(news)}
-                        />
-                      ))}
-                    </div>
-                  </ScrollArea>
-                </TabsContent>
-              </Tabs>
-            </div>
 
             {/* Investment Trends */}
             <InvestmentChart />

@@ -1,19 +1,10 @@
 import { Card } from "@/components/ui/card";
-import { LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import { BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
-const trendData = [
-  { month: "Jan", funding: 2.1 },
-  { month: "Feb", funding: 2.4 },
-  { month: "Mar", funding: 2.8 },
-  { month: "Apr", funding: 3.2 },
-  { month: "May", funding: 3.6 },
-  { month: "Jun", funding: 4.0 },
-  { month: "Jul", funding: 4.4 },
-  { month: "Aug", funding: 4.8 },
-  { month: "Sep", funding: 5.2 },
-  { month: "Oct", funding: 5.6 },
-  { month: "Nov", funding: 6.0 },
-  { month: "Dec", funding: 6.4 },
+const companyData = [
+  { category: "NCP Partners", count: 12, color: "hsl(var(--chart-1))" },
+  { category: "Digital Natives", count: 45, color: "hsl(var(--chart-2))" },
+  { category: "AI Natives", count: 78, color: "hsl(var(--chart-3))" },
 ];
 
 const industryData = [
@@ -27,39 +18,37 @@ const industryData = [
 const InvestmentChart = () => {
   return (
     <Card className="p-6 flex-1 flex flex-col">
-      <h3 className="font-semibold mb-4">Investment Trends</h3>
+      <h3 className="font-semibold mb-4">Company Overview</h3>
       
       <div className="space-y-6 flex-1 flex flex-col justify-center">
         <div className="flex flex-col items-center">
-          <h4 className="text-sm text-muted-foreground mb-3">Month-over-Month Funding ($B)</h4>
-          <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={trendData}>
-              <XAxis
-                dataKey="month"
+          <h4 className="text-sm text-muted-foreground mb-3">Company Categories</h4>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={companyData} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+              <XAxis 
+                dataKey="category" 
                 stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
+                fontSize={10}
+                angle={-45}
+                textAnchor="end"
+                height={60}
               />
-              <YAxis
+              <YAxis 
                 stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
+                fontSize={10}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "hsl(var(--card))",
+                  backgroundColor: "hsl(var(--background))",
                   border: "1px solid hsl(var(--border))",
                   borderRadius: "6px",
-                  color: "hsl(var(--card-foreground))",
+                  color: "hsl(var(--foreground))",
                 }}
-                labelStyle={{ color: "hsl(var(--card-foreground))" }}
+                labelStyle={{ color: "hsl(var(--foreground))" }}
+                formatter={(value: number) => [`${value} companies`, 'Count']}
               />
-              <Line
-                type="monotone"
-                dataKey="funding"
-                stroke="hsl(var(--primary))"
-                strokeWidth={2}
-                dot={{ fill: "hsl(var(--primary))", r: 4 }}
-              />
-            </LineChart>
+              <Bar dataKey="count" fill="hsl(var(--primary))" />
+            </BarChart>
           </ResponsiveContainer>
         </div>
 
@@ -121,3 +110,4 @@ const InvestmentChart = () => {
 };
 
 export default InvestmentChart;
+

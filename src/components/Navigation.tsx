@@ -42,7 +42,7 @@ const Navigation = () => {
           </div>
           <div className="flex items-center gap-3">
             <div className="text-sm text-muted-foreground">
-              AI Natives & Digital Partners Research
+              Digital & AI Natives Research
             </div>
             <Button
               variant="ghost"

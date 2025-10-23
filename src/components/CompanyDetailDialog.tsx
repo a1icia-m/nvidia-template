@@ -173,18 +173,6 @@ const CompanyDetailDialog = ({
                   </div>
                 ))}
               </div>
-              {company.funding.latestRound.investors && (
-                <div className="mt-3">
-                  <div className="text-sm font-medium mb-2">Notable Investors:</div>
-                  <div className="flex flex-wrap gap-2">
-                    {company.funding.latestRound.investors.map((investor, idx) => (
-                      <Badge key={idx} variant="outline">
-                        {investor}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
 
             <Separator />

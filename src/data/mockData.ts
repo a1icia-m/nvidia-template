@@ -63,13 +63,13 @@ export const mockCompanies: Company[] = [
           type: "Series A", 
           amount: 124000000, 
           date: "2021-05",
-          investors: ["Jaan Tallinn", "Dustin Moskovitz", "Eric Schmidt", "Center for Emerging Risk Research"]
+          investors: ["Jaan Tallinn", "Dustin Moskovitz", "Eric Schmidt", "James McClave", "Center for Emerging Risk Research"]
         },
         { 
           type: "Series B", 
           amount: 580000000, 
           date: "2022-04",
-          investors: ["Sam Bankman-Fried", "Caroline Ellison", "Jim McClave", "Nishad Singh", "Jaan Tallinn"]
+          investors: ["Sam Bankman-Fried", "Caroline Ellison", "Nishad Singh", "Jaan Tallinn", "Jim McClave"]
         },
         { 
           type: "Series C", 
@@ -81,19 +81,19 @@ export const mockCompanies: Company[] = [
           type: "Series D", 
           amount: 750000000, 
           date: "2023-12",
-          investors: ["Google", "Salesforce Ventures", "Sound Ventures"]
+          investors: ["Google", "Salesforce Ventures", "Sound Ventures", "Zoom Ventures", "Menlo Ventures"]
         },
         { 
           type: "Series E", 
           amount: 3500000000, 
           date: "2025-02",
-          investors: ["Lightspeed Venture Partners", "Bessemer Venture Partners", "Cisco Investments", "Fidelity", "General Catalyst", "Jane Street", "Menlo Ventures", "Salesforce Ventures"]
+          investors: ["Lightspeed Venture Partners", "Bessemer Venture Partners", "Fidelity", "General Catalyst", "Jane Street"]
         },
         { 
           type: "Series F", 
           amount: 13000000000, 
           date: "2025-09",
-          investors: ["Iconiq Capital", "Fidelity Management & Research", "Lightspeed Venture Partners", "Altimeter", "Baillie Gifford", "BlackRock", "Blackstone", "Coatue", "D1 Capital Partners", "General Atlantic", "General Catalyst", "GIC", "Goldman Sachs", "Insight Partners", "Jane Street", "Ontario Teachers' Pension Plan", "Qatar Investment Authority", "TPG", "T. Rowe Price", "WCM Investment Management", "XN", "Amazon", "Google"]
+          investors: ["ICONIQ Capital", "Fidelity Management & Research", "Lightspeed Venture Partners", "Altimeter", "GIC"]
         },
       ],
     },
@@ -174,37 +174,43 @@ export const mockCompanies: Company[] = [
     },
     aiSummary: "Cohere delivers enterprise-focused LLMs with strong sovereign AI positioning. Direct NVIDIA investment in Series D validates their approach. Based in Toronto, they offer multilingual models optimized for business use cases. $935M in total funding with partnerships across Oracle, Salesforce, and LivePerson. Excellent NCP candidate due to NVIDIA investment, enterprise focus, and growing GPU infrastructure needs.",
     funding: {
-      totalRaised: 935000000,
+      totalRaised: 1035000000,
       latestRound: {
-        type: "Series D",
-        amount: 500000000,
-        date: "2024-06",
-        investors: ["NVIDIA", "Salesforce Ventures", "Oracle"],
+        type: "Series D Extension",
+        amount: 100000000,
+        date: "2025-09",
+        investors: ["BDC Capital", "Nexxus Capital Management", "AMD Ventures", "Healthcare of Ontario Pension Plan", "PSP Investments"],
       },
       allRounds: [
         { 
           type: "Series A", 
           amount: 40000000, 
-          date: "2021-01",
-          investors: ["Index Ventures", "Radical Ventures", "Section 32"]
+          date: "2021-09",
+          investors: ["Radical Ventures", "Inovia Capital", "Index Ventures"]
         },
         { 
           type: "Series B", 
           amount: 125000000, 
-          date: "2021-11",
-          investors: ["Tiger Global", "Index Ventures", "Radical Ventures"]
+          date: "2022-02",
+          investors: ["Radical Ventures", "Inovia Capital", "Tiger Global", "Salesforce Ventures", "Section 32"]
         },
         { 
           type: "Series C", 
           amount: 270000000, 
           date: "2023-06",
-          investors: ["Inovia Capital", "Tiger Global", "Index Ventures"]
+          investors: ["Inovia Capital", "Radical Ventures", "NVIDIA", "Oracle", "Salesforce Ventures"]
         },
         { 
           type: "Series D", 
           amount: 500000000, 
           date: "2024-06",
-          investors: ["NVIDIA", "Salesforce Ventures", "Oracle"]
+          investors: ["Radical Ventures", "AMD Ventures", "NVIDIA", "Salesforce Ventures", "Cisco"]
+        },
+        { 
+          type: "Series D Extension", 
+          amount: 100000000, 
+          date: "2025-09",
+          investors: ["BDC Capital", "Nexxus Capital Management", "AMD Ventures", "Healthcare of Ontario Pension Plan", "PSP Investments"]
         },
       ],
     },
@@ -455,37 +461,43 @@ export const mockCompanies: Company[] = [
     },
     aiSummary: "Runway leads AI-powered video generation with strong creative industry positioning. $237M raised including direct NVIDIA investment in Series D. Strategic partnerships with Adobe and Frame.io demonstrate enterprise traction. Excellent product-market fit with content creators and media companies. High priority NCP partner given NVIDIA investment, GPU-intensive workloads, and enterprise customer base.",
     funding: {
-      totalRaised: 237000000,
+      totalRaised: 360000000,
       latestRound: {
         type: "Series D",
-        amount: 141000000,
-        date: "2023-12",
-        investors: ["Google", "NVIDIA", "Salesforce Ventures"],
+        amount: 150000000,
+        date: "2025-09",
+        investors: ["Coatue", "Andreessen Horowitz", "Lux Capital", "Founders Fund", "Amplify Partners"],
       },
       allRounds: [
         { 
           type: "Seed", 
-          amount: 8500000, 
-          date: "2019-06",
-          investors: ["Amplify Partners", "Compound", "Lerer Hippeau"]
+          amount: 10000000, 
+          date: "2019-04",
+          investors: ["Betaworks", "Lux Capital", "Founder Collective"]
         },
         { 
           type: "Series A", 
-          amount: 35000000, 
-          date: "2021-12",
-          investors: ["Amplify Partners", "Lux Capital", "Compound"]
+          amount: 50000000, 
+          date: "2021-06",
+          investors: ["Act One Ventures", "Lux Capital", "Amplify Partners"]
+        },
+        { 
+          type: "Series B", 
+          amount: 50000000, 
+          date: "2022-08",
+          investors: ["Coatue Management", "Lux Capital", "Amplify Partners", "Betaworks"]
         },
         { 
           type: "Series C", 
-          amount: 50000000, 
-          date: "2022-12",
-          investors: ["Lux Capital", "Amplify Partners", "Madrona"]
+          amount: 100000000, 
+          date: "2024-07",
+          investors: ["Coatue", "Lux Capital", "Amplify Partners"]
         },
         { 
           type: "Series D", 
-          amount: 141000000, 
-          date: "2023-12",
-          investors: ["Google", "NVIDIA", "Salesforce Ventures"]
+          amount: 150000000, 
+          date: "2025-09",
+          investors: ["Coatue", "Andreessen Horowitz", "Lux Capital", "Founders Fund", "Amplify Partners"]
         },
       ],
     },
@@ -571,7 +583,7 @@ export const mockCompanies: Company[] = [
         type: "Series F",
         amount: 40000000000,
         date: "2025-03",
-        investors: ["SoftBank", "Microsoft", "Coatue", "Altimeter", "Thrive", "Dragoneer", "T. Rowe Price", "Blackstone"],
+        investors: ["SoftBank", "Microsoft", "Coatue", "Altimeter", "Thrive"],
       },
       allRounds: [
         { 
@@ -608,13 +620,13 @@ export const mockCompanies: Company[] = [
           type: "Series E", 
           amount: 6600000000, 
           date: "2024-10",
-          investors: ["Microsoft", "Andreessen Horowitz", "Sequoia Capital", "Tiger Global", "Thrive Capital", "NVIDIA", "SoftBank"]
+          investors: ["Microsoft", "SoftBank", "Thrive Capital", "Andreessen Horowitz", "NVIDIA"]
         },
         { 
           type: "Series F", 
           amount: 40000000000, 
           date: "2025-03",
-          investors: ["SoftBank", "Microsoft", "Coatue", "Altimeter", "Thrive", "Dragoneer", "T. Rowe Price", "Blackstone"]
+          investors: ["SoftBank", "Microsoft", "Coatue", "Altimeter", "Thrive"]
         },
       ],
     },
@@ -683,31 +695,55 @@ export const mockCompanies: Company[] = [
     },
     aiSummary: "Glean provides enterprise search and knowledge discovery using AI to connect information across organizational tools. $200M+ in funding with strong enterprise traction. Growing demand for GPU infrastructure as they scale AI-powered search capabilities. Strong NCP candidate for enterprise AI solutions.",
     funding: {
-      totalRaised: 200000000,
+      totalRaised: 775000000,
       latestRound: {
-        type: "Series C",
-        amount: 100000000,
-        date: "2023-06",
-        investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"],
+        type: "Series F",
+        amount: 150000000,
+        date: "2025-06",
+        investors: ["Wellington Management", "Khosla Ventures", "Bicycle Capital", "Geodesic Capital", "Archerman Capital", "Altimeter", "Capital One Ventures", "Sequoia Capital"],
       },
       allRounds: [
         { 
-          type: "Series A", 
-          amount: 25000000, 
-          date: "2021-01",
-          investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"]
+          type: "Seed", 
+          amount: 5000000, 
+          date: "2020-01",
+          investors: ["Google Ventures", "First Round Capital", "Bedrock Capital"]
         },
         { 
-          type: "Series B", 
-          amount: 75000000, 
-          date: "2022-06",
-          investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"]
+          type: "Series A", 
+          amount: 22000000, 
+          date: "2021-09",
+          investors: ["Google Ventures", "First Round Capital", "Lightspeed Venture Partners", "Bedrock Capital"]
         },
         { 
           type: "Series C", 
           amount: 100000000, 
-          date: "2023-06",
-          investors: ["Kleiner Perkins", "General Catalyst", "Lightspeed"]
+          date: "2022-05",
+          investors: ["Sequoia Capital", "Lightspeed Venture Partners", "Bedrock Capital"]
+        },
+        { 
+          type: "Series B", 
+          amount: 40000000, 
+          date: "2023-10",
+          investors: ["Lightspeed Venture Partners", "Google Ventures", "First Round Capital", "Bedrock Capital"]
+        },
+        { 
+          type: "Series D", 
+          amount: 200000000, 
+          date: "2024-02",
+          investors: ["Kleiner Perkins", "Lightspeed Venture Partners"]
+        },
+        { 
+          type: "Series E", 
+          amount: 260000000, 
+          date: "2024-09",
+          investors: ["Kleiner Perkins", "Lightspeed Venture Partners", "Sequoia Capital"]
+        },
+        { 
+          type: "Series F", 
+          amount: 150000000, 
+          date: "2025-06",
+          investors: ["Wellington Management", "Khosla Ventures", "Bicycle Capital", "Geodesic Capital", "Archerman Capital", "Altimeter", "Capital One Ventures", "Sequoia Capital"]
         },
       ],
     },
@@ -776,12 +812,12 @@ export const mockCompanies: Company[] = [
     },
     aiSummary: "Thinking Machines focuses on advancing AI reasoning and planning capabilities. Founded by former NVIDIA researchers with strong technical expertise. Early-stage company with significant potential for GPU-intensive AI research. Strong NCP candidate given NVIDIA background and focus on advanced AI capabilities.",
     funding: {
-      totalRaised: 50000000,
+      totalRaised: 2000000000,
       latestRound: {
-        type: "Series A",
-        amount: 50000000,
-        date: "2024-03",
-        investors: ["NVIDIA", "Sequoia Capital", "Andreessen Horowitz"],
+        type: "Seed",
+        amount: 2000000000,
+        date: "2025-06",
+        investors: ["Andreessen Horowitz", "NVIDIA", "Accel", "ServiceNow", "Cisco"],
       },
       allRounds: [
         { 
@@ -795,6 +831,12 @@ export const mockCompanies: Company[] = [
           amount: 50000000, 
           date: "2024-03",
           investors: ["NVIDIA", "Sequoia Capital", "Andreessen Horowitz"]
+        },
+        { 
+          type: "Seed", 
+          amount: 2000000000, 
+          date: "2025-06",
+          investors: ["Andreessen Horowitz", "NVIDIA", "Accel", "ServiceNow", "Cisco"]
         },
       ],
     },
@@ -898,6 +940,86 @@ export const mockCompanies: Company[] = [
       riskFlags: [],
       categories: ["Customer Service AI", "Conversational AI", "NLP"],
       summary: "Growing customer service AI platform with moderate GPU infrastructure needs.",
+    },
+  },
+  {
+    id: "10",
+    name: "Anysphere",
+    foundingYear: 2022,
+    headquarters: "San Francisco, CA",
+    country: "USA",
+    website: "https://cursor.sh",
+    description: "AI-powered code editor and development platform, creators of Cursor AI coding assistant.",
+    industry: "Software",
+    isDigitalNative: true,
+    scores: {
+      talent: 94,
+      market: 89,
+      ecosystem: 85,
+      research: 91,
+      total: 89.75,
+    },
+    scoreDelta: 18.2,
+    overallRank: 2,
+    isContactedByNCP: false,
+    leadership: {
+      founders: [
+        {
+          name: "Anysphere Team",
+          role: "Founders",
+          background: "AI and developer tools experts",
+          research: {
+            publications: 12,
+            patents: 3,
+            githubContributions: 234,
+            reputation: "Leading team in AI-powered development tools with strong technical expertise in code generation and developer productivity.",
+          },
+        },
+      ],
+    },
+    aiSummary: "Anysphere leads the AI coding assistant space with Cursor, revolutionizing developer productivity. $1.065B in total funding demonstrates strong market validation. Direct competition with GitHub Copilot but with unique positioning. Excellent NCP candidate given developer focus, GPU-intensive AI workloads, and enterprise adoption potential.",
+    funding: {
+      totalRaised: 1065000000,
+      latestRound: {
+        type: "Series C",
+        amount: 900000000,
+        date: "2025-05",
+        investors: ["Thrive Capital", "Andreessen Horowitz", "Accel", "DST Global"],
+      },
+      allRounds: [
+        { 
+          type: "Series A", 
+          amount: 60000000, 
+          date: "2023-01",
+          investors: ["Andreessen Horowitz", "Thrive Capital"]
+        },
+        { 
+          type: "Series B", 
+          amount: 105000000, 
+          date: "2024-12",
+          investors: ["Thrive Capital", "Andreessen Horowitz"]
+        },
+        { 
+          type: "Series C", 
+          amount: 900000000, 
+          date: "2025-05",
+          investors: ["Thrive Capital", "Andreessen Horowitz", "Accel", "DST Global"]
+        },
+      ],
+    },
+    partnerships: ["GitHub", "OpenAI", "Anthropic"],
+    nvidiaMentions: 8,
+    isLighthouse: true,
+    research: {
+      githubRepos: 15,
+      publications: 8,
+      patents: 5,
+    },
+    prProfile: {
+      pressSafe: true,
+      riskFlags: [],
+      categories: ["AI Coding Assistant", "Developer Tools", "Code Generation"],
+      summary: "Leading AI coding assistant with strong developer adoption and enterprise potential.",
     },
   },
 ];
