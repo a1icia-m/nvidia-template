@@ -180,26 +180,39 @@ const CompanyDetailDialog = ({
             {/* Ecosystem Positioning */}
             <div>
               <h3 className="font-semibold mb-3">Ecosystem Positioning</h3>
-              <div className="space-y-3">
-                <div>
-                  <div className="text-sm font-medium mb-2">Partnerships:</div>
+              <div className="space-y-4">
+                {/* Partnerships Section - Main Focus */}
+                <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <h4 className="font-semibold text-primary">Strategic Partnerships</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Partnerships indicate strategic alliances that enhance market reach, technology integration, and business development opportunities. These relationships often provide access to enterprise customers, distribution channels, and complementary technologies.
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {company.partnerships.map((partner, idx) => (
-                      <Badge key={idx} variant="secondary">
+                      <Badge key={idx} variant="default" className="bg-primary/10 text-primary border-primary/30">
                         {partner}
                       </Badge>
                     ))}
                   </div>
                 </div>
+
+                {/* Secondary Metrics - Smaller */}
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-secondary/50 rounded-lg p-3">
-                    <div className="text-sm text-muted-foreground">NVIDIA Mentions</div>
-                    <div className="text-2xl font-bold">{company.nvidiaMentions}</div>
+                  <div className="bg-secondary/30 rounded-lg p-3 text-center">
+                    <div className="text-xs text-muted-foreground mb-1">NVIDIA Mentions</div>
+                    <div className="text-lg font-semibold">{company.nvidiaMentions}</div>
+                    <div className="text-xs text-muted-foreground">Press/Media</div>
                   </div>
-                  <div className="bg-secondary/50 rounded-lg p-3">
-                    <div className="text-sm text-muted-foreground">Lighthouse Status</div>
-                    <div className="text-2xl font-bold">
-                      {company.isLighthouse ? "Yes" : "No"}
+                  <div className="bg-secondary/30 rounded-lg p-3 text-center">
+                    <div className="text-xs text-muted-foreground mb-1">Lighthouse Status</div>
+                    <div className="text-lg font-semibold">
+                      {company.isLighthouse ? "✓" : "○"}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {company.isLighthouse ? "Featured" : "Standard"}
                     </div>
                   </div>
                 </div>

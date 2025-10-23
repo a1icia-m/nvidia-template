@@ -865,94 +865,6 @@ export const mockCompanies: Company[] = [
   },
   {
     id: "9",
-    name: "AmySphere",
-    foundingYear: 2022,
-    headquarters: "London, UK",
-    country: "UK",
-    website: "https://amysphere.ai",
-    description: "AI-powered customer service platform specializing in conversational AI and automated support solutions.",
-    industry: "Software",
-    isDigitalNative: true,
-    scores: {
-      talent: 78,
-      market: 82,
-      ecosystem: 75,
-      research: 72,
-      total: 76.75,
-    },
-    scoreDelta: 4.2,
-    overallRank: 6,
-    isContactedByNCP: false,
-    isNCPPartner: false,
-    leadership: {
-      founders: [
-        {
-          name: "Amy Chen",
-          role: "CEO",
-          background: "Former product manager at Salesforce, AI researcher",
-          previousVentures: ["Salesforce"],
-          research: {
-            publications: 18,
-            patents: 8,
-            githubContributions: 123,
-            reputation: "Expert in conversational AI and customer service automation. Strong background in product management and AI research with focus on human-AI interaction.",
-          },
-        },
-        {
-          name: "David Park",
-          role: "CTO",
-          background: "Former engineer at Google, NLP specialist",
-          previousVentures: ["Google"],
-          research: {
-            publications: 25,
-            patents: 12,
-            githubContributions: 234,
-            reputation: "Specialist in natural language processing and conversational AI. Strong background in building scalable AI systems for customer service applications.",
-          },
-        },
-      ],
-    },
-    aiSummary: "AmySphere provides AI-powered customer service solutions with focus on conversational AI. $30M in funding with growing enterprise adoption. Moderate GPU infrastructure needs for NLP and conversational AI workloads. Potential NCP partner for customer service AI solutions.",
-    funding: {
-      totalRaised: 30000000,
-      latestRound: {
-        type: "Series A",
-        amount: 20000000,
-        date: "2024-01",
-        investors: ["Balderton Capital", "Index Ventures", "LocalGlobe"],
-      },
-      allRounds: [
-        { 
-          type: "Seed", 
-          amount: 5000000, 
-          date: "2022-06",
-          investors: ["LocalGlobe", "Seedcamp", "Entrepreneur First"]
-        },
-        { 
-          type: "Series A", 
-          amount: 20000000, 
-          date: "2024-01",
-          investors: ["Balderton Capital", "Index Ventures", "LocalGlobe"]
-        },
-      ],
-    },
-    partnerships: ["Salesforce", "Zendesk", "Intercom"],
-    nvidiaMentions: 5,
-    isLighthouse: false,
-    research: {
-      githubRepos: 8,
-      publications: 12,
-      patents: 6,
-    },
-    prProfile: {
-      pressSafe: true,
-      riskFlags: [],
-      categories: ["Customer Service AI", "Conversational AI", "NLP"],
-      summary: "Growing customer service AI platform with moderate GPU infrastructure needs.",
-    },
-  },
-  {
-    id: "10",
     name: "Anysphere",
     foundingYear: 2022,
     headquarters: "San Francisco, CA",
@@ -1189,7 +1101,7 @@ export const mockNews: NewsItem[] = [
   },
   {
     id: "n10",
-    title: "AmySphere Expands European AI Customer Service Market",
+    title: "AnySphere Expands European AI Customer Service Market",
     source: "Financial Times",
     date: "2024-10-08",
     url: "#",
