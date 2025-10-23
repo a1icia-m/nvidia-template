@@ -18,7 +18,7 @@ const industryData = [
 const InvestmentChart = () => {
   return (
     <Card className="p-6 flex-1 flex flex-col">
-      <h3 className="font-semibold mb-4">Company Overview</h3>
+      <h3 className="font-semibold mb-6">Company Overview</h3>
       
       <div className="space-y-6 flex-1 flex flex-col justify-center">
         <div className="flex flex-col items-center">

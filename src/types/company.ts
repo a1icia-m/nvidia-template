@@ -21,6 +21,7 @@ export interface Company {
   scoreDelta: number;
   overallRank: number;
   isContactedByNCP: boolean;
+  isNCPPartner: boolean;
   
   leadership: {
     founders: Array<{

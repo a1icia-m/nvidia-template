@@ -21,6 +21,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 8.5,
     overallRank: 1,
     isContactedByNCP: true,
+    isNCPPartner: true,
     leadership: {
       founders: [
         {
@@ -132,6 +133,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 5.2,
     overallRank: 3,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {
@@ -249,6 +251,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: -3.8,
     overallRank: 5,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {
@@ -323,6 +326,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: -12.5,
     overallRank: 4,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {
@@ -422,6 +426,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 6.8,
     overallRank: 2,
     isContactedByNCP: true,
+    isNCPPartner: true,
     leadership: {
       founders: [
         {
@@ -536,6 +541,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 12.3,
     overallRank: 1,
     isContactedByNCP: true,
+    isNCPPartner: true,
     leadership: {
       founders: [
         {
@@ -665,6 +671,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 7.2,
     overallRank: 4,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {
@@ -782,6 +789,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 15.8,
     overallRank: 3,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {
@@ -875,6 +883,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 4.2,
     overallRank: 6,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {
@@ -962,6 +971,7 @@ export const mockCompanies: Company[] = [
     scoreDelta: 18.2,
     overallRank: 2,
     isContactedByNCP: false,
+    isNCPPartner: false,
     leadership: {
       founders: [
         {

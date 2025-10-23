@@ -1,7 +1,7 @@
 import { Company } from "@/types/company";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, MapPin, Calendar } from "lucide-react";
+import { TrendingUp, TrendingDown, MapPin, Calendar, CheckCircle2 } from "lucide-react";
 
 interface CompanyCardProps {
   company: Company;
@@ -16,9 +16,14 @@ const CompanyCard = ({ company, onClick }: CompanyCardProps) => {
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
-          <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
-            {company.name}
-          </h3>
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+              {company.name}
+            </h3>
+            {company.isNCPPartner && (
+              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+            )}
+          </div>
           <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <Calendar className="w-3 h-3" />
