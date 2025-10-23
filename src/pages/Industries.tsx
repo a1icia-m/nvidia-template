@@ -2,6 +2,7 @@ import { useState } from "react";
 import { mockIndustries, mockVCs, mockCompanies } from "@/data/mockData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BarChart,
@@ -30,6 +31,7 @@ const Industries = () => {
   const [industryDialogOpen, setIndustryDialogOpen] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [companyDialogOpen, setCompanyDialogOpen] = useState(false);
+  const [viewMode, setViewMode] = useState<"monthly" | "yearly">("monthly");
 
   const handleVCClick = (vc: VentureCapital) => {
     setSelectedVC(vc);
@@ -53,7 +55,7 @@ const Industries = () => {
     }
   };
   // Investment trends data - month over month
-  const investmentTrendsData = [
+  const investmentTrendsMonthly = [
     { month: "Jan", funding: 2.1, deals: 15 },
     { month: "Feb", funding: 2.4, deals: 16 },
     { month: "Mar", funding: 2.8, deals: 18 },
@@ -67,6 +69,19 @@ const Industries = () => {
     { month: "Nov", funding: 6.0, deals: 30 },
     { month: "Dec", funding: 6.4, deals: 32 },
   ];
+
+  // Investment trends data - year over year
+  const investmentTrendsYearly = [
+    { month: "2018", funding: 12.5, deals: 89 },
+    { month: "2019", funding: 18.3, deals: 115 },
+    { month: "2020", funding: 24.8, deals: 142 },
+    { month: "2021", funding: 38.2, deals: 195 },
+    { month: "2022", funding: 45.6, deals: 228 },
+    { month: "2023", funding: 52.3, deals: 267 },
+    { month: "2024", funding: 64.4, deals: 312 },
+  ];
+
+  const investmentTrendsData = viewMode === "monthly" ? investmentTrendsMonthly : investmentTrendsYearly;
 
   // Category data
   const categoryData = mockIndustries.map((ind, idx) => ({
@@ -183,7 +198,14 @@ const Industries = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         <Card className="p-6">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="font-semibold">Investment Trends Month-over-Month</h3>
+            <h3 className="font-semibold">Investment Trends</h3>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setViewMode(viewMode === "monthly" ? "yearly" : "monthly")}
+            >
+              {viewMode === "monthly" ? "Month-over-Month" : "Year-over-Year"}
+            </Button>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={investmentTrendsData}>

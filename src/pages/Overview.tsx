@@ -257,9 +257,9 @@ const Overview = () => {
 
         {/* Top Companies - Middle Column */}
         <div className="col-span-12 lg:col-span-5">
-          <div className="bg-card border border-border rounded-lg p-5 h-full">
+          <div className="bg-card border border-border rounded-lg p-5 flex flex-col" style={{ height: "600px" }}>
             <h3 className="font-semibold mb-4">Top Companies</h3>
-            <ScrollArea className="h-[calc(100%-40px)] pr-4">
+            <ScrollArea className="flex-1 pr-4">
               <div className="space-y-3">
                 {topCompanies.map((company, index) => (
                   <div
