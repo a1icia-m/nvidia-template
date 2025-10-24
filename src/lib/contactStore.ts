@@ -39,6 +39,12 @@ class ContactStore {
     };
   }
 
+  getNewlyContactedCompanies(): string[] {
+    // Returns IDs of companies that were contacted after initial state
+    const initial = ['1', '5']; // Initial contacted companies
+    return Array.from(this.contactedCompanies).filter(id => !initial.includes(id));
+  }
+
   private notifyListeners() {
     this.listeners.forEach(listener => listener());
   }
