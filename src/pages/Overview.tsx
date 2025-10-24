@@ -13,12 +13,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
@@ -34,7 +28,6 @@ const Overview = () => {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
   const [newsDialogOpen, setNewsDialogOpen] = useState(false);
   const [contactStats, setContactStats] = useState(contactStore.getContactStats());
-  const [newCompaniesDialogOpen, setNewCompaniesDialogOpen] = useState(false);
 
   useEffect(() => {
     contactStore.setTotalCompanies(mockCompanies.length);
@@ -72,32 +65,8 @@ const Overview = () => {
   const topCompanies = [...filteredCompanies]
     .sort((a, b) => b.scores.total - a.scores.total);
 
-  // Filter news based on time period
-  const getFilteredNews = () => {
-    const now = new Date();
-    const newsWithDates = mockNews.filter(news => {
-      const newsDate = new Date(news.date);
-      const daysDiff = Math.floor((now.getTime() - newsDate.getTime()) / (1000 * 60 * 60 * 24));
-      
-      switch(timeFilter) {
-        case 'weekly':
-          return daysDiff <= 7;
-        case 'monthly':
-          return daysDiff <= 30;
-        case 'quarterly':
-          return daysDiff <= 90;
-        case 'yearly':
-          return daysDiff <= 365;
-        default:
-          return true;
-      }
-    });
-    return newsWithDates;
-  };
-
-  const filteredNews = getFilteredNews();
-  const flaggedNews = filteredNews.filter((n) => n.isFlagged);
-  const allNews = filteredNews;
+  const flaggedNews = mockNews.filter((n) => n.isFlagged);
+  const allNews = mockNews;
 
   // Contact tracking stats
   const totalCompanies = filteredCompanies.length;
@@ -105,10 +74,6 @@ const Overview = () => {
   const notContacted = totalCompanies - contactedByNCP;
   const newToContactToday = Math.max(0, contactStats.contacted - contactStats.initial);
   const contactProgress = (contactedByNCP / totalCompanies) * 100;
-  
-  // Get newly contacted companies for popup
-  const newlyContactedCompanyIds = contactStore.getNewlyContactedCompanies();
-  const newlyContactedCompanies = mockCompanies.filter(c => newlyContactedCompanyIds.includes(c.id));
 
   const handleCompanyClick = (company: Company) => {
     setSelectedCompany(company);
@@ -145,13 +110,9 @@ const Overview = () => {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span className="text-muted-foreground">Contact Progress</span>
-              <button 
-                onClick={() => setNewCompaniesDialogOpen(true)}
-                className="font-semibold hover:underline cursor-pointer"
-                disabled={newToContactToday === 0}
-              >
+              <span className="font-semibold">
                 <span className="text-primary">{newToContactToday} new</span> companies to contact today
-              </button>
+              </span>
             </div>
             <Progress value={contactProgress} className="h-2" />
           </div>
@@ -393,62 +354,6 @@ const Overview = () => {
         open={newsDialogOpen}
         onOpenChange={setNewsDialogOpen}
       />
-
-      {/* Newly Contacted Companies Dialog */}
-      <Dialog open={newCompaniesDialogOpen} onOpenChange={setNewCompaniesDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Newly Contacted Companies</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 pt-4">
-            <p className="text-sm text-muted-foreground">
-              Companies contacted today ({newlyContactedCompanies.length})
-            </p>
-            {newlyContactedCompanies.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
-                No newly contacted companies yet
-              </div>
-            ) : (
-              <div className="space-y-3">
-                {newlyContactedCompanies.map((company) => (
-                  <div
-                    key={company.id}
-                    className="border border-border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
-                    onClick={() => {
-                      setNewCompaniesDialogOpen(false);
-                      handleCompanyClick(company);
-                    }}
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="font-semibold">{company.name}</h4>
-                          {company.isNCPPartner && (
-                            <CheckCircle2 className="w-4 h-4 text-primary" />
-                          )}
-                        </div>
-                        <p className="text-xs text-muted-foreground">
-                          {company.industry} • {company.country}
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-lg font-bold text-primary">
-                          {company.scores.total.toFixed(1)}
-                        </div>
-                        <div className="text-xs text-muted-foreground">Score</div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      Latest: {company.funding.latestRound.type} - $
-                      {(company.funding.latestRound.amount / 1000000).toFixed(0)}M
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
