@@ -29,6 +29,7 @@ export interface Company {
       role: string;
       background: string;
       previousVentures?: string[];
+      linkedin?: string;
       research: {
         publications: number;
         patents: number;
@@ -36,6 +37,15 @@ export interface Company {
         reputation: string;
       };
     }>;
+    partnerships?: {
+      headOfPartnerships?: {
+        name: string;
+        role: string;
+        background: string;
+        linkedin?: string;
+        email?: string;
+      };
+    };
   };
   
   aiSummary: string;
