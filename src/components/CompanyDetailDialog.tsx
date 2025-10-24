@@ -120,15 +120,15 @@ const CompanyDetailDialog = ({
               {/* Funding Summary */}
               <div className="bg-primary/10 rounded-lg p-4 mb-4">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-2xl font-bold text-primary">
-                      {company.funding.totalRaised >= 1000000000 
-                        ? `$${(company.funding.totalRaised / 1000000000).toFixed(1)}B`
-                        : `$${(company.funding.totalRaised / 1000000).toFixed(0)}M`
-                      }
-                    </div>
-                    <div className="text-sm text-muted-foreground">Total Raised</div>
-                  </div>
+            <div>
+                <div className="text-2xl font-bold text-primary">
+                  {company.funding.totalRaised >= 1000000000 
+                    ? `$${(company.funding.totalRaised / 1000000000).toFixed(1)}B`
+                    : `$${(company.funding.totalRaised / 1000000).toFixed(0)}M`
+                  }
+                </div>
+                <div className="text-sm text-muted-foreground">Total Raised</div>
+              </div>
                   <div className="text-right">
                     <div className="text-sm font-semibold">{company.funding.allRounds.length} Rounds</div>
                     <div className="text-xs text-muted-foreground">Latest: {company.funding.allRounds[0]?.type}</div>
@@ -153,12 +153,33 @@ const CompanyDetailDialog = ({
                             </div>
                           )}
                         </div>
-                        {founder.linkedin && (
+                        {/* LinkedIn button only for specific verified profiles */}
+                        {founder.name === "Ilya Sutskever" && (
                           <Button
                             variant="outline"
                             size="sm"
                             className="ml-2 h-8 w-8 p-0"
-                            onClick={() => window.open(founder.linkedin, '_blank')}
+                            onClick={() => window.open("https://www.linkedin.com/in/ilya-sutskever/", '_blank')}
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </Button>
+                        )}
+                        {founder.name === "Reid Hoffman" && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="ml-2 h-8 w-8 p-0"
+                            onClick={() => window.open("https://linkedin.com/in/reidhoffman", '_blank')}
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </Button>
+                        )}
+                        {founder.name === "Nick Frosst" && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="ml-2 h-8 w-8 p-0"
+                            onClick={() => window.open("https://www.linkedin.com/in/nick-frosst-19b80463/", '_blank')}
                           >
                             <Linkedin className="w-4 h-4" />
                           </Button>
@@ -208,16 +229,6 @@ const CompanyDetailDialog = ({
                           <div className="text-xs text-primary mt-1">{company.leadership.partnerships.headOfPartnerships.email}</div>
                         )}
                       </div>
-                      {company.leadership.partnerships.headOfPartnerships.linkedin && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="ml-2 h-8 w-8 p-0"
-                          onClick={() => window.open(company.leadership.partnerships.headOfPartnerships.linkedin, '_blank')}
-                        >
-                          <Linkedin className="w-4 h-4" />
-                        </Button>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -240,8 +251,8 @@ const CompanyDetailDialog = ({
                         }
                       </div>
                     </div>
-                  ))}
-                </div>
+                          ))}
+                        </div>
               </div>
             </div>
 
@@ -298,40 +309,40 @@ const CompanyDetailDialog = ({
               <div className="bg-primary/10 rounded-lg p-3 mb-4">
                 <h4 className="font-medium mb-2">AI Summary</h4>
                 <p className="text-sm text-muted-foreground">{company.aiSummary}</p>
-              </div>
-
+                    </div>
+                    
               {/* PR Safety */}
-              <div>
+            <div>
                 <h4 className="font-medium mb-2">PR Safety</h4>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Badge variant={company.prProfile.pressSafe ? "default" : "destructive"}>
-                      {company.prProfile.pressSafe ? "Press Safe" : "Needs Review"}
-                    </Badge>
-                    {company.prProfile.riskFlags.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <Badge variant={company.prProfile.pressSafe ? "default" : "destructive"}>
+                    {company.prProfile.pressSafe ? "Press Safe" : "Needs Review"}
+                  </Badge>
+                  {company.prProfile.riskFlags.length > 0 && (
                       <div className="flex flex-wrap gap-1">
-                        {company.prProfile.riskFlags.map((flag, idx) => (
+                      {company.prProfile.riskFlags.map((flag, idx) => (
                           <Badge key={idx} variant="outline" className="text-destructive text-xs px-1 py-0">
-                            ⚠ {flag}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                          ⚠ {flag}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                </div>
                   <div className="bg-secondary/50 rounded p-2">
                     <div className="text-xs font-medium mb-1">Summary:</div>
                     <div className="text-xs text-muted-foreground">
-                      {company.prProfile.summary}
-                    </div>
+                    {company.prProfile.summary}
                   </div>
-                  <div>
+                </div>
+                <div>
                     <div className="text-xs font-medium mb-1">Categories:</div>
                     <div className="flex flex-wrap gap-1">
-                      {company.prProfile.categories.map((cat, idx) => (
+                    {company.prProfile.categories.map((cat, idx) => (
                         <Badge key={idx} variant="outline" className="text-xs px-1 py-0">
-                          {cat}
-                        </Badge>
-                      ))}
+                        {cat}
+                      </Badge>
+                    ))}
                     </div>
                   </div>
                 </div>
