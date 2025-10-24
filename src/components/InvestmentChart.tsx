@@ -20,10 +20,10 @@ const InvestmentChart = () => {
     <Card className="p-6 flex-1 flex flex-col">
       <h3 className="font-semibold mb-6">Company Overview</h3>
       
-      <div className="space-y-4 flex-1 flex flex-col justify-center">
+      <div className="flex-1 flex flex-col justify-center">
         <div className="flex flex-col items-center">
           <h4 className="text-sm text-muted-foreground mb-2">AI Natives</h4>
-          <ResponsiveContainer width="150%" height={350}>
+          <ResponsiveContainer width="150%" height={320}>
             <BarChart data={companyData} margin={{ top: 10, right: 100, left: 100, bottom: 100 }}>
               <XAxis 
                 dataKey="category" 
@@ -54,9 +54,9 @@ const InvestmentChart = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="flex flex-col items-center">
-          <h4 className="text-sm text-muted-foreground mb-3">Industry Allocation</h4>
-          <ResponsiveContainer width="100%" height={200}>
+        <div className="flex flex-col items-center -mt-12">
+          <h4 className="text-sm text-muted-foreground mb-2">Industry Allocation</h4>
+          <ResponsiveContainer width="100%" height={180}>
             <PieChart>
               <Pie
                 data={industryData}
