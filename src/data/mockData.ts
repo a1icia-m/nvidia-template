@@ -29,7 +29,7 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Former VP Research at OpenAI, PhD Physics from Stanford",
           previousVentures: ["OpenAI"],
-          linkedin: "https://linkedin.com/in/dario-amodei",
+          linkedin: "https://linkedin.com/in/dario-amodei-123456789",
           research: {
             publications: 52,
             patents: 8,
@@ -42,7 +42,7 @@ export const mockCompanies: Company[] = [
           role: "President",
           background: "Former VP Operations at OpenAI",
           previousVentures: ["OpenAI"],
-          linkedin: "https://linkedin.com/in/daniela-amodei",
+          linkedin: "https://linkedin.com/in/daniela-amodei-987654321",
           research: {
             publications: 12,
             patents: 3,
