@@ -2,9 +2,9 @@ import { Card } from "@/components/ui/card";
 import { BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
 const companyData = [
-  { category: "NCP Partners", count: 12, color: "hsl(var(--chart-1))" },
-  { category: "Digital Natives", count: 45, color: "hsl(var(--chart-2))" },
-  { category: "AI Natives", count: 78, color: "hsl(var(--chart-3))" },
+  { category: "AI Wrappers", count: 35, color: "hsl(var(--chart-1))" },
+  { category: "AI Native Builders", count: 43, color: "hsl(var(--chart-2))" },
+  { category: "Total AI Natives", count: 78, color: "hsl(var(--chart-3))" },
 ];
 
 const industryData = [
@@ -20,18 +20,20 @@ const InvestmentChart = () => {
     <Card className="p-6 flex-1 flex flex-col">
       <h3 className="font-semibold mb-6">Company Overview</h3>
       
-      <div className="space-y-6 flex-1 flex flex-col justify-center">
+      <div className="space-y-4 flex-1 flex flex-col justify-center">
         <div className="flex flex-col items-center">
-          <h4 className="text-sm text-muted-foreground mb-3">Company Categories</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={companyData} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+          <h4 className="text-sm text-muted-foreground mb-2">AI Natives</h4>
+          <ResponsiveContainer width="150%" height={350}>
+            <BarChart data={companyData} margin={{ top: 10, right: 100, left: 100, bottom: 100 }}>
               <XAxis 
                 dataKey="category" 
                 stroke="hsl(var(--muted-foreground))"
                 fontSize={10}
-                angle={-45}
-                textAnchor="end"
-                height={60}
+                angle={0}
+                textAnchor="middle"
+                height={100}
+                interval={0}
+                tick={{ fontSize: 10 }}
               />
               <YAxis 
                 stroke="hsl(var(--muted-foreground))"
@@ -47,7 +49,7 @@ const InvestmentChart = () => {
                 labelStyle={{ color: "hsl(var(--foreground))" }}
                 formatter={(value: number) => [`${value} companies`, 'Count']}
               />
-              <Bar dataKey="count" fill="hsl(var(--primary))" />
+              <Bar dataKey="count" fill="hsl(var(--primary))" maxBarSize={70} />
             </BarChart>
           </ResponsiveContainer>
         </div>
