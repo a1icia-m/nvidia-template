@@ -110,7 +110,7 @@ const Overview = () => {
   const totalCompanies = filteredCompanies.length;
   const contactedByNCP = contactStats.contacted;
   const notContacted = totalCompanies - contactedByNCP;
-  const newToContactToday = Math.max(0, contactStats.contacted - contactStats.initial);
+  const newToContactToday = contactStats.newToContactToday;
   const contactProgress = (contactedByNCP / totalCompanies) * 100;
 
   const handleCompanyClick = (company: Company) => {
@@ -125,6 +125,9 @@ const Overview = () => {
 
   const newlyContactedCompanyIds = contactStore.getNewlyContactedCompanies();
   const newlyContactedCompanies = mockCompanies.filter(c => newlyContactedCompanyIds.includes(c.id));
+  
+  const companiesToContactTodayIds = contactStore.getCompaniesToContactToday();
+  const companiesToContactToday = mockCompanies.filter(c => companiesToContactTodayIds.includes(c.id));
 
   return (
     <div className="container mx-auto px-6 py-8">
@@ -399,16 +402,16 @@ const Overview = () => {
         onOpenChange={setNewsDialogOpen}
       />
 
-      {/* New Contacts Dialog */}
+      {/* Companies to Contact Today Dialog */}
       <Dialog open={newContactsDialogOpen} onOpenChange={setNewContactsDialogOpen}>
         <DialogContent className="max-w-2xl max-h-[80vh]">
           <DialogHeader>
-            <DialogTitle>Newly Contacted Companies ({newlyContactedCompanies.length})</DialogTitle>
+            <DialogTitle>Companies to Contact Today ({companiesToContactToday.length})</DialogTitle>
           </DialogHeader>
           <ScrollArea className="max-h-[60vh] pr-4">
             <div className="space-y-3">
-              {newlyContactedCompanies.length > 0 ? (
-                newlyContactedCompanies.map((company) => (
+              {companiesToContactToday.length > 0 ? (
+                companiesToContactToday.map((company) => (
                   <div
                     key={company.id}
                     className="border border-border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
@@ -461,7 +464,7 @@ const Overview = () => {
                 ))
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
-                  <p>No newly contacted companies</p>
+                  <p>No companies to contact today</p>
                 </div>
               )}
             </div>

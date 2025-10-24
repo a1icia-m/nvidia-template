@@ -7,6 +7,7 @@ class ContactStore {
   private initialContactedCount: number = 2; // Track initial count
   private listeners: ContactStatusListener[] = [];
   private totalCompanies: number = 5; // Will be updated
+  private companiesToContactToday: Set<string> = new Set(['2', '3', '4', '6', '7', '8', '9']); // Companies that need contact today
 
   setTotalCompanies(total: number) {
     this.totalCompanies = total;
@@ -22,8 +23,12 @@ class ContactStore {
   toggleContact(companyId: string) {
     if (this.contactedCompanies.has(companyId)) {
       this.contactedCompanies.delete(companyId);
+      // Add back to companies to contact today if they were removed from contacted
+      this.companiesToContactToday.add(companyId);
     } else {
       this.contactedCompanies.add(companyId);
+      // Remove from companies to contact today when contacted
+      this.companiesToContactToday.delete(companyId);
     }
     this.notifyListeners();
   }
@@ -37,6 +42,7 @@ class ContactStore {
       contacted: this.contactedCompanies.size,
       total: this.totalCompanies,
       initial: this.initialContactedCount,
+      newToContactToday: this.companiesToContactToday.size,
     };
   }
 
@@ -48,6 +54,10 @@ class ContactStore {
       }
     });
     return newlyContacted;
+  }
+
+  getCompaniesToContactToday(): string[] {
+    return Array.from(this.companiesToContactToday);
   }
 
   private notifyListeners() {
