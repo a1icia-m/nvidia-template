@@ -1,73 +1,116 @@
-# Welcome to your Lovable project
+# NVIDIA AI Natives Dashboard
 
-## Project info
+A comprehensive dashboard for tracking emerging AI startups and enterprise partners for NVIDIA Cloud Partners.
 
-**URL**: https://lovable.dev/projects/05d3b346-2dfa-4ecc-b7ad-2180a0d5b440
+## Project Overview
 
-## How can I edit this code?
+This dashboard provides automated research and tracking capabilities for AI-native companies, featuring:
 
-There are several ways of editing your application.
+- **Company Intelligence**: Comprehensive profiles with founding team research, funding history, and partnership opportunities
+- **News Monitoring**: Real-time news tracking with sentiment analysis and relevance scoring
+- **Professional Networking**: LinkedIn integration for founders and partnership contacts
+- **Time-based Filtering**: Dynamic filtering by weekly, monthly, quarterly, and yearly periods
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/05d3b346-2dfa-4ecc-b7ad-2180a0d5b440) and start prompting.
+- **Frontend**: React + TypeScript + Vite
+- **UI Components**: Shadcn UI + Tailwind CSS
+- **Icons**: Lucide React
+- **State Management**: React Hooks + Custom Store
+- **Deployment**: Vercel-ready configuration
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (v18 or higher)
+- npm or yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. Clone the repository:
+```bash
+git clone https://github.com/ryanazu/nvidia-template4.git
+cd nvidia-template4
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:8080](http://localhost:8080) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment
 
-**Use GitHub Codespaces**
+### Vercel Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is configured for easy deployment on Vercel:
 
-## What technologies are used for this project?
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect the Vite configuration
+3. Deploy with zero configuration needed
 
-This project is built with:
+The `vercel.json` file includes:
+- Build command: `npm run build`
+- Output directory: `dist`
+- SPA routing configuration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Manual Deployment
 
-## How can I deploy this project?
+```bash
+npm run build
+# Deploy the 'dist' folder to your hosting provider
+```
 
-Simply open [Lovable](https://lovable.dev/projects/05d3b346-2dfa-4ecc-b7ad-2180a0d5b440) and click on Share -> Publish.
+## Features
 
-## Can I connect a custom domain to my Lovable project?
+### Dashboard Overview
+- Company outreach progress tracking
+- Time-based filtering (Weekly/Monthly/Quarterly/Yearly)
+- News and newest companies side-by-side layout
 
-Yes, you can!
+### Company Profiles
+- Founding team research and LinkedIn integration
+- Partnership contact information
+- Funding history and investor details
+- AI analysis and PR safety metrics
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### News System
+- Real-time news monitoring
+- Sentiment analysis (positive/negative/neutral)
+- Relevance scoring (1-10)
+- Time-based filtering
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Professional Networking
+- Direct LinkedIn access for all founders
+- Partnership contact cards with email and LinkedIn
+- Enhanced business development capabilities
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Main application pages
+├── data/               # Mock data and configurations
+├── types/              # TypeScript type definitions
+├── lib/                # Utility functions and stores
+└── main.tsx           # Application entry point
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is proprietary to NVIDIA Corporation.
