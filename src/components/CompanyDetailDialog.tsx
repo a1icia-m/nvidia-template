@@ -12,6 +12,7 @@ import { ExternalLink, Github, FileText, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactStore } from "@/lib/contactStore";
 import { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 interface CompanyDetailDialogProps {
   company: Company | null;
@@ -34,8 +35,18 @@ const CompanyDetailDialog = ({
 
   const handleToggleContact = () => {
     if (company) {
+      const newContactedState = !isContacted;
       contactStore.toggleContact(company.id);
-      setIsContacted(!isContacted);
+      setIsContacted(newContactedState);
+      
+      // Trigger confetti when marking as contacted
+      if (newContactedState) {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
     }
   };
 

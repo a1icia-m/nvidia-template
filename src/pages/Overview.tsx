@@ -72,7 +72,7 @@ const Overview = () => {
   const totalCompanies = filteredCompanies.length;
   const contactedByNCP = contactStats.contacted;
   const notContacted = totalCompanies - contactedByNCP;
-  const newToContactToday = 3;
+  const newToContactToday = Math.max(0, contactStats.contacted - contactStats.initial);
   const contactProgress = (contactedByNCP / totalCompanies) * 100;
 
   const handleCompanyClick = (company: Company) => {
@@ -95,7 +95,7 @@ const Overview = () => {
             <div className="flex items-center gap-4 text-sm">
               <div className="flex items-center gap-2">
                 <UserCheck className="w-4 h-4 text-success" />
-                <span>Contacted by NCP: <strong>{contactedByNCP}</strong></span>
+                <span>Contacted: <strong>{contactedByNCP}</strong></span>
               </div>
               <div className="flex items-center gap-2">
                 <UserX className="w-4 h-4 text-destructive" />
@@ -122,9 +122,9 @@ const Overview = () => {
       {/* Header with Time Filter */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h2 className="text-3xl font-bold">Dashboard Overview</h2>
+          <h2 className="text-3xl font-bold"><span className="text-primary">NVIDIA</span> Digital/AI Natives on NCP</h2>
           <p className="text-muted-foreground mt-1">
-            Digital & AI Natives Research
+            Dashboard Overview
           </p>
         </div>
         <div className="flex items-center gap-3">

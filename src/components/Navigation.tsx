@@ -17,8 +17,8 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <h1 className="text-xl font-bold text-primary">
-              NVIDIA <span className="text-foreground">Dashboard</span>
+            <h1 className="text-xl font-bold">
+              <span className="text-primary">NVIDIA</span> <span className="text-foreground">Digital/AI Natives on NCP</span>
             </h1>
             <div className="flex gap-1">
               {navItems.map((item) => (

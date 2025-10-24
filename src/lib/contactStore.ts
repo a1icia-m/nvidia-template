@@ -3,6 +3,7 @@ type ContactStatusListener = () => void;
 
 class ContactStore {
   private contactedCompanies: Set<string> = new Set(['1', '5']); // Initial contacted companies
+  private initialContactedCount: number = 2; // Track initial count
   private listeners: ContactStatusListener[] = [];
   private totalCompanies: number = 5; // Will be updated
 
@@ -34,6 +35,7 @@ class ContactStore {
     return {
       contacted: this.contactedCompanies.size,
       total: this.totalCompanies,
+      initial: this.initialContactedCount,
     };
   }
 
