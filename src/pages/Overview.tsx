@@ -13,7 +13,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Filter, Users, UserCheck, UserX, AlertCircle, CheckCircle2 } from "lucide-react";
@@ -67,8 +66,7 @@ const Overview = () => {
   const topCompanies = [...filteredCompanies]
     .sort((a, b) => b.scores.total - a.scores.total);
 
-  const flaggedNews = mockNews.filter((n) => n.isFlagged);
-  const allNews = mockNews;
+  const allNews = [...mockNews].sort((a, b) => b.importance - a.importance);
 
   // Contact tracking stats
   const totalCompanies = filteredCompanies.length;
@@ -97,18 +95,18 @@ const Overview = () => {
         <Card className="p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-lg">Company Outreach Progress</h3>
-            <div className="flex items-center gap-4 text-sm">
-              <div className="flex items-center gap-2">
-                <UserCheck className="w-4 h-4 text-success" />
-                <span>Contacted: <strong>{contactedByNCP}</strong></span>
+            <div className="flex items-center gap-6 text-base">
+              <div className="flex items-center gap-3">
+                <UserCheck className="w-5 h-5 text-success" />
+                <span>Contacted: <strong className="text-lg">{contactedByNCP}</strong></span>
               </div>
-              <div className="flex items-center gap-2">
-                <UserX className="w-4 h-4 text-destructive" />
-                <span>Not Contacted: <strong>{notContacted}</strong></span>
+              <div className="flex items-center gap-3">
+                <UserX className="w-5 h-5 text-destructive" />
+                <span>Not Contacted: <strong className="text-lg">{notContacted}</strong></span>
               </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-primary" />
-                <span>Total: <strong>{totalCompanies}</strong></span>
+              <div className="flex items-center gap-3">
+                <Users className="w-5 h-5 text-primary" />
+                <span>Total: <strong className="text-lg">{totalCompanies}</strong></span>
               </div>
             </div>
           </div>
@@ -161,57 +159,22 @@ const Overview = () => {
       {/* News Section - Horizontal Rectangle */}
       <div className="mb-8">
         <div className="bg-card border border-border rounded-lg p-5">
-          <Tabs defaultValue="all" className="w-full">
+          <div className="w-full">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold">News</h3>
-              <TabsList className="h-8">
-                <TabsTrigger value="all" className="text-xs">
-                  All
-                </TabsTrigger>
-                <TabsTrigger
-                  value="flagged"
-                  className="text-xs"
-                >
-                  Flagged ({flaggedNews.length})
-                </TabsTrigger>
-              </TabsList>
             </div>
-            <TabsContent value="all" className="mt-0">
-              <ScrollArea className="h-[200px] pr-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {allNews.slice(0, 6).map((news) => (
-                    <NewsCard 
-                      key={news.id} 
-                      news={news} 
-                      onClick={() => handleNewsClick(news)}
-                    />
-                  ))}
-                </div>
-              </ScrollArea>
-            </TabsContent>
-            <TabsContent value="flagged" className="mt-0">
-              <ScrollArea className="h-[200px] pr-4">
-                {flaggedNews.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {flaggedNews.slice(0, 6).map((news) => (
-                      <NewsCard 
-                        key={news.id} 
-                        news={news}
-                        onClick={() => handleNewsClick(news)}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center h-full text-muted-foreground">
-                    <div className="text-center">
-                      <AlertCircle className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
-                      <p>No flagged news items</p>
-                    </div>
-                  </div>
-                )}
-              </ScrollArea>
-            </TabsContent>
-          </Tabs>
+            <ScrollArea className="h-[200px] pr-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {allNews.slice(0, 6).map((news) => (
+                  <NewsCard 
+                    key={news.id} 
+                    news={news} 
+                    onClick={() => handleNewsClick(news)}
+                  />
+                ))}
+              </div>
+            </ScrollArea>
+          </div>
         </div>
       </div>
 

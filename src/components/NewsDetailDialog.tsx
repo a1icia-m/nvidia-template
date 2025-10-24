@@ -1,4 +1,4 @@
-import { NewsItem } from "@/types/company";
+import { NewsItem, Company } from "@/types/company";
 import {
   Dialog,
   DialogContent,
@@ -9,6 +9,10 @@ import { Badge } from "@/components/ui/badge";
 import { TrendingUp, Minus, TrendingDown, ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { mockCompanies } from "@/data/mockData";
+import CompanyCard from "./CompanyCard";
+import CompanyDetailDialog from "./CompanyDetailDialog";
+import { useState } from "react";
 
 interface NewsDetailDialogProps {
   news: NewsItem | null;
@@ -17,6 +21,9 @@ interface NewsDetailDialogProps {
 }
 
 const NewsDetailDialog = ({ news, open, onOpenChange }: NewsDetailDialogProps) => {
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [companyDialogOpen, setCompanyDialogOpen] = useState(false);
+
   if (!news) return null;
 
   const sentimentConfig = {
@@ -40,6 +47,14 @@ const NewsDetailDialog = ({ news, open, onOpenChange }: NewsDetailDialogProps) =
   const config = sentimentConfig[news.sentiment];
   const SentimentIcon = config.icon;
 
+  // Find the company if mentioned
+  const mentionedCompany = news.companyId ? mockCompanies.find(c => c.id === news.companyId) : null;
+
+  const handleCompanyClick = (company: Company) => {
+    setSelectedCompany(company);
+    setCompanyDialogOpen(true);
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
@@ -59,7 +74,7 @@ const NewsDetailDialog = ({ news, open, onOpenChange }: NewsDetailDialogProps) =
                   {new Date(news.date).toLocaleDateString()}
                 </span>
                 <span className="text-xs font-semibold text-primary">
-                  Impact: {news.importance}/10
+                  Relevance: {news.importance}/10
                 </span>
               </div>
             </div>
@@ -108,6 +123,22 @@ const NewsDetailDialog = ({ news, open, onOpenChange }: NewsDetailDialogProps) =
             </div>
           </div>
 
+          {/* Mentioned Company - Subtle */}
+          {mentionedCompany && (
+            <>
+              <Separator />
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-muted-foreground">Mentioned Company</h3>
+                <div className="scale-90 origin-top-left">
+                  <CompanyCard 
+                    company={mentionedCompany} 
+                    onClick={() => handleCompanyClick(mentionedCompany)}
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
           {/* Read Full Article */}
           <div className="flex justify-end">
             <Button
@@ -121,6 +152,13 @@ const NewsDetailDialog = ({ news, open, onOpenChange }: NewsDetailDialogProps) =
           </div>
         </div>
       </DialogContent>
+      
+      {/* Company Detail Dialog */}
+      <CompanyDetailDialog
+        company={selectedCompany}
+        open={companyDialogOpen}
+        onOpenChange={setCompanyDialogOpen}
+      />
     </Dialog>
   );
 };

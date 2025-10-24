@@ -29,6 +29,7 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Former VP Research at OpenAI, PhD Physics from Stanford",
           previousVentures: ["OpenAI"],
+          linkedin: "https://linkedin.com/in/dario-amodei",
           research: {
             publications: 52,
             patents: 8,
@@ -41,6 +42,7 @@ export const mockCompanies: Company[] = [
           role: "President",
           background: "Former VP Operations at OpenAI",
           previousVentures: ["OpenAI"],
+          linkedin: "https://linkedin.com/in/daniela-amodei",
           research: {
             publications: 12,
             patents: 3,
@@ -49,6 +51,15 @@ export const mockCompanies: Company[] = [
           },
         },
       ],
+      partnerships: {
+        headOfPartnerships: {
+          name: "Sarah Chen",
+          role: "Head of Partnerships",
+          background: "Former business development at Google Cloud, enterprise partnerships expert",
+          linkedin: "https://linkedin.com/in/sarah-chen-anthropic",
+          email: "partnerships@anthropic.com"
+        }
+      }
     },
     aiSummary: "Anthropic leads the AI safety space with Claude as a top-tier LLM. Founded by former OpenAI leadership, the company focuses on constitutional AI and enterprise applications. With $18.4B in total funding from Amazon, Google, and major institutional investors, they're heavily invested in NVIDIA infrastructure. Strong lighthouse potential for NCP given their scale, enterprise focus, and commitment to responsible AI development.",
     funding: {
@@ -141,6 +152,7 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Co-author of 'Attention Is All You Need' paper, former Google Brain researcher",
           previousVentures: ["Google Brain"],
+          linkedin: "https://linkedin.com/in/aidan-gomez",
           research: {
             publications: 67,
             patents: 15,
@@ -153,6 +165,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "Former Google Brain researcher, University of Toronto",
           previousVentures: ["Google Brain"],
+          linkedin: "https://linkedin.com/in/nick-frosst",
           research: {
             publications: 45,
             patents: 12,
@@ -165,6 +178,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "Former Google Brain researcher",
           previousVentures: ["Google Brain"],
+          linkedin: "https://linkedin.com/in/ivan-zhang",
           research: {
             publications: 38,
             patents: 9,
@@ -173,6 +187,15 @@ export const mockCompanies: Company[] = [
           },
         },
       ],
+      partnerships: {
+        headOfPartnerships: {
+          name: "Jennifer Liu",
+          role: "Head of Business Development",
+          background: "Former partnerships at Salesforce, enterprise AI partnerships expert",
+          linkedin: "https://linkedin.com/in/jennifer-liu-cohere",
+          email: "partnerships@cohere.ai"
+        }
+      }
     },
     aiSummary: "Cohere delivers enterprise-focused LLMs with strong sovereign AI positioning. Direct NVIDIA investment in Series D validates their approach. Based in Toronto, they offer multilingual models optimized for business use cases. $935M in total funding with partnerships across Oracle, Salesforce, and LivePerson. Excellent NCP candidate due to NVIDIA investment, enterprise focus, and growing GPU infrastructure needs.",
     funding: {
@@ -258,6 +281,7 @@ export const mockCompanies: Company[] = [
           name: "Emad Mostaque",
           role: "Founder (Former CEO)",
           background: "Former hedge fund manager, AI researcher and entrepreneur",
+          linkedin: "https://linkedin.com/in/emad-mostaque",
           research: {
             publications: 18,
             patents: 4,
@@ -334,6 +358,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder (Former CEO)",
           background: "Co-founder of DeepMind, now at Microsoft AI",
           previousVentures: ["DeepMind"],
+          linkedin: "https://linkedin.com/in/mustafa-suleyman",
           research: {
             publications: 38,
             patents: 19,
@@ -346,6 +371,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "LinkedIn founder, Greylock Partner",
           previousVentures: ["LinkedIn", "PayPal"],
+          linkedin: "https://linkedin.com/in/reidhoffman",
           research: {
             publications: 8,
             patents: 12,
@@ -358,6 +384,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "Former DeepMind researcher, co-author of ResNet",
           previousVentures: ["DeepMind"],
+          linkedin: "https://linkedin.com/in/karen-simonyan",
           research: {
             publications: 45,
             patents: 15,
@@ -433,6 +460,7 @@ export const mockCompanies: Company[] = [
           name: "Cristóbal Valenzuela",
           role: "CEO",
           background: "NYU ITP graduate, creative technologist and entrepreneur",
+          linkedin: "https://linkedin.com/in/cristobal-valenzuela",
           research: {
             publications: 24,
             patents: 7,
@@ -444,6 +472,7 @@ export const mockCompanies: Company[] = [
           name: "Alejandro Matamala-Ortiz",
           role: "Co-founder",
           background: "NYU ITP graduate, creative technologist",
+          linkedin: "https://linkedin.com/in/alejandro-matamala-ortiz",
           research: {
             publications: 18,
             patents: 5,
@@ -455,6 +484,7 @@ export const mockCompanies: Company[] = [
           name: "Anastasis Germanidis",
           role: "Co-founder",
           background: "NYU ITP graduate, AI researcher",
+          linkedin: "https://linkedin.com/in/anastasis-germanidis",
           research: {
             publications: 22,
             patents: 6,
@@ -549,6 +579,7 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Former President of Y Combinator, entrepreneur and investor",
           previousVentures: ["Loopt", "Y Combinator"],
+          linkedin: "https://linkedin.com/in/sam-altman",
           research: {
             publications: 15,
             patents: 8,
@@ -561,6 +592,7 @@ export const mockCompanies: Company[] = [
           role: "President & Co-founder",
           background: "Former CTO of Stripe, software engineer",
           previousVentures: ["Stripe"],
+          linkedin: "https://linkedin.com/in/greg-brockman",
           research: {
             publications: 8,
             patents: 12,
@@ -573,6 +605,7 @@ export const mockCompanies: Company[] = [
           role: "Chief Scientist",
           background: "Former Google Brain researcher, co-author of AlexNet",
           previousVentures: ["Google Brain"],
+          linkedin: "https://linkedin.com/in/ilya-sutskever",
           research: {
             publications: 67,
             patents: 25,
@@ -581,6 +614,15 @@ export const mockCompanies: Company[] = [
           },
         },
       ],
+      partnerships: {
+        headOfPartnerships: {
+          name: "Michael Rodriguez",
+          role: "Head of Strategic Partnerships",
+          background: "Former partnerships at Microsoft, enterprise AI partnerships expert",
+          linkedin: "https://linkedin.com/in/michael-rodriguez-openai",
+          email: "partnerships@openai.com"
+        }
+      }
     },
     aiSummary: "OpenAI leads the AI industry with GPT models and ChatGPT, driving massive enterprise adoption. $60.6B in total funding from Microsoft, SoftBank, and other major investors. Strong partnership with Microsoft Azure and significant GPU infrastructure needs. Prime NCP target given their scale, enterprise focus, and commitment to AI safety.",
     funding: {
@@ -679,6 +721,7 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Former VP Engineering at Google, co-founder of Rubrik",
           previousVentures: ["Google", "Rubrik"],
+          linkedin: "https://linkedin.com/in/arvind-jain",
           research: {
             publications: 23,
             patents: 18,
@@ -691,6 +734,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "Former Google engineer, search and ML expert",
           previousVentures: ["Google"],
+          linkedin: "https://linkedin.com/in/piyush-prahladka",
           research: {
             publications: 18,
             patents: 12,
@@ -797,6 +841,7 @@ export const mockCompanies: Company[] = [
           role: "CEO",
           background: "Former research scientist at NVIDIA, PhD in Computer Science",
           previousVentures: ["NVIDIA"],
+          linkedin: "https://linkedin.com/in/erik-nijkamp",
           research: {
             publications: 45,
             patents: 15,
@@ -809,6 +854,7 @@ export const mockCompanies: Company[] = [
           role: "Co-founder",
           background: "Former research scientist at NVIDIA, PhD in Machine Learning",
           previousVentures: ["NVIDIA"],
+          linkedin: "https://linkedin.com/in/yingbo-zhou",
           research: {
             publications: 38,
             patents: 12,
@@ -890,6 +936,7 @@ export const mockCompanies: Company[] = [
           name: "Anysphere Team",
           role: "Founders",
           background: "AI and developer tools experts",
+          linkedin: "https://linkedin.com/company/anysphere",
           research: {
             publications: 12,
             patents: 3,
@@ -952,7 +999,7 @@ export const mockNews: NewsItem[] = [
     title: "Anthropic Releases Claude 3.5 Sonnet with Enhanced Enterprise Features",
     source: "TechCrunch",
     date: "2024-10-18",
-    url: "#",
+    url: "https://techcrunch.com/2024/10/18/anthropic-releases-claude-3-5-sonnet-with-enhanced-enterprise-features/",
     sentiment: "positive",
     importance: 9,
     companyId: "1",
@@ -969,7 +1016,7 @@ export const mockNews: NewsItem[] = [
     title: "Cohere Raises $270M Series C to Expand Enterprise AI Platform",
     source: "Bloomberg",
     date: "2024-10-17",
-    url: "#",
+    url: "https://www.bloomberg.com/news/articles/2024-10-17/cohere-raises-270-million-series-c-funding",
     sentiment: "positive",
     importance: 10,
     companyId: "2",
@@ -986,7 +1033,7 @@ export const mockNews: NewsItem[] = [
     title: "Stability AI Releases Stable Diffusion 3.5 with Improved Image Quality",
     source: "The Information",
     date: "2024-10-16",
-    url: "#",
+    url: "https://www.theinformation.com/articles/stability-ai-releases-stable-diffusion-3-5",
     sentiment: "positive",
     importance: 8,
     companyId: "3",
@@ -1003,7 +1050,7 @@ export const mockNews: NewsItem[] = [
     title: "Inflection AI Launches Pi 2.0 with Enhanced Conversational Capabilities",
     source: "WSJ",
     date: "2024-10-15",
-    url: "#",
+    url: "https://www.wsj.com/articles/inflection-ai-launches-pi-2-0-conversational-ai",
     sentiment: "positive",
     importance: 9,
     companyId: "4",
@@ -1020,7 +1067,7 @@ export const mockNews: NewsItem[] = [
     title: "Runway Launches Gen-3 with Enhanced Video Generation Capabilities",
     source: "VentureBeat",
     date: "2024-10-14",
-    url: "#",
+    url: "https://venturebeat.com/ai/runway-launches-gen-3-video-generation/",
     sentiment: "positive",
     importance: 7,
     companyId: "5",
@@ -1037,7 +1084,7 @@ export const mockNews: NewsItem[] = [
     title: "AI Infrastructure Spending Expected to Reach $200B by 2025",
     source: "Reuters",
     date: "2024-10-13",
-    url: "#",
+    url: "https://www.reuters.com/technology/ai-infrastructure-spending-200-billion-2025/",
     sentiment: "positive",
     importance: 8,
     isFlagged: true,
@@ -1053,7 +1100,7 @@ export const mockNews: NewsItem[] = [
     title: "OpenAI Launches GPT-4o with Multimodal Capabilities",
     source: "The Verge",
     date: "2024-10-12",
-    url: "#",
+    url: "https://www.theverge.com/2024/10/12/openai-gpt-4o-multimodal-capabilities",
     sentiment: "positive",
     importance: 10,
     companyId: "6",
@@ -1070,7 +1117,7 @@ export const mockNews: NewsItem[] = [
     title: "Glean Raises $100M Series C for Enterprise AI Search",
     source: "TechCrunch",
     date: "2024-10-11",
-    url: "#",
+    url: "https://techcrunch.com/2024/10/11/glean-raises-100m-series-c-enterprise-ai-search/",
     sentiment: "positive",
     importance: 7,
     companyId: "7",
@@ -1087,7 +1134,7 @@ export const mockNews: NewsItem[] = [
     title: "Thinking Machines Secures $50M Series A Led by NVIDIA",
     source: "Bloomberg",
     date: "2024-10-10",
-    url: "#",
+    url: "https://www.bloomberg.com/news/articles/2024-10-10/thinking-machines-nvidia-series-a-funding",
     sentiment: "positive",
     importance: 9,
     companyId: "8",
@@ -1104,7 +1151,7 @@ export const mockNews: NewsItem[] = [
     title: "AnySphere Expands European AI Customer Service Market",
     source: "Financial Times",
     date: "2024-10-08",
-    url: "#",
+    url: "https://www.ft.com/content/amysphere-european-ai-customer-service-expansion",
     sentiment: "positive",
     importance: 6,
     companyId: "9",
@@ -1114,6 +1161,91 @@ export const mockNews: NewsItem[] = [
       briefSummary: "AmySphere has expanded its European operations with new customer service AI solutions. The company has secured partnerships with major European enterprises and is growing its AI-powered customer service platform.",
       ncpRelevance: "This expansion strengthens AmySphere's position in the European AI market. Their focus on customer service AI makes them an interesting NCP partner for companies seeking conversational AI solutions.",
       nvidiaRelationship: "AmySphere's conversational AI capabilities require GPU infrastructure for natural language processing and real-time inference. The company's European focus creates opportunities for NCP to provide specialized AI compute solutions in the region.",
+    },
+  },
+  {
+    id: "n11",
+    title: "AI Startup Faces Regulatory Challenges Over Data Privacy Concerns",
+    source: "TechCrunch",
+    date: "2024-10-15",
+    url: "https://techcrunch.com/2024/10/15/ai-startup-regulatory-challenges-data-privacy/",
+    sentiment: "negative",
+    importance: 7,
+    companyId: "3",
+    isFlagged: false,
+    summary: "Regulatory scrutiny intensifies as AI companies face mounting privacy concerns and compliance issues.",
+    aiSummary: {
+      briefSummary: "An AI startup is facing significant regulatory challenges following privacy concerns raised by data protection authorities. The company's data collection practices have come under scrutiny, potentially impacting their business operations and market position.",
+      ncpRelevance: "This regulatory pressure highlights the importance of responsible AI practices and compliance frameworks. NCP partners should prioritize privacy-by-design approaches and robust data governance to avoid similar challenges.",
+      nvidiaRelationship: "Regulatory challenges in AI could impact demand for NVIDIA's AI infrastructure as companies become more cautious about AI deployments. However, NVIDIA's focus on enterprise-grade security and compliance could position them as a preferred partner for compliant AI solutions.",
+    },
+  },
+  {
+    id: "n12",
+    title: "Major AI Funding Round Falls Through Due to Market Uncertainty",
+    source: "VentureBeat",
+    date: "2024-10-12",
+    url: "https://venturebeat.com/ai/major-ai-funding-round-falls-through-market-uncertainty/",
+    sentiment: "negative",
+    importance: 8,
+    companyId: "5",
+    isFlagged: false,
+    summary: "Uncertain market conditions lead to cancelled funding rounds and delayed AI investments.",
+    aiSummary: {
+      briefSummary: "A promising AI company's major funding round has been cancelled due to market uncertainty and investor caution. The company is now facing cash flow challenges and may need to pivot their business strategy.",
+      ncpRelevance: "This funding uncertainty reflects broader market challenges in the AI sector. NCP should focus on companies with strong fundamentals and sustainable business models rather than those dependent on continuous funding rounds.",
+      nvidiaRelationship: "Reduced funding in the AI sector could impact demand for NVIDIA's high-end AI hardware. However, this may create opportunities for NVIDIA to offer more cost-effective solutions and flexible pricing models to struggling AI companies.",
+    },
+  },
+  {
+    id: "n13",
+    title: "AI Model Performance Declines Raise Questions About Scaling Limits",
+    source: "MIT Technology Review",
+    date: "2024-10-10",
+    url: "https://www.technologyreview.com/2024/10/10/ai-model-performance-scaling-limits/",
+    sentiment: "negative",
+    importance: 6,
+    companyId: "1",
+    isFlagged: false,
+    summary: "Recent studies show diminishing returns in AI model scaling, challenging industry assumptions about continued performance improvements.",
+    aiSummary: {
+      briefSummary: "New research indicates that AI model performance improvements are plateauing despite increased model size and computational resources. This raises fundamental questions about the sustainability of current AI scaling approaches.",
+      ncpRelevance: "These findings suggest that AI companies may need to focus on efficiency and optimization rather than pure scaling. NCP should prioritize partnerships with companies developing innovative approaches to AI efficiency and specialized applications.",
+      nvidiaRelationship: "Scaling limitations could impact demand for NVIDIA's largest AI chips as companies seek more efficient alternatives. However, this may drive demand for NVIDIA's specialized AI accelerators and optimization software.",
+    },
+  },
+  {
+    id: "n14",
+    title: "AI Ethics Scandal Rocks Major Tech Company",
+    source: "The Verge",
+    date: "2024-10-08",
+    url: "https://www.theverge.com/2024/10/8/ai-ethics-scandal-major-tech-company",
+    sentiment: "negative",
+    importance: 9,
+    companyId: "2",
+    isFlagged: false,
+    summary: "Internal documents reveal AI bias issues and ethical concerns at a leading AI company, sparking industry-wide scrutiny.",
+    aiSummary: {
+      briefSummary: "A major AI company is facing significant backlash after internal documents revealed systematic bias in their AI models and questionable ethical practices in data collection. The scandal has raised concerns about AI governance and responsible development practices across the industry.",
+      ncpRelevance: "This ethics scandal highlights the critical importance of responsible AI development and governance frameworks. NCP should prioritize partnerships with companies that demonstrate strong ethical AI practices and transparent governance structures.",
+      nvidiaRelationship: "AI ethics concerns could lead to increased regulatory scrutiny and demand for more transparent, auditable AI systems. NVIDIA's focus on enterprise-grade AI solutions with built-in governance tools could position them as a preferred partner for ethically-conscious AI deployments.",
+    },
+  },
+  {
+    id: "n15",
+    title: "AI Startup Lays Off 40% of Workforce Amid Revenue Shortfall",
+    source: "TechCrunch",
+    date: "2024-10-05",
+    url: "https://techcrunch.com/2024/10/5/ai-startup-layoffs-workforce-revenue-shortfall/",
+    sentiment: "negative",
+    importance: 7,
+    companyId: "4",
+    isFlagged: false,
+    summary: "Economic pressures force AI startup to make significant workforce reductions as revenue targets are missed.",
+    aiSummary: {
+      briefSummary: "A promising AI startup has announced major layoffs affecting 40% of its workforce due to missed revenue targets and increased operational costs. The company is restructuring its business model to focus on more sustainable revenue streams.",
+      ncpRelevance: "This layoff reflects broader economic challenges in the AI startup ecosystem. NCP should focus on companies with proven revenue models and sustainable business practices rather than those still in the growth-at-all-costs phase.",
+      nvidiaRelationship: "Startup layoffs and cost-cutting measures may reduce demand for premium AI infrastructure. However, this could create opportunities for NVIDIA to offer more cost-effective solutions and flexible pricing models to struggling AI companies.",
     },
   },
 ];
