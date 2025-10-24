@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { mockCompanies, mockNews } from "@/data/mockData";
 import NewsCard from "@/components/NewsCard";
+import NewestCompaniesCard from "@/components/NewestCompaniesCard";
 import InvestmentChart from "@/components/InvestmentChart";
 import CompanyDetailDialog from "@/components/CompanyDetailDialog";
 import NewsDetailDialog from "@/components/NewsDetailDialog";
@@ -67,6 +68,43 @@ const Overview = () => {
     .sort((a, b) => b.scores.total - a.scores.total);
 
   const allNews = [...mockNews].sort((a, b) => b.importance - a.importance);
+
+  // Filter news based on time period
+  const getFilteredNews = () => {
+    const now = new Date();
+    const timeFilterMap = {
+      weekly: 7,
+      monthly: 30,
+      quarterly: 90,
+      yearly: 365,
+    };
+    
+    const daysBack = timeFilterMap[timeFilter as keyof typeof timeFilterMap] || 30;
+    const cutoffDate = new Date(now.getTime() - daysBack * 24 * 60 * 60 * 1000);
+    
+    return allNews.filter(news => {
+      const newsDate = new Date(news.date);
+      return newsDate >= cutoffDate;
+    });
+  };
+
+  const filteredNews = getFilteredNews();
+
+  // Get newest companies (founded in last 3 years or recent funding)
+  const newestCompanies = [...filteredCompanies]
+    .filter(company => {
+      const currentYear = new Date().getFullYear();
+      const isNewCompany = currentYear - company.foundingYear <= 3;
+      const hasRecentFunding = currentYear - parseInt(company.funding.latestRound.date.split('-')[0]) <= 1;
+      return isNewCompany || hasRecentFunding;
+    })
+    .sort((a, b) => {
+      // Sort by founding year (newest first), then by funding date
+      const yearDiff = b.foundingYear - a.foundingYear;
+      if (yearDiff !== 0) return yearDiff;
+      return b.funding.latestRound.date.localeCompare(a.funding.latestRound.date);
+    })
+    .slice(0, 6);
 
   // Contact tracking stats
   const totalCompanies = filteredCompanies.length;
@@ -156,24 +194,59 @@ const Overview = () => {
         </div>
       </div>
 
-      {/* News Section - Horizontal Rectangle */}
+      {/* News and Newest Companies Section - Side by Side */}
       <div className="mb-8">
-        <div className="bg-card border border-border rounded-lg p-5">
-          <div className="w-full">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold">News</h3>
-            </div>
-            <ScrollArea className="h-[200px] pr-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {allNews.slice(0, 6).map((news) => (
-                  <NewsCard 
-                    key={news.id} 
-                    news={news} 
-                    onClick={() => handleNewsClick(news)}
-                  />
-                ))}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* News Section - 66% width (2/3) */}
+          <div className="lg:col-span-2 bg-card border border-border rounded-lg p-5">
+            <div className="w-full">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold">News</h3>
+                <div className="text-xs text-muted-foreground">
+                  Filtered by: {timeFilter.charAt(0).toUpperCase() + timeFilter.slice(1)}
+                </div>
               </div>
-            </ScrollArea>
+              <ScrollArea className="h-[200px] pr-4">
+                {filteredNews.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {filteredNews.slice(0, 6).map((news) => (
+                      <NewsCard 
+                        key={news.id} 
+                        news={news} 
+                        onClick={() => handleNewsClick(news)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center h-full text-muted-foreground">
+                    <div className="text-center">
+                      <p className="text-sm">No news found for the selected time period</p>
+                      <p className="text-xs mt-1">Try selecting a longer time period</p>
+                    </div>
+                  </div>
+                )}
+              </ScrollArea>
+            </div>
+          </div>
+
+          {/* Newest Companies Section - 33% width (1/3) */}
+          <div className="lg:col-span-1 bg-card border border-border rounded-lg p-5">
+            <div className="w-full">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-semibold">Newest Companies</h3>
+              </div>
+              <ScrollArea className="h-[200px] pr-4">
+                <div className="space-y-3">
+                  {newestCompanies.map((company) => (
+                    <NewestCompaniesCard 
+                      key={company.id} 
+                      company={company} 
+                      onClick={() => handleCompanyClick(company)}
+                    />
+                  ))}
+                </div>
+              </ScrollArea>
+            </div>
           </div>
         </div>
       </div>
