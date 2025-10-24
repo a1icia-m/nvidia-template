@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Filter, Users, UserCheck, UserX, AlertCircle, CheckCircle2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Overview = () => {
   const [timeFilter, setTimeFilter] = useState("monthly");
@@ -28,6 +29,7 @@ const Overview = () => {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
   const [newsDialogOpen, setNewsDialogOpen] = useState(false);
   const [contactStats, setContactStats] = useState(contactStore.getContactStats());
+  const [newContactsDialogOpen, setNewContactsDialogOpen] = useState(false);
 
   useEffect(() => {
     contactStore.setTotalCompanies(mockCompanies.length);
@@ -85,6 +87,9 @@ const Overview = () => {
     setNewsDialogOpen(true);
   };
 
+  const newlyContactedCompanyIds = contactStore.getNewlyContactedCompanies();
+  const newlyContactedCompanies = mockCompanies.filter(c => newlyContactedCompanyIds.includes(c.id));
+
   return (
     <div className="container mx-auto px-6 py-8">
       {/* Progress Tracker */}
@@ -110,7 +115,10 @@ const Overview = () => {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span className="text-muted-foreground">Contact Progress</span>
-              <span className="font-semibold">
+              <span 
+                className="font-semibold cursor-pointer hover:underline"
+                onClick={() => newToContactToday > 0 && setNewContactsDialogOpen(true)}
+              >
                 <span className="text-primary">{newToContactToday} new</span> companies to contact today
               </span>
             </div>
@@ -354,6 +362,76 @@ const Overview = () => {
         open={newsDialogOpen}
         onOpenChange={setNewsDialogOpen}
       />
+
+      {/* New Contacts Dialog */}
+      <Dialog open={newContactsDialogOpen} onOpenChange={setNewContactsDialogOpen}>
+        <DialogContent className="max-w-2xl max-h-[80vh]">
+          <DialogHeader>
+            <DialogTitle>Newly Contacted Companies ({newlyContactedCompanies.length})</DialogTitle>
+          </DialogHeader>
+          <ScrollArea className="max-h-[60vh] pr-4">
+            <div className="space-y-3">
+              {newlyContactedCompanies.length > 0 ? (
+                newlyContactedCompanies.map((company) => (
+                  <div
+                    key={company.id}
+                    className="border border-border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
+                    onClick={() => {
+                      setNewContactsDialogOpen(false);
+                      handleCompanyClick(company);
+                    }}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between mb-2">
+                          <div>
+                            <div className="flex items-center gap-1">
+                              <h4 className="font-semibold">{company.name}</h4>
+                              {company.isNCPPartner && (
+                                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                              )}
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {company.industry} • {company.country}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-xl font-bold text-primary">
+                              {company.scores.total.toFixed(1)}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-4 gap-1 text-xs mt-3">
+                          <div className="text-center">
+                            <div className="font-semibold">{company.scores.talent}</div>
+                            <div className="text-muted-foreground">Talent</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="font-semibold">{company.scores.market}</div>
+                            <div className="text-muted-foreground">Market</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="font-semibold">{company.scores.ecosystem}</div>
+                            <div className="text-muted-foreground">Eco</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="font-semibold">{company.scores.research}</div>
+                            <div className="text-muted-foreground">Research</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-8 text-muted-foreground">
+                  <p>No newly contacted companies</p>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

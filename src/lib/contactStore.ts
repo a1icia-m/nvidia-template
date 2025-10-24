@@ -3,6 +3,7 @@ type ContactStatusListener = () => void;
 
 class ContactStore {
   private contactedCompanies: Set<string> = new Set(['1', '5']); // Initial contacted companies
+  private initialContactedCompanies: Set<string> = new Set(['1', '5']); // Track initial state
   private initialContactedCount: number = 2; // Track initial count
   private listeners: ContactStatusListener[] = [];
   private totalCompanies: number = 5; // Will be updated
@@ -37,6 +38,16 @@ class ContactStore {
       total: this.totalCompanies,
       initial: this.initialContactedCount,
     };
+  }
+
+  getNewlyContactedCompanies(): string[] {
+    const newlyContacted: string[] = [];
+    this.contactedCompanies.forEach(id => {
+      if (!this.initialContactedCompanies.has(id)) {
+        newlyContacted.push(id);
+      }
+    });
+    return newlyContacted;
   }
 
   private notifyListeners() {
